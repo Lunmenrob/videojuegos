@@ -1,0 +1,223 @@
+/* Estilos específicos para la sección de DLCs */
+
+.dlcs-section {
+    margin: 2rem 2rem 0 2rem;
+}
+
+.dlcs-list {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.dlc-container {
+    margin: 0 0 2rem 0 !important;
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.dlc-container .content-card.dlc-gallery-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem 0 0 0 !important;
+    background: #000000 !important;
+    border-radius: 8px !important;
+    display: block !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.dlc-container .content-card.dlc-gallery-card .media-carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    height: 400px !important;
+    position: relative !important;
+}
+
+.dlc-container .content-card.dlc-gallery-card .media-carousel-track {
+    width: 100% !important;
+    margin: 0 !important;
+    height: 400px !important;
+    position: relative !important;
+}
+
+.dlc-container .game-header.dlc-header {
+    padding: 1.5rem 0 !important;
+    margin: 0 0 0.75rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+.dlc-container .game-info.dlc-info {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    padding-left: 0.75rem !important;
+    min-width: 0 !important;
+}
+
+.dlc-container .game-icon.dlc-icon {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    background: #252525 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+.dlc-container .game-icon.dlc-icon img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 64px !important;
+    height: 64px !important;
+    max-width: 64px !important;
+    max-height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dlc-container .game-title.dlc-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02em;
+    text-transform: none;
+}
+
+.dlc-container .platform-badge.dlc-platform-badge {
+    padding: 0.1rem 0.8rem;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+    width: fit-content;
+    background: #ffffff;
+    color: #000000;
+    border: 0;
+}
+
+.dlc-banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #1a1a2e;
+    position: relative;
+    margin: 0;
+    border-radius: 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+.dlc-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 37%;
+    display: block;
+}
+
+.dlc-banner-overlay {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dlc-banner-content {
+    color: #ffffff;
+}
+
+.dlc-banner-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.dlc-banner-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.dlc-banner-meta i {
+    display: none;
+}
+
+.dlc-container .content-card.dlc-content-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    padding: 1.5rem !important;
+}
+
+.dlc-container .content-card.dlc-content-card:not(.dlc-gallery-card) {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.dlc-container .content-card.dlc-content-card.extra-card {
+    margin-top: 0 !important;
+}
+
+.dlc-container .trophy-mini img {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    object-fit: contain !important;
+}
+
+.dlc-container .dlc-trophies-section {
+    margin: 0 !important;
+}
+
+.dlc-container .dlc-trophies-header {
+    margin-bottom: 1rem !important;
+}
+
+.dlc-container .trophy-card {
+    padding: 1rem !important;
+}
+
+.dlc-container .trophy-card-icon {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    max-width: 64px !important;
+    max-height: 64px !important;
+    object-fit: contain !important;
+}

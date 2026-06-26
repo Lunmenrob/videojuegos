@@ -1,0 +1,1015 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
+
+body {
+    background: #181624;
+    color: #ffffff;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.15;
+}
+
+.page-content {
+    padding-top: 60px;
+}
+
+/* ==================== MENÚ DE ACCIONES FLOTANTE ==================== */
+/* Contenedor del menú de acciones (fijo en la pantalla) */
+.edit-actions {
+    display: flex;
+    gap: 1rem;
+    position: fixed;
+    top: 5rem;
+    right: 2rem;
+    z-index: 9999;
+    flex-direction: row;
+    background: rgba(30, 30, 40, 0.504); /* Fondo semitransparente - Cambiar el último valor (0.504) para ajustar transparencia */
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== BOTÓN DE DLCs ==================== */
+/* Botón de DLCs con estilo de gradiente azul PlayStation */
+.edit-actions .dlcs-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 1rem;
+    background: linear-gradient(90deg, #0071e3, #3a8cff9f); /* Gradiente azul - Cambiar el último valor (9f) para ajustar transparencia */
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 6px 18px rgba(0, 113, 227, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Hover del botón de DLCs */
+.edit-actions .dlcs-btn:hover {
+    background: linear-gradient(90deg, #3a8dff, #0071e3);
+    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==================== BOTONES DE VOLVER Y EDITAR ==================== */
+/* Botones de volver y editar (redondos, gris oscuro) */
+.edit-actions .back-btn,
+.edit-actions .edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: 1px solid #3a3a3a;
+    background: rgba(37, 37, 37, 0.654); /* Fondo gris semitransparente - Cambiar el último valor (0.8) para ajustar transparencia */
+    color: #ffffff;
+}
+
+/* Hover de botones de volver y editar (azul PlayStation) */
+.edit-actions .back-btn:hover,
+.edit-actions .edit-btn:hover {
+    background: rgba(0, 113, 227, 0.8); /* Azul PlayStation semitransparente - Cambiar el último valor (0.8) para ajustar transparencia */
+    border-color: #0071e3;
+}
+
+.game-banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #1a1a2e;
+    position: relative;
+}
+
+.game-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 37%;
+}
+
+.banner-info-overlay {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner-info-content {
+    color: #ffffff;
+}
+
+.banner-info-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.banner-info-platform {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+#banner-plataforma {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    background: #2a2a3a;
+    border: 1px solid #4a4a4a;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+#banner-platform-icon {
+    display: none;
+}
+
+.banner-info-details {
+    margin-bottom: 1rem;
+}
+
+.banner-info-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.banner-info-label {
+    color: #888;
+    margin-right: 0.5rem;
+    min-width: 80px;
+}
+
+.banner-info-value {
+    color: #ffffff;
+}
+
+.banner-info-classifications {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.classification-item {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.classification-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.classification-item:first-child .classification-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.mapa-interactivo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.8rem;
+    padding: 0.65rem 1rem;
+    background: linear-gradient(90deg, #0071e3, #3a8dff);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 6px 18px rgba(0, 113, 227, 0.3);
+}
+
+/* Contenedor sin hacks de 100vw */
+.content-card.media-gallery-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000; /* Fondo negro para la franja */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Carrusel - Estilos movidos a carousel.php */
+
+
+.game-header {
+    padding: 1.6rem;
+    margin: 0 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.game-icon {
+    width: 64px;
+    height: 64px;
+    background: #252525;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    color: #666666;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.game-icon img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 72px !important;
+    max-height: 72px !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.game-icon img[src=""] {
+    display: none !important;
+}
+
+.game-icon img:not([src=""]) {
+    display: block !important;
+}
+
+.game-icon i {
+    display: block;
+}
+
+.game-icon img:not([src=""]) + i {
+    display: none;
+}
+
+.game-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.game-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.platform-badge {
+    padding: 0.08rem 0.7rem;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+    width: fit-content;
+    font-family: 'Zrnic', sans-serif;
+}
+
+.platform-badge.ps4 {
+    background: #ffffff;
+    color: #000000;
+}
+
+.platform-badge.ps5 {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #3a3a3a;
+}
+
+.dlcs-btn {
+    min-width: 84px;
+    height: 46px;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0 1rem;
+    transition: all 0.22s ease;
+    flex-shrink: 0;
+}
+
+.dlcs-btn:hover,
+.back-btn:hover,
+.edit-btn:hover {
+    background: linear-gradient(90deg, #0f6bff 0%, #3a8dff 100%) !important;
+    border-color: #1f6fff !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 8px 22px rgba(15, 107, 255, 0.45);
+}
+
+.back-btn {
+    width: 44px;
+    height: 44px;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.edit-btn {
+    width: 44px;
+    height: 44px;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.content-card {
+    background: #231f36;
+    width: calc(100% - 3.6rem);
+    margin: 0 1.8rem;
+    border-radius: 12px;
+    min-height: 180px;
+    padding: 1.8rem;
+    box-sizing: border-box;
+}
+
+.content-card + .content-card {
+    margin-top: 2rem;
+}
+
+.extra-card {
+    margin-top: 2rem !important;
+}
+/* INFO del juego */
+.game-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.50rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.info-row.full-width {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #cccccc;
+    min-width: 250px;
+}
+
+.info-value {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.trophy-summary {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.trophy-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.trophy-mini img {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    object-fit: contain !important;
+}
+
+.trophy-mini span {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.info-comment {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0.5rem 0 0 0;
+    white-space: normal;
+}
+
+.info-comment h1,
+.info-comment h2,
+.info-comment h3 {
+    color: #ffffff;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 400;
+}
+
+.info-comment h1 { font-size: 1.5rem; }
+.info-comment h2 { font-size: 1.3rem; }
+.info-comment h3 { font-size: 1.1rem; }
+
+.info-comment strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.info-comment em {
+    color: #e0e0e0;
+}
+
+.info-comment a {
+    color: #0071e3;
+    text-decoration: none;
+}
+
+.info-comment a:hover {
+    text-decoration: underline;
+}
+
+.info-comment ul,
+.info-comment ol {
+    padding-left: 20px;
+    margin: 0.5rem 0;
+}
+
+.info-comment li {
+    margin: 0.3rem 0;
+}
+
+/* Estilos para contenido rico - sobrescribir estilos inline de Quill */
+/* Forzar tamaño de imágenes en contenido rico, excluyendo iconos de trofeos */
+.info-comment img:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img),
+.trophy-card-instructions img:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img),
+#trofeos-perdibles img:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img),
+.dlc-container .info-comment img:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img) {
+    max-width: 800px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: inline-block !important;
+}
+
+/* Regla específica para imágenes en DLCs */
+.dlc-container .info-comment img {
+    max-width: 800px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.info-comment img:hover:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img),
+.trophy-card-instructions img:hover:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img),
+#trofeos-perdibles img:hover:not(.trophy-card-icon):not(.trophy-card-type-image):not(.trophy-mini img):not(.trophy-img) {
+    transform: scale(1.02);
+}
+
+.info-comment p {
+    margin: 0.5rem 0;
+    line-height: 1;
+}
+
+.trophies-first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.trophies-left,
+.trophies-right {
+    text-align: center;
+    flex: 1;
+}
+
+.trophies-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.trophy-number {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.trophy-label {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid #43367a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.trophies-second-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.trophy-item {
+    text-align: center;
+}
+
+.trophy-img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.trophy-count {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+.trophies-section {
+    margin: 2rem 2rem 0 2rem;
+}
+
+.trophies-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.trophies-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0;
+}
+
+.filter-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-dropdown select {
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2rem;
+}
+
+.filter-dropdown select:hover {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+.filter-dropdown select:focus {
+    outline: none;
+    border-color: #0071e3;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 10px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    pointer-events: none;
+}
+
+.trophies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.trophy-card {
+    background: #231f36;
+    border: 1px solid #231f36;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.trophy-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #3e3366;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.trophy-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.trophy-card-icon {
+    width: 76px !important;
+    height: 76px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.trophy-card-info {
+    flex: 1;
+}
+
+.trophy-card-name {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trophy-perdible-badge {
+    background: #b87333;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.trophy-online-badge {
+    background: #0070d1;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.trophy-card-description {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #cccccc;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.trophy-card-type-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-top: 0;
+}
+
+.trophy-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.trophy-card-instructions {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #999999;
+    margin: 0.5rem 0 0 0;
+    line-height: 1;
+}
+
+.trophy-card-instructions h1,
+.trophy-card-instructions h2,
+.trophy-card-instructions h3 {
+    color: #ffffff;
+    margin: 0.5rem 0 0.25rem 0;
+    font-weight: 400;
+}
+
+.trophy-card-instructions h1 { font-size: 1.1rem; }
+.trophy-card-instructions h2 { font-size: 1rem; }
+.trophy-card-instructions h3 { font-size: 0.9rem; }
+
+.trophy-card-instructions strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.trophy-card-instructions em {
+    color: #e0e0e0;
+}
+
+.trophy-card-instructions a {
+    color: #0071e3;
+    text-decoration: none;
+}
+
+.trophy-card-instructions a:hover {
+    text-decoration: underline;
+}
+
+.trophy-card-instructions ul,
+.trophy-card-instructions ol {
+    padding-left: 20px;
+    margin: 0.3rem 0;
+}
+
+.trophy-card-instructions li {
+    margin: 0.2rem 0;
+}
+
+.trophy-card-instructions p {
+    margin: 0.3rem 0;
+    line-height: 1;
+}
+
+.trophy-card-instructions img {
+    max-width: 600px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0.5rem auto;
+    border-radius: 8px;
+}
+
+.trophy-card-video {
+    margin-top: 1rem !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: #000 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    height: 450px !important;
+}
+
+.trophy-video-iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
+.trophy-video-iframe:fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+}
+
+.trophy-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.trophy-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3a3a3a;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.trophy-checkbox input:checked + .checkmark {
+    background: #0071e3;
+    border-color: #0071e3;
+}
+
+.trophy-checkbox input:checked + .checkmark::after {
+    content: '✓';
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* DLC Styles */
+/* Movidos a detalles_dlcs.css para evitar conflictos */
+.toggle-trophies-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #0070d1 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-trophies-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 112, 209, 0.4);
+}
+
+.trophy-card.extra {
+    display: none;
+}
+
+/* Estilo para trofeos no obtenidos */
+.trophy-card[data-conseguido="false"] {
+    opacity: 0.7;
+    filter: grayscale(50%);
+    transition: all 0.3s ease;
+    background: #1e1e2e !important;
+}
+
+.trophy-card[data-conseguido="false"]:hover {
+    opacity: 0.85;
+    filter: grayscale(30%);
+}
+
+.trophy-card[data-conseguido="false"] .trophy-card-icon {
+    filter: grayscale(70%) brightness(0.9);
+}
+
+.trophy-card[data-conseguido="false"] .trophy-card-type-image {
+    filter: grayscale(70%) brightness(0.9);
+}
+
+.trophy-card[data-conseguido="false"] .trophy-card-name {
+    color: #888888 !important;
+}
+
+.trophy-card[data-conseguido="false"] .trophy-card-description {
+    color: #777777 !important;
+}
+
+/* Lightbox para imágenes */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Estilo para spoilers en detalles */
+.ql-spoiler {
+    background: #3a3a3a;
+    color: #3a3a3a;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.ql-spoiler:hover {
+    background: #4a4a4a;
+}
+
+.ql-spoiler.revealed {
+    background: transparent;
+    color: #ffffff;
+}
