@@ -27,84 +27,57 @@
 }
 /* Estilos para la insignia de plataforma */
 .platform-badge { 
-    /* Fondo negro (sobrescribe cualquier otro estilo) */
     background: #000000 !important;
-    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: white !important;
 }
-
-.search-box button { /* Estilos para el botón de búsqueda */
+/* Estilos para el botón de búsqueda */
+.search-box button { 
     /* Fondo gris oscuro (sobrescribe cualquier otro estilo) */
     background: #3a3a3a !important;
 }
-
-.search-box button:hover { /* Estilos al pasar el mouse sobre el botón de búsqueda */
-    /* Fondo gris más claro (sobrescribe cualquier otro estilo) */
+/* Estilos al pasar el mouse sobre el botón de búsqueda */
+.search-box button:hover { 
     background: #4a4a4a !important;
 }
-
-.filter-dropdowns { /* Contenedor de los dropdowns de filtros */
-    /* Usa flexbox para el layout */
+/* Contenedor de los dropdowns de filtros */
+.filter-dropdowns { 
     display: flex;
-    /* Espacio entre elementos de 1rem */
     gap: 1rem;
-    /* Permite que los elementos se envuelvan a la siguiente línea */
     flex-wrap: wrap;
-    /* Margen superior de 1rem */
     margin-top: 1rem;
 }
-
-.dropdown-group { /* Grupo de dropdown con su etiqueta */
-    /* Usa flexbox para el layout */
+/* Grupo de dropdown con su etiqueta */
+.dropdown-group { 
     display: flex;
-    /* Alinea los elementos verticalmente al centro */
     align-items: center;
-    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
 }
-
-.dropdown-group label { /* Estilos para la etiqueta del dropdown */
-    /* Texto blanco */
+/* Estilos para la etiqueta del dropdown */
+.dropdown-group label { 
     color: #ffffff;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
-    /* Grosor de fuente medio de 500 */
     font-weight: 500;
 }
-
-.dropdown-group select { /* Estilos para el elemento select del dropdown */
-    /* Relleno de 0.5rem vertical y 1rem horizontal */
+/* Estilos para el elemento select del dropdown */
+.dropdown-group select { 
     padding: 0.5rem 1rem;
-    /* Fondo gris oscuro */
     background: #252525;
-    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
-    /* Bordes redondeados de 6px */
     border-radius: 6px;
-    /* Texto blanco */
     color: #ffffff;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
-    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
-    /* Transición suave de 0.2s para todos los cambios */
     transition: all 0.2s;
-    /* Fuente Zrnic */
     font-family: 'Zrnic', sans-serif;
-    /* Ancho mínimo de 150px */
     min-width: 150px;
 }
-
-.dropdown-group select:hover { /* Estilos al pasar el mouse sobre el select */
-    /* Fondo gris */
+/* Estilos al pasar el mouse sobre el select */
+.dropdown-group select:hover { 
     background: #3a3a3a;
-    /* Color de borde gris más claro */
     border-color: #4a4a4a;
 }
-
-.dropdown-group select:focus { /* Estilos cuando el select tiene el foco */
-    /* Elimina el contorno por defecto */
+/* Estilos cuando el select tiene el foco */
+.dropdown-group select:focus { 
     outline: none;
-    /* Color de borde azul */
     border-color: #0071e3;
 }
