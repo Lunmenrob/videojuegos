@@ -19,6 +19,15 @@
             <h1 class="game-title" id="titulo">Cargando...</h1>
             <div class="platform-badge" id="plataforma">Cargando...</div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="header-actions">
+            <a href="#dlcs-section" class="dlcs-btn" aria-label="Ir a DLCs">DLCs</a>
+            <a href="public_index.php" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     </div>
     
     <div class="game-banner">

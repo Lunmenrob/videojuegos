@@ -11,8 +11,11 @@ try {
             if (isset($_GET['game_id'])) {
                 $gameId = (int)$_GET['game_id'];
                 
+<<<<<<< HEAD
                 error_log("GET trophies.php - game_id: $gameId");
                 
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 $stmt = $conn->prepare("
                     SELECT t.*, 
                         CASE WHEN t.conseguido = 1 THEN 'conseguido' ELSE 'no-conseguido' END as estado
@@ -23,15 +26,22 @@ try {
                 $stmt->execute([':game_id' => $gameId]);
                 $trophies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
+<<<<<<< HEAD
                 error_log("GET trophies.php - Trofeos encontrados: " . count($trophies));
                 
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 // Formatear datos
                 foreach ($trophies as &$trophy) {
                     $trophy['id'] = (int)$trophy['id'];
                     $trophy['videojuego_id'] = (int)$trophy['videojuego_id'];
                     $trophy['conseguido'] = (bool)$trophy['conseguido'];
                     $trophy['perdible'] = (bool)$trophy['perdible'];
+<<<<<<< HEAD
                     $trophy['online'] = (bool)($trophy['es_online'] ?? $trophy['online'] ?? 0);
+=======
+                    $trophy['online'] = (bool)$trophy['online'];
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     
                     // Decodificar entidades HTML en instrucciones
                     if (isset($trophy['instrucciones'])) {
@@ -39,11 +49,16 @@ try {
                     }
                 }
                 
+<<<<<<< HEAD
                 error_log("GET trophies.php - JSON response: " . json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
                 
                 echo json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             } else {
                 error_log("GET trophies.php - ERROR: game_id no proporcionado");
+=======
+                echo json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            } else {
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 http_response_code(400);
                 echo json_encode(['error' => 'ID de videojuego requerido']);
             }
@@ -101,8 +116,13 @@ try {
                     $params[':perdible'] = $data['perdible'] ? 1 : 0;
                 }
                 if (isset($data['online'])) {
+<<<<<<< HEAD
                     $fields[] = 'es_online = :es_online';
                     $params[':es_online'] = $data['online'] ? 1 : 0;
+=======
+                    $fields[] = 'online = :online';
+                    $params[':online'] = $data['online'] ? 1 : 0;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 }
                 
                 if (empty($fields)) {
@@ -142,7 +162,11 @@ try {
                 $updatedTrophy['videojuego_id'] = (int)$updatedTrophy['videojuego_id'];
                 $updatedTrophy['conseguido'] = (bool)$updatedTrophy['conseguido'];
                 $updatedTrophy['perdible'] = (bool)$updatedTrophy['perdible'];
+<<<<<<< HEAD
                 $updatedTrophy['online'] = (bool)($updatedTrophy['es_online'] ?? $updatedTrophy['online'] ?? 0);
+=======
+                $updatedTrophy['online'] = (bool)$updatedTrophy['online'];
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 
                 // Actualizar progreso
                 try {
@@ -176,8 +200,13 @@ try {
                 }
                 
                 $stmt = $conn->prepare("
+<<<<<<< HEAD
                     INSERT INTO trofeos (videojuego_id, nombre_trofeo, descripcion, tipo, icono_url, instrucciones, video_url, conseguido, perdible, es_online)
                     VALUES (:videojuego_id, :nombre_trofeo, :descripcion, :tipo, :icono_url, :instrucciones, :video_url, :conseguido, :perdible, :es_online)
+=======
+                    INSERT INTO trofeos (videojuego_id, nombre_trofeo, descripcion, tipo, icono_url, instrucciones, video_url, conseguido, perdible, online)
+                    VALUES (:videojuego_id, :nombre_trofeo, :descripcion, :tipo, :icono_url, :instrucciones, :video_url, :conseguido, :perdible, :online)
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ");
                 
                 $stmt->execute([
@@ -190,7 +219,11 @@ try {
                     ':video_url' => $data['video_url'] ?? null,
                     ':conseguido' => $data['conseguido'] ? 1 : 0,
                     ':perdible' => $data['perdible'] ? 1 : 0,
+<<<<<<< HEAD
                     ':es_online' => $data['online'] ? 1 : 0
+=======
+                    ':online' => $data['online'] ? 1 : 0
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ]);
                 
                 $newId = $conn->lastInsertId();
@@ -205,7 +238,11 @@ try {
                 $newTrophy['videojuego_id'] = (int)$newTrophy['videojuego_id'];
                 $newTrophy['conseguido'] = (bool)$newTrophy['conseguido'];
                 $newTrophy['perdible'] = (bool)$newTrophy['perdible'];
+<<<<<<< HEAD
                 $newTrophy['online'] = (bool)($newTrophy['es_online'] ?? $newTrophy['online'] ?? 0);
+=======
+                $newTrophy['online'] = (bool)$newTrophy['online'];
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 
                 // Actualizar progreso
                 updateProgress($conn, $videojuegoId);
@@ -285,8 +322,13 @@ try {
                 $params[':perdible'] = $data['perdible'] ? 1 : 0;
             }
             if (isset($data['online'])) {
+<<<<<<< HEAD
                 $fields[] = 'es_online = :es_online';
                 $params[':es_online'] = $data['online'] ? 1 : 0;
+=======
+                $fields[] = 'online = :online';
+                $params[':online'] = $data['online'] ? 1 : 0;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             }
             
             if (empty($fields)) {
@@ -327,7 +369,11 @@ try {
             $updatedTrophy['videojuego_id'] = (int)$updatedTrophy['videojuego_id'];
             $updatedTrophy['conseguido'] = (bool)$updatedTrophy['conseguido'];
             $updatedTrophy['perdible'] = (bool)$updatedTrophy['perdible'];
+<<<<<<< HEAD
             $updatedTrophy['online'] = (bool)($updatedTrophy['es_online'] ?? $updatedTrophy['online'] ?? 0);
+=======
+            $updatedTrophy['online'] = (bool)$updatedTrophy['online'];
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             
             // Obtener game_id para actualizar progreso
             $gameId = $updatedTrophy['videojuego_id'];

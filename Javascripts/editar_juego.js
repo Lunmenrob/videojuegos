@@ -25,7 +25,10 @@ function setupImageSizing() {
             img.classList.contains('dlc-icon') ||
             img.closest('.dlc-item-icon') ||
             img.closest('.image-inline-preview') ||
+<<<<<<< HEAD
             img.closest('.media-gallery-editor') ||
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             img.id.startsWith('edit-dlc-preview') ||
             img.id.startsWith('edit-dlc-banner-preview') ||
             img.id.startsWith('new-dlc-preview') ||

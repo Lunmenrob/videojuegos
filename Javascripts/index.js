@@ -117,14 +117,18 @@ class VideojuegosApp {
     sortGames(games) {
         let sortedGames = [...games];
 
+<<<<<<< HEAD
         console.log('sortGames - currentSort:', this.currentSort);
         console.log('sortGames - games before sort:', games.map(g => ({ titulo: g.titulo, porcentaje: g.porcentaje_completado })));
 
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         switch (this.currentSort) {
             case 'nombre':
                 sortedGames.sort((a, b) => a.titulo.localeCompare(b.titulo));
                 break;
             case 'completados':
+<<<<<<< HEAD
                 // Filtrar solo juegos con platino o 100% de completado
                 sortedGames = sortedGames.filter(game => {
                     const aPercent = parseFloat(game.porcentaje_completado) || 0;
@@ -148,6 +152,19 @@ class VideojuegosApp {
                     const aPercent = parseFloat(a.porcentaje_completado) || 0;
                     const bPercent = parseFloat(b.porcentaje_completado) || 0;
                     return aPercent - bPercent;
+=======
+                sortedGames.sort((a, b) => {
+                    const aCompleted = a.platino_conseguido ? 1 : 0;
+                    const bCompleted = b.platino_conseguido ? 1 : 0;
+                    return bCompleted - aCompleted;
+                });
+                break;
+            case 'incompletos':
+                sortedGames.sort((a, b) => {
+                    const aCompleted = a.platino_conseguido ? 1 : 0;
+                    const bCompleted = b.platino_conseguido ? 1 : 0;
+                    return aCompleted - bCompleted;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 });
                 break;
             default:
@@ -156,16 +173,23 @@ class VideojuegosApp {
                 break;
         }
 
+<<<<<<< HEAD
         console.log('sortGames - games after sort:', sortedGames.map(g => ({ titulo: g.titulo, porcentaje: g.porcentaje_completado })));
 
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         return sortedGames;
     }
 
     async searchGames() {
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         if (!searchTerm) {
+<<<<<<< HEAD
             // Recargar todos los juegos cuando se borra la búsqueda
             await this.loadGames();
+=======
+            this.renderGames();
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             return;
         }
 

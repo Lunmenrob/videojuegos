@@ -36,6 +36,7 @@ try {
             break;
 
         case 'POST':
+<<<<<<< HEAD
             // Verificar si es una subida de archivo (FormData)
             if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
                 $file = $_FILES['file'];
@@ -97,6 +98,8 @@ try {
             }
 
             // Procesar como JSON (URL)
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             $data = json_decode(file_get_contents('php://input'), true);
             if (!$data || !isset($data['tipo']) || !isset($data['url'])) {
                 http_response_code(400);

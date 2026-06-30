@@ -25,7 +25,11 @@ try {
                     $trophy['dlc_id'] = (int)$trophy['dlc_id'];
                     $trophy['conseguido'] = (bool)$trophy['conseguido'];
                     $trophy['perdible'] = (bool)$trophy['perdible'];
+<<<<<<< HEAD
                     $trophy['online'] = (bool)($trophy['es_online'] ?? $trophy['online'] ?? 0);
+=======
+                    $trophy['online'] = (bool)$trophy['online'];
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     
                     // Decodificar entidades HTML en instrucciones
                     if (isset($trophy['instrucciones'])) {
@@ -88,8 +92,13 @@ try {
                     $params[':perdible'] = $data['perdible'] ? 1 : 0;
                 }
                 if (isset($data['online'])) {
+<<<<<<< HEAD
                     $fields[] = 'es_online = :es_online';
                     $params[':es_online'] = $data['online'] ? 1 : 0;
+=======
+                    $fields[] = 'online = :online';
+                    $params[':online'] = $data['online'] ? 1 : 0;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 }
                 
                 if (empty($fields)) {
@@ -106,8 +115,13 @@ try {
             } else {
                 // Crear nuevo trofeo de DLC
                 $stmt = $conn->prepare("
+<<<<<<< HEAD
                     INSERT INTO trofeos_dlc (dlc_id, nombre_trofeo, descripcion, tipo, instrucciones, icono_url, video_url, conseguido, perdible, es_online)
                     VALUES (:dlc_id, :nombre_trofeo, :descripcion, :tipo, :instrucciones, :icono_url, :video_url, :conseguido, :perdible, :es_online)
+=======
+                    INSERT INTO trofeos_dlc (dlc_id, nombre_trofeo, descripcion, tipo, instrucciones, icono_url, video_url, conseguido, perdible, online)
+                    VALUES (:dlc_id, :nombre_trofeo, :descripcion, :tipo, :instrucciones, :icono_url, :video_url, :conseguido, :perdible, :online)
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ");
                 
                 $stmt->execute([
@@ -120,7 +134,11 @@ try {
                     ':video_url' => $data['video_url'] ?? null,
                     ':conseguido' => $data['conseguido'] ?? 0,
                     ':perdible' => $data['perdible'] ?? 0,
+<<<<<<< HEAD
                     ':es_online' => $data['online'] ?? 0
+=======
+                    ':online' => $data['online'] ?? 0
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ]);
                 
                 echo json_encode(['success' => true, 'id' => $conn->lastInsertId()]);

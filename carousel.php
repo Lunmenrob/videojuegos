@@ -13,8 +13,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     padding: 1rem 0;
     gap: 0.5rem;
+=======
+    padding: 2rem 0;
+    gap: 0.8rem;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 /* Contenedor visible del carrusel */

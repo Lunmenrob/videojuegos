@@ -96,6 +96,10 @@ try {
         $show_clas1 = isset($_POST['show_clas1']) ? 1 : 0;
         $show_clas2 = isset($_POST['show_clas2']) ? 1 : 0;
         $show_clas3 = isset($_POST['show_clas3']) ? 1 : 0;
+<<<<<<< HEAD
+=======
+        $mapa_interactivo_url = !empty($_POST['mapa_interactivo_url']) ? $_POST['mapa_interactivo_url'] : null;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         $genero = !empty($_POST['genero']) ? $_POST['genero'] : null;
         $desarrollador = !empty($_POST['desarrollador']) ? $_POST['desarrollador'] : null;
         $dificultad_platino = $_POST['dificultad_platino'] ?? '1 sobre 10';
@@ -130,6 +134,13 @@ try {
         if (!empty($comentario) && strlen($comentario) > 5000) {
             die('Los comentarios no pueden superar los 5000 caracteres');
         }
+<<<<<<< HEAD
+=======
+        
+        if (!empty($mapa_interactivo_url) && strlen($mapa_interactivo_url) > 500) {
+            die('La URL del mapa interactivo no puede superar los 500 caracteres');
+        }
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     } else {
         // Solo guardar galería, obtener solo el ID y los media items
         $id = $_POST['id'] ?? null;
@@ -142,6 +153,10 @@ try {
         $clasificacion_1_url = null;
         $clasificacion_2_url = null;
         $clasificacion_3_url = null;
+<<<<<<< HEAD
+=======
+        $mapa_interactivo_url = null;
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         $genero = null;
         $desarrollador = null;
         $dificultad_platino = '1 sobre 10';
@@ -155,6 +170,7 @@ try {
         $mediaItems = [];
     }
     
+<<<<<<< HEAD
     $mapasJson = $_POST['mapas_json'] ?? '[]';
     $mapas = json_decode($mapasJson, true);
     if (!is_array($mapas)) {
@@ -165,6 +181,10 @@ try {
     error_log('Media items decoded: ' . print_r($mediaItems, true));
     error_log('Mapas JSON: ' . $mapasJson);
     error_log('Mapas decoded: ' . print_r($mapas, true));
+=======
+    error_log('Media items JSON: ' . $mediaItemsJson);
+    error_log('Media items decoded: ' . print_r($mediaItems, true));
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     
     // Campos de trofeos - convertir a enteros
     $trofeos_offline_platino = (int)($_POST['trofeos_offline_platino'] ?? 0);
@@ -219,14 +239,22 @@ try {
             $stmt = $conn->prepare("
                 INSERT INTO juegos (
                     titulo, plataforma, fecha_lanzamiento, imagen_url, banner_url, banner_crop_x, banner_crop_y, banner_crop_width, banner_crop_height,
+<<<<<<< HEAD
                     pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, show_clas1, show_clas2, show_clas3,
+=======
+                    pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, show_clas1, show_clas2, show_clas3, mapa_interactivo_url,
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     genero, desarrollador, dificultad_platino, duracion_estimada, trofeos_offline_platino, trofeos_offline_oro,
                     trofeos_offline_plata, trofeos_offline_bronce, trofeos_online_platino, trofeos_online_oro,
                     trofeos_online_plata, trofeos_online_bronce, total_trofeos, pase_online, necesario_platino,
                     trofeos_ocultos, min_partidas, trofeos_perdibles, trucos_afectan, dificultad_afecta, comentario
                 ) VALUES (
                     :titulo, :plataforma, :fecha_lanzamiento, :imagen_url, :banner_url, :banner_crop_x, :banner_crop_y, :banner_crop_width, :banner_crop_height,
+<<<<<<< HEAD
                     :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :show_clas1, :show_clas2, :show_clas3,
+=======
+                    :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :show_clas1, :show_clas2, :show_clas3, :mapa_interactivo_url,
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     :genero, :desarrollador, :dificultad_platino, :duracion_estimada, :trofeos_offline_platino, :trofeos_offline_oro,
                     :trofeos_offline_plata, :trofeos_offline_bronce, :trofeos_online_platino, :trofeos_online_oro,
                     :trofeos_online_plata, :trofeos_online_bronce, :total_trofeos, :pase_online, :necesario_platino,
@@ -251,6 +279,10 @@ try {
                 ':show_clas1' => $show_clas1,
                 ':show_clas2' => $show_clas2,
                 ':show_clas3' => $show_clas3,
+<<<<<<< HEAD
+=======
+                ':mapa_interactivo_url' => $mapa_interactivo_url,
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ':genero' => $genero,
                 ':desarrollador' => $desarrollador,
                 ':dificultad_platino' => $dificultad_platino,
@@ -277,7 +309,11 @@ try {
             $id = $conn->lastInsertId();
         } else {
             // UPDATE para juego existente
+<<<<<<< HEAD
             $stmtGet = $conn->prepare("SELECT imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url FROM juegos WHERE id = :id");
+=======
+            $stmtGet = $conn->prepare("SELECT imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, mapa_interactivo_url FROM juegos WHERE id = :id");
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             $stmtGet->execute([':id' => $id]);
             $currentGame = $stmtGet->fetch(PDO::FETCH_ASSOC);
             if (empty($icono_url)) {
@@ -298,6 +334,12 @@ try {
             if (empty($clasificacion_3_url)) {
                 $clasificacion_3_url = $currentGame['clasificacion_3_url'] ?? null;
             }
+<<<<<<< HEAD
+=======
+            if (empty($mapa_interactivo_url)) {
+                $mapa_interactivo_url = $currentGame['mapa_interactivo_url'] ?? null;
+            }
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             
             $stmt = $conn->prepare("
                 UPDATE juegos 
@@ -317,6 +359,10 @@ try {
                     show_clas1 = :show_clas1,
                     show_clas2 = :show_clas2,
                     show_clas3 = :show_clas3,
+<<<<<<< HEAD
+=======
+                    mapa_interactivo_url = :mapa_interactivo_url,
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     genero = :genero,
                     desarrollador = :desarrollador,
                     dificultad_platino = :dificultad_platino,
@@ -359,6 +405,10 @@ try {
                 ':show_clas1' => $show_clas1,
                 ':show_clas2' => $show_clas2,
                 ':show_clas3' => $show_clas3,
+<<<<<<< HEAD
+=======
+                ':mapa_interactivo_url' => $mapa_interactivo_url,
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ':genero' => $genero,
                 ':desarrollador' => $desarrollador,
                 ':dificultad_platino' => $dificultad_platino,
@@ -384,6 +434,7 @@ try {
         }
     }
 
+<<<<<<< HEAD
     // Guardar mapas interactivos siempre que haya un ID
     if (!empty($id) && is_array($mapas)) {
         error_log('Guardando mapas interactivos para juego ID: ' . $id);
@@ -412,6 +463,8 @@ try {
         }
     }
 
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     if (!empty($id) && is_array($mediaItems)) {
         error_log('Guardando media items para juego ID: ' . $id);
         error_log('Cantidad de media items: ' . count($mediaItems));

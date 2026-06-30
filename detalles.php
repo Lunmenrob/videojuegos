@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * Página de detalles del juego (vista administrador)
  * Muestra información completa del juego:
@@ -10,6 +11,8 @@
  * - Sección de DLCs
  * Requiere autenticación (auth.php)
  */
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 require_once 'auth.php';
 ?>
 <!DOCTYPE html>
@@ -44,6 +47,18 @@ require_once 'auth.php';
             <h1 class="game-title" id="titulo">Cargando...</h1>
             <div class="platform-badge" id="plataforma">Cargando...</div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="header-actions">
+            <a href="#dlcs-section" class="dlcs-btn" aria-label="Ir a DLCs">DLCs</a>
+            <a href="index.php" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <a href="editar_juego.php?id=" id="edit-link-header" class="edit-btn">
+                <i class="fas fa-edit"></i>
+            </a>
+        </div>
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     </div>
     <div class="game-banner">
         <img id="game-banner-img" src="" alt="Banner del juego">
@@ -82,9 +97,15 @@ require_once 'auth.php';
                         <img id="banner-3" src="" alt="Ban3" class="classification-img">
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div id="mapas-interactivos-container" class="mapas-interactivos-container" style="display: none;">
                     <!-- Los botones de mapas se generarán dinámicamente -->
                 </div>
+=======
+                <a id="mapa-interactivo-link" class="mapa-interactivo-btn" href="#" target="_blank" rel="noopener noreferrer" style="display: none;">
+                    IR A MAPA INTERACTIVO
+                </a>
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             </div>
         </div>
     </div>

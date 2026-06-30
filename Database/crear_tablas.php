@@ -4,6 +4,7 @@ require_once '../config.php';
 try {
     $conn = getConnection();
     
+<<<<<<< HEAD
     // Vaciar las tablas antes de importar (en orden correcto para evitar errores de FK)
     $tablesToTruncate = [
         'progreso_trofeos',
@@ -83,6 +84,8 @@ try {
         echo "Error obteniendo conteos: " . $e->getMessage() . "<br>";
     }
     
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     // Leer el archivo SQL de datos guardados
     $sqlFile = 'db_videojuegos_guardados.sql';
     
@@ -93,6 +96,7 @@ try {
     
     $sql = file_get_contents($sqlFile);
     
+<<<<<<< HEAD
     // Usar PDO multi_query para ejecutar el SQL completo
     echo "Ejecutando SQL usando PDO multi_query...<br>";
     
@@ -115,6 +119,26 @@ try {
     }
     
     echo "<br><a href='../home.php'>Volver al home</a>";
+=======
+    // Dividir el SQL en instrucciones individuales
+    $statements = explode(';', $sql);
+    
+    // Ejecutar cada instrucción por separado
+    foreach ($statements as $statement) {
+        $statement = trim($statement);
+        if (!empty($statement)) {
+            try {
+                $conn->exec($statement);
+            } catch (PDOException $e) {
+                // Continuar con la siguiente instrucción si una falla
+                error_log("Error ejecutando instrucción: " . $e->getMessage());
+            }
+        }
+    }
+    
+    // Redirigir al home con mensaje de éxito
+    header('Location: ../home.php?success=tables_inserted');
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     exit;
     
 } catch (PDOException $e) {

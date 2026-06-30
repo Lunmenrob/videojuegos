@@ -59,12 +59,15 @@ try {
                         $game['trofeos_perdibles'] = html_entity_decode($game['trofeos_perdibles'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
                     }
                     
+<<<<<<< HEAD
                     // Cargar mapas interactivos
                     $stmtMapas = $conn->prepare("SELECT id, nombre, url, orden FROM mapas_interactivos WHERE juego_id = :juego_id ORDER BY orden ASC");
                     $stmtMapas->execute([':juego_id' => $gameId]);
                     $mapas = $stmtMapas->fetchAll(PDO::FETCH_ASSOC);
                     $game['mapas_interactivos'] = $mapas;
                     
+=======
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     echo json_encode($game, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                 } else {
                     http_response_code(404);
@@ -87,8 +90,13 @@ try {
             }
             
             $stmt = $conn->prepare("
+<<<<<<< HEAD
                 INSERT INTO juegos (titulo, plataforma, fecha_lanzamiento, genero, desarrollador, imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url)
                 VALUES (:titulo, :plataforma, :fecha_lanzamiento, :genero, :desarrollador, :imagen_url, :banner_url, :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url)
+=======
+                INSERT INTO juegos (titulo, plataforma, fecha_lanzamiento, genero, desarrollador, imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, mapa_interactivo_url)
+                VALUES (:titulo, :plataforma, :fecha_lanzamiento, :genero, :desarrollador, :imagen_url, :banner_url, :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :mapa_interactivo_url)
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             ");
             
             $stmt->execute([
@@ -102,7 +110,12 @@ try {
                 ':pegi_url' => $data['pegi_url'] ?? null,
                 ':clasificacion_1_url' => $data['clasificacion_1_url'] ?? null,
                 ':clasificacion_2_url' => $data['clasificacion_2_url'] ?? null,
+<<<<<<< HEAD
                 ':clasificacion_3_url' => $data['clasificacion_3_url'] ?? null
+=======
+                ':clasificacion_3_url' => $data['clasificacion_3_url'] ?? null,
+                ':mapa_interactivo_url' => $data['mapa_interactivo_url'] ?? null
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             ]);
             
             $gameId = $conn->lastInsertId();

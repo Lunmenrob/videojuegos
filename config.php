@@ -8,7 +8,11 @@ define('DB_PASS', '');
 // Crear conexión
 function getConnection() {
     try {
+<<<<<<< HEAD
         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS);
+=======
+        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8", DB_USER, DB_PASS);
+>>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch(PDOException $e) {
