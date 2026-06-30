@@ -109,6 +109,8 @@ body {
 
 /* Campos de input del formulario */
 .login-form input {
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.75rem 0.9rem;
     border-radius: 8px;
     border: 1px solid #3a3a3a;

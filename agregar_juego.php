@@ -886,6 +886,7 @@ function renderTrophies(trophies) {
                     <small style="color: #666;">
                         ${trophy.conseguido ? '<i class="fas fa-trophy" style="color: #ffd700;"></i> Conseguido' : '<i class="fas fa-trophy" style="color: #999;"></i> No conseguido'}
                         ${trophy.perdible ? ' | <i class="fas fa-exclamation-triangle" style="color: #e53e3e;"></i> Perdible' : ''}
+                        ${trophy.online ? ' | <i class="fas fa-globe" style="color: #4a90d9;"></i> Online' : ''}
                     </small>
                 </div>
                 <div class="trophy-item-actions">

@@ -113,10 +113,10 @@ try { // Inicia bloque try para capturar excepciones
                 echo json_encode(['success' => true, 'id' => $trophyId]); // Envía respuesta de éxito con el ID
             } else { // Si no se proporcionó ID, crear nuevo trofeo
                 // Crear nuevo trofeo de DLC
-                $stmt = $conn->prepare(" // Prepara la consulta SQL INSERT
-                    INSERT INTO trofeos_dlc (dlc_id, nombre_trofeo, descripcion, tipo, instrucciones, icono_url, video_url, conseguido, perdible, es_online) // Especifica los campos a insertar
-                    VALUES (:dlc_id, :nombre_trofeo, :descripcion, :tipo, :instrucciones, :icono_url, :video_url, :conseguido, :perdible, :es_online) // Especifica los valores a insertar
-                "); // Cierra la consulta SQL
+                $stmt = $conn->prepare("
+                    INSERT INTO trofeos_dlc (dlc_id, nombre_trofeo, descripcion, tipo, instrucciones, icono_url, video_url, conseguido, perdible, es_online)
+                    VALUES (:dlc_id, :nombre_trofeo, :descripcion, :tipo, :instrucciones, :icono_url, :video_url, :conseguido, :perdible, :es_online)
+                ");
                 
                 $stmt->execute([ // Ejecuta la consulta con los valores
                     ':dlc_id' => $data['dlc_id'], // ID del DLC al que pertenece el trofeo

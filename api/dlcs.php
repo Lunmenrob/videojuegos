@@ -130,10 +130,10 @@ try { // Inicia bloque try para capturar excepciones
                 echo json_encode(['success' => true, 'id' => $dlcId]); // Envía respuesta de éxito con el ID
             } else { // Si no se proporcionó ID, crear nuevo DLC
                 // Crear nuevo DLC
-                $stmt = $conn->prepare(" // Prepara la consulta SQL INSERT
-                    INSERT INTO dlcs (videojuego_id, nombre, fecha_lanzamiento, descripcion, imagen_url, banner_url, dificultad_platino, duracion_estimada, trofeos_offline_oro, trofeos_offline_plata, trofeos_offline_bronce, trofeos_online_oro, trofeos_online_plata, trofeos_online_bronce, trofeos_perdibles) // Especifica los campos a insertar
-                    VALUES (:videojuego_id, :nombre, :fecha_lanzamiento, :descripcion, :imagen_url, :banner_url, :dificultad_platino, :duracion_estimada, :trofeos_offline_oro, :trofeos_offline_plata, :trofeos_offline_bronce, :trofeos_online_oro, :trofeos_online_plata, :trofeos_online_bronce, :trofeos_perdibles) // Especifica los valores a insertar
-                "); // Cierra la consulta SQL
+                $stmt = $conn->prepare("
+                    INSERT INTO dlcs (videojuego_id, nombre, fecha_lanzamiento, descripcion, imagen_url, banner_url, dificultad_platino, duracion_estimada, trofeos_offline_oro, trofeos_offline_plata, trofeos_offline_bronce, trofeos_online_oro, trofeos_online_plata, trofeos_online_bronce, trofeos_perdibles)
+                    VALUES (:videojuego_id, :nombre, :fecha_lanzamiento, :descripcion, :imagen_url, :banner_url, :dificultad_platino, :duracion_estimada, :trofeos_offline_oro, :trofeos_offline_plata, :trofeos_offline_bronce, :trofeos_online_oro, :trofeos_online_plata, :trofeos_online_bronce, :trofeos_perdibles)
+                ");
                 
                 $stmt->execute([ // Ejecuta la consulta con los valores
                     ':videojuego_id' => $data['videojuego_id'], // ID del videojuego al que pertenece el DLC
