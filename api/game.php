@@ -5,12 +5,17 @@ ini_set('display_errors', 1);
 
 // Incluye el archivo de configuración
 require_once '../config.php';
+// Incluye el middleware de autenticación
+require_once '../api_auth.php';
+
+// Verifica autenticación (permite GET sin autenticación, pero requiere auth para POST/PUT/DELETE)
+requireAuth(true);
 
 try {
     // Obtiene la conexión a la base de datos
     $conn = getConnection();
     // Obtiene el método HTTP de la solicitud
-    $method = $_SERVER['REQUEST_METHOD';
+    $method = $_SERVER['REQUEST_METHOD'];
     
     switch ($method) {
         case 'GET':

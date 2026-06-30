@@ -505,10 +505,14 @@ window.scrollToDLC = function(dlcId) {
 
 async function loadDLCs(gameId) {
   try {
+    console.log('loadDLCs - Cargando DLCs para gameId:', gameId);
     const apiUrl = getApiUrl('dlcs.php');
     apiUrl.searchParams.set('game_id', gameId);
+    console.log('loadDLCs - URL:', apiUrl.toString());
     const response = await fetch(apiUrl);
+    console.log('loadDLCs - Response status:', response.status);
     const dlcs = await response.json();
+    console.log('loadDLCs - DLCs recibidos:', dlcs);
     renderDLCs(dlcs);
   } catch (error) {
     console.error('Error al cargar DLCs:', error);
@@ -754,10 +758,14 @@ function renderDLCs(dlcs) {
 
 async function loadDLCTrophies(dlcId) {
   try {
+    console.log(`loadDLCTrophies - Cargando trofeos para DLC ${dlcId}`);
     const apiUrl = getApiUrl('dlc_trophies.php');
     apiUrl.searchParams.set('dlc_id', dlcId);
+    console.log(`loadDLCTrophies - URL: ${apiUrl.toString()}`);
     const response = await fetch(apiUrl);
+    console.log(`loadDLCTrophies - Response status: ${response.status}`);
     const trophies = await response.json();
+    console.log(`loadDLCTrophies - Trofeos recibidos:`, trophies);
     
     // Almacenar trofeos del DLC en la variable global
     dlcTrophies = [...dlcTrophies, ...trophies];

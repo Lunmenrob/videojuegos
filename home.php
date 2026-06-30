@@ -46,6 +46,9 @@ require_once 'csrf.php';
                             echo '✅ Base de datos creada correctamente';
                         } elseif ($_GET['success'] === 'tables_inserted') {
                             echo '✅ Datos insertados correctamente';
+                        } elseif ($_GET['success'] === 'tables_imported') {
+                            $count = isset($_GET['count']) ? htmlspecialchars($_GET['count']) : '0';
+                            echo "✅ Tablas importadas correctamente ($count sentencias ejecutadas)";
                         }
                         ?>
                     </div>

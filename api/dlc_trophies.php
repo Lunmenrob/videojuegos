@@ -1,5 +1,13 @@
 <?php // Inicio del script PHP
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once '../config.php'; // Incluye el archivo de configuración de la base de datos
+// Incluye el middleware de autenticación
+require_once '../api_auth.php';
+
+// Verifica autenticación (permite GET sin autenticación, pero requiere auth para POST/PUT/DELETE)
+requireAuth(true);
 
 try { // Inicia bloque try para capturar excepciones
     $conn = getConnection(); // Obtiene la conexión a la base de datos
@@ -12,12 +20,12 @@ try { // Inicia bloque try para capturar excepciones
                 $dlcId = (int)$_GET['dlc_id']; // Convierte el ID a entero para seguridad
                 
                 $stmt = $conn->prepare("
-                    SELECT * FROM trofeos_dlc // Selecciona todos los campos de la tabla trofeos_dlc
-                    WHERE dlc_id = :dlc_id // Filtra por el ID del DLC proporcionado
-                    ORDER BY id ASC // Ordena los resultados por ID ascendente
+                    SELECT * FROM trofeos_dlc
+                    WHERE dlc_id = :dlc_id
+                    ORDER BY id ASC
                 ");
-                $stmt->execute([':dlc_id' => $dlcId]); // Ejecuta la consulta pasando el parámetro
-                $trophies = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados como array asociativo
+                $stmt->execute([':dlc_id' => $dlcId]);
+                $trophies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                 // Formatear los datos de los trofeos
                 foreach ($trophies as &$trophy) { // Recorre cada trofeo por referencia para modificarlo

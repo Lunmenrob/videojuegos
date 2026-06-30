@@ -9,6 +9,9 @@
  * - Sección de DLCs
  * - Líneas divisorias entre secciones
  */
+/* Importa estilos comunes */
+@import url('comun.css');
+
 /* Importa las fuentes Roboto y Zrnic de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
 

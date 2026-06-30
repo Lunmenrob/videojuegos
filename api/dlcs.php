@@ -1,5 +1,13 @@
 <?php // Inicio del script PHP
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once '../config.php'; // Incluye el archivo de configuración de la base de datos
+// Incluye el middleware de autenticación
+require_once '../api_auth.php';
+
+// Verifica autenticación (permite GET sin autenticación, pero requiere auth para POST/PUT/DELETE)
+requireAuth(true);
 
 try { // Inicia bloque try para capturar excepciones
     $conn = getConnection(); // Obtiene la conexión a la base de datos
@@ -11,13 +19,13 @@ try { // Inicia bloque try para capturar excepciones
             if (isset($_GET['game_id'])) { // Verifica si se proporcionó el parámetro game_id en la URL
                 $gameId = (int)$_GET['game_id']; // Convierte el ID a entero para seguridad
                 
-                $stmt = $conn->prepare(" // Prepara la consulta SQL para evitar inyección SQL
-                    SELECT * FROM dlcs // Selecciona todos los campos de la tabla dlcs
-                    WHERE videojuego_id = :game_id // Filtra por el ID del videojuego proporcionado
-                    ORDER BY id ASC // Ordena los resultados por ID ascendente
-                "); // Cierra la consulta SQL
-                $stmt->execute([':game_id' => $gameId]); // Ejecuta la consulta pasando el parámetro
-                $dlcs = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados como array asociativo
+                $stmt = $conn->prepare("
+                    SELECT * FROM dlcs
+                    WHERE videojuego_id = :game_id
+                    ORDER BY id ASC
+                ");
+                $stmt->execute([':game_id' => $gameId]);
+                $dlcs = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                 // Formatear los datos de los DLCs
                 foreach ($dlcs as &$dlc) { // Recorre cada DLC por referencia para modificarlo

@@ -1,6 +1,11 @@
 <?php
 // Incluye el archivo de configuración
 require_once '../config.php';
+// Incluye el middleware de autenticación
+require_once '../api_auth.php';
+
+// Verifica autenticación (permite GET sin autenticación, pero requiere auth para POST/PUT/DELETE)
+requireAuth(true);
 
 // Función para obtener conexión a la base de datos
 function getConnectionForMedia() {

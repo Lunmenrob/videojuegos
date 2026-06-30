@@ -5,6 +5,8 @@ session_start();
 require_once 'config.php';
 // Incluye el archivo de protección CSRF
 require_once 'csrf.php';
+// Rate limiting desactivado
+// require_once 'rate_limiter.php';
 
 // Si el usuario ya está logueado, redirige al index
 if (!empty($_SESSION['admin_id'])) {
@@ -12,8 +14,18 @@ if (!empty($_SESSION['admin_id'])) {
     exit;
 }
 
+// Rate limiting desactivado
+// Verifica si la IP está bloqueada por demasiados intentos
+// if (isIpLockedOut()) {
+//     $lockoutTime = getLockoutRemainingTime();
+//     $minutes = ceil($lockoutTime / 60);
+//     $error = "Demasiados intentos fallidos. Por favor, espere $minutes minutos antes de intentar nuevamente.";
+// }
+
 // Inicializa variable de error
-$error = '';
+if (!isset($error)) {
+    $error = '';
+}
 // Si el método es POST, procesa el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $csrfToken = $_POST['csrf_token'] ?? '';// Validar token CSRF
@@ -31,22 +43,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute([':usuario' => $usuario]);
                 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
+                // Debug: Log del resultado
+                error_log("Login attempt - Usuario: $usuario, Admin encontrado: " . ($admin ? 'YES' : 'NO'));
+
                 // Verifica la contraseña
                 if ($admin && password_verify($password, $admin['password_hash'])) {
+                    error_log("Login exitoso para usuario: $usuario");
                     regenerateCsrfToken();// Regenerar token CSRF después de login exitoso
+                    // Rate limiting desactivado
+                    // resetLoginAttempts();// Reiniciar intentos fallidos después de login exitoso
 
                     // Establece las variables de sesión
                     $_SESSION['admin_id'] = (int) $admin['id'];
                     $_SESSION['admin_user'] = $admin['usuario'];
+                    $_SESSION['admin_ip'] = $_SERVER['REMOTE_ADDR'];// Guardar IP para prevenir session hijacking
+                    $_SESSION['admin_user_agent'] = $_SERVER['HTTP_USER_AGENT'];// Guardar User-Agent para prevenir session hijacking
                     $_SESSION['login_success'] = true;
                     header('Location: index.php');// Redirige al index
                     exit;
+                } else {
+                    error_log("Login fallido - Usuario: $usuario, Admin existe: " . ($admin ? 'YES' : 'NO') . ", Password verify: " . ($admin ? password_verify($password, $admin['password_hash']) : 'N/A'));
                 }
             } catch (Exception $e) {
                 $error = 'Error al procesar el login.';
             }
         }
 
+        // Rate limiting desactivado - No registrar intentos fallidos
+        // $attempts = recordFailedLoginAttempt();
+        // $remainingAttempts = MAX_LOGIN_ATTEMPTS - $attempts;
+        // if ($remainingAttempts > 0) {
+        //     $error = "Usuario o contraseña incorrectos. Intentos restantes: $remainingAttempts";
+        // } else {
+        //     $error = "Demasiados intentos fallidos. Su IP ha sido bloqueada temporalmente.";
+        // }
         $error = 'Usuario o contraseña incorrectos.';
     }
 }

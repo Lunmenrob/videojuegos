@@ -9,6 +9,14 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <div class="edit-actions">
+        <a href="#dlcs-section" class="dlcs-btn" aria-label="Ir a DLCs">
+            DLC
+        </a>
+        <a href="public_index.php" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
     <div class="page-content">
     <div class="game-header">
         <div class="game-icon">

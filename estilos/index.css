@@ -9,6 +9,9 @@
  */
 /* ESTILOS PARA INDEX.PHP - PÁGINA PRINCIPAL */
 
+/* Importa estilos comunes */
+@import url('comun.css');
+
 /* Importa la fuente Roboto de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 /* Importa la fuente PlayStation de CDN */
@@ -336,11 +339,12 @@ h1 {
     border-radius: 8px;
     padding: 1.5rem;
 }
-
+/* Clase para ocultar elementos */
 .hidden {
     display: none;
 }
 
+/* Clase para mensajes de éxito o error */
 .show-message {
     position: fixed;
     top: 2rem;
@@ -351,12 +355,13 @@ h1 {
     z-index: 2000;
     animation: slideIn 0.3s ease-out;
 }
-
+/* Clase para mensajes de éxito */
 .show-message.success {
     background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     color: white;
 }
 
+/* Clase para mensajes de error */
 .show-message.error {
     background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
     color: white;
@@ -404,134 +409,6 @@ h1 {
         flex-direction: column;
         gap: 0.5rem;
     }
-}
-
-/* Contenedor de botones de acción */
-.action-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
-}
-
-/* Estilo para botones primarios */
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-/* Efecto hover para botones primarios */
-.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
-}
-
-/* Estilo para el modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-/* Contenido del modal */
-.modal-content {
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-/* Botón de cerrar modal */
-.close {
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-/* Efecto hover para botón de cerrar */
-.close:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Grupo de formulario */
-.form-group {
-    margin-bottom: 1rem;
-}
-
-/* Etiquetas del formulario */
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-/* Inputs y selects del formulario */
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 0.75rem;
-    background: #2a2a2a;
-    border: 1px solid #3a3a3a;
-    border-radius: 6px;
-    color: #ffffff;
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-/* Efecto focus para inputs y selects */
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #0071e3;
-}
-
-/* Botón de agregar */
-.add-btn {
-    width: 50px;
-    height: 50px;
-    background: #252525;
-    border: 1px solid #3a3a3a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: all 0.2s;
-}
-
-/* Efecto hover para botón de agregar */
-.add-btn:hover {
-    background: #3a3a3a;
-    border-color: #4a4a4a;
 }
 
 /* Contenedor de dropdowns de filtro */

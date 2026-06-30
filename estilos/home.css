@@ -7,6 +7,9 @@
  * - Mensajes de éxito/error para operaciones de base de datos
  * - Diseño responsive
  */
+/* Importa estilos comunes */
+@import url('comun.css');
+
 /* Estilos base del body */
 body {
     margin: 0;

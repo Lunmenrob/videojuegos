@@ -93,29 +93,81 @@ try {
     
     $sql = file_get_contents($sqlFile);
     
-    // Usar PDO multi_query para ejecutar el SQL completo
-    echo "Ejecutando SQL usando PDO multi_query...<br>";
+    // Dividir el SQL en sentencias individuales respetando comillas
     
     try {
-        if ($conn->multi_query($sql)) {
-            do {
-                if ($result = $conn->store_result()) {
-                    $result->free();
-                }
-            } while ($conn->more_results() && $conn->next_result());
+        // Función para dividir SQL respetando comillas
+        function splitSqlStatements($sql) {
+            $statements = [];
+            $currentStatement = '';
+            $inSingleQuote = false;
+            $inDoubleQuote = false;
+            $escaped = false;
             
-            echo "✅ Importación completada con éxito<br>";
-            echo "El archivo SQL se importó correctamente usando PDO multi_query.<br>";
-        } else {
-            throw new PDOException($conn->error);
+            for ($i = 0; $i < strlen($sql); $i++) {
+                $char = $sql[$i];
+                
+                if ($escaped) {
+                    $currentStatement .= $char;
+                    $escaped = false;
+                    continue;
+                }
+                
+                if ($char === '\\') {
+                    $currentStatement .= $char;
+                    $escaped = true;
+                    continue;
+                }
+                
+                if ($char === "'" && !$inDoubleQuote) {
+                    $inSingleQuote = !$inSingleQuote;
+                    $currentStatement .= $char;
+                    continue;
+                }
+                
+                if ($char === '"' && !$inSingleQuote) {
+                    $inDoubleQuote = !$inDoubleQuote;
+                    $currentStatement .= $char;
+                    continue;
+                }
+                
+                if ($char === ';' && !$inSingleQuote && !$inDoubleQuote) {
+                    $statements[] = trim($currentStatement);
+                    $currentStatement = '';
+                    continue;
+                }
+                
+                $currentStatement .= $char;
+            }
+            
+            if (!empty(trim($currentStatement))) {
+                $statements[] = trim($currentStatement);
+            }
+            
+            return $statements;
         }
+        
+        $statements = splitSqlStatements($sql);
+        
+        $executedCount = 0;
+        foreach ($statements as $statement) {
+            if (!empty($statement)) {
+                // Reemplazar INSERT con INSERT IGNORE para evitar duplicados
+                $statement = preg_replace('/\bINSERT\b/i', 'INSERT IGNORE', $statement);
+                $conn->exec($statement);
+                $executedCount++;
+            }
+        }
+        
+        // Redirigir al home con mensaje de éxito
+        header('Location: ../home.php?success=tables_imported&count=' . $executedCount);
+        exit;
+        
     } catch (PDOException $e) {
-        echo "❌ Error durante la importación<br>";
-        echo "Error: " . $e->getMessage() . "<br>";
+        // Redirigir al home con mensaje de error
+        header('Location: ../home.php?error=' . urlencode($e->getMessage()));
+        exit;
     }
-    
-    echo "<br><a href='../home.php'>Volver al home</a>";
-    exit;
     
 } catch (PDOException $e) {
     // Redirigir al home con mensaje de error

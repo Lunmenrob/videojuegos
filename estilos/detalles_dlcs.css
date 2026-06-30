@@ -1,4 +1,7 @@
 /* Estilos específicos para la sección de DLCs */
+/* Importa estilos comunes */
+@import url('comun.css');
+
 /* DLCS Section */
 .dlcs-section {
     margin: 2rem 2rem 0 2rem;
