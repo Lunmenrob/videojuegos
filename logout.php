@@ -1,26 +1,19 @@
 <?php
-// Inicia la sesión
-session_start();
+session_start();// Inicia la sesión
 
-// Destruir todas las variables de sesión
-$_SESSION = [];
+$_SESSION = [];// Destruir todas las variables de sesión
 
 // Eliminar la cookie de sesión si existe
 if (ini_get("session.use_cookies")) {
-    // Obtiene los parámetros de la cookie de sesión
-    $params = session_get_cookie_params();
-    // Establece la cookie con una fecha de expiración en el pasado
-    setcookie(session_name(), '', time() - 42000,
+    $params = session_get_cookie_params();// Obtiene los parámetros de la cookie de sesión
+    setcookie(session_name(), '', time() - 42000,// Establece la cookie con una fecha de expiración en el pasado
         $params["path"], $params["domain"],
         $params["secure"], $params["httponly"]
     );
 }
 
-// Destruir la sesión
-session_destroy();
+session_destroy();// Destruir la sesión
 
-// Redirigir a home
-header('Location: /Prácticas/videojuegos/home.php');
-// Termina el script
+header('Location: /Prácticas/videojuegos/home.php');// Redirigir a home
 exit;
 ?>

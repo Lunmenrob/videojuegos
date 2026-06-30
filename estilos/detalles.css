@@ -210,7 +210,7 @@ body {
     justify-content: center;
     flex-shrink: 0;
 }
-
+/* Classification Image */
 .classification-img {
     width: 100%;
     height: 100%;
@@ -219,12 +219,14 @@ body {
     display: block;
 }
 
+/* First classification image */
 .classification-item:first-child .classification-img {
     width: 48px;
     height: 48px;
     object-fit: contain;
 }
 
+/* Mapa interactivo button */
 .mapa-interactivo-btn {
     display: inline-flex;
     align-items: center;

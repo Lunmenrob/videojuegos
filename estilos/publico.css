@@ -1,51 +1,32 @@
-.game-title { /* Estilos para el título del juego */
-    /* Tamaño de fuente de 1.4rem (sobrescribe cualquier otro estilo) */
-    font-size: 1.4rem !important;
-    /* Grosor de fuente ligero de 200 (sobrescribe cualquier otro estilo) */
+/* Estilos para el título del juego */
+.game-title { 
     font-weight: 200 !important;
-    /* Color de texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
-    /* Altura de línea de 1.3 (sobrescribe cualquier otro estilo) */
     line-height: 1.3 !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Transforma el texto a mayúsculas (sobrescribe cualquier otro estilo) */
     text-transform: uppercase !important;
-    /* Espaciado entre letras de 0.1em (sobrescribe cualquier otro estilo) */
     letter-spacing: 0.1em !important;
-    /* Sombra de texto con desplazamiento y transparencia (sobrescribe cualquier otro estilo) */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-    /* Fuente Roboto con fuentes de sistema como fallback (sobrescribe cualquier otro estilo) */
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
-
-.filter-btn.ps4 { /* Estilos para el botón de filtro de PS4 */
-    /* Fondo negro (sobrescribe cualquier otro estilo) */
+/* Estilos para el botón de filtro de PS4 */
+.filter-btn.ps4 { 
     background: #000000 !important;
-    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
-    /* Borde negro de 1px (sobrescribe cualquier otro estilo) */
     border: 1px solid #000000 !important;
-    /* Fuente Zrnic (sobrescribe cualquier otro estilo) */
     font-family: 'Zrnic', sans-serif !important;
-    /* Tamaño de fuente de 1.3rem (sobrescribe cualquier otro estilo) */
     font-size: 1.3rem !important;
 }
-
-.filter-btn.ps5 { /* Estilos para el botón de filtro de PS5 */
-    /* Fondo blanco (sobrescribe cualquier otro estilo) */
+/* Estilos para el botón de filtro de PS5 */
+.filter-btn.ps5 { 
     background: #ffffff !important;
-    /* Texto negro (sobrescribe cualquier otro estilo) */
     color: #000000 !important;
-    /* Borde negro de 1px (sobrescribe cualquier otro estilo) */
     border: 1px solid #000000 !important;
-    /* Fuente Zrnic (sobrescribe cualquier otro estilo) */
     font-family: 'Zrnic', sans-serif !important;
-    /* Tamaño de fuente de 1.3rem (sobrescribe cualquier otro estilo) */
     font-size: 1.3rem !important;
 }
-
-.platform-badge { /* Estilos para la insignia de plataforma */
+/* Estilos para la insignia de plataforma */
+.platform-badge { 
     /* Fondo negro (sobrescribe cualquier otro estilo) */
     background: #000000 !important;
     /* Texto blanco (sobrescribe cualquier otro estilo) */

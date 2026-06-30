@@ -1,42 +1,29 @@
 <?php
 // Configuración de la base de datos
-// Define el host de la base de datos
-define('DB_HOST', 'localhost');
-// Define el nombre de la base de datos
-define('DB_NAME', 'videojuegos');
-// Define el usuario de la base de datos
-define('DB_USER', 'root');
-// Define la contraseña de la base de datos
-define('DB_PASS', '');
+define('DB_HOST', 'localhost');// host de la base de datos
+define('DB_NAME', 'videojuegos');// nombre de la base de datos
+define('DB_USER', 'root');// usuario de la base de datos
+define('DB_PASS', '');// contraseña de la base de datos
 
 // Crear conexión a la base de datos
 function getConnection() {
     try {
         // Crea una nueva conexión PDO
         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS);
-        // Establece el modo de error a excepciones
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // Retorna la conexión
-        return $conn;
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);// modo de error a excepciones
+        return $conn;// Retorna la conexión
     } catch(PDOException $e) {
-        // Muestra un error de conexión y termina el script
-        die("Error de conexión: " . $e->getMessage());
+        die("Error de conexión: " . $e->getMessage());// error de conexión y termina el script
     }
 }
 
 // Headers de seguridad HTTP
-// Previene el MIME-sniffing
-header("X-Content-Type-Options: nosniff");
-// Previene clickjacking (solo permite mismo origen)
-header("X-Frame-Options: SAMEORIGIN");
-// Habilita protección XSS del navegador
-header("X-XSS-Protection: 1; mode=block");
-// Fuerza HTTPS por 1 año
-header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
-// Controla la información del referer
-header("Referrer-Policy: strict-origin-when-cross-origin");
-// Deshabilita geolocalización, micrófono y cámara
-header("Permissions-Policy: geolocation=(), microphone=(), camera=()");
+header("X-Content-Type-Options: nosniff");// Previene el MIME-sniffing
+header("X-Frame-Options: SAMEORIGIN");// Previene clickjacking (solo permite mismo origen)
+header("X-XSS-Protection: 1; mode=block");// Habilita protección XSS del navegador
+header("Strict-Transport-Security: max-age=31536000; includeSubDomains");// Fuerza HTTPS por 1 año
+header("Referrer-Policy: strict-origin-when-cross-origin");// Controla la información del referer
+header("Permissions-Policy: geolocation=(), microphone=(), camera=()");// Deshabilita geolocalización, micrófono y cámara
 
 // Configurar cabeceras para CORS - Restringir a mismo origen para mayor seguridad
 // Array de orígenes permitidos
@@ -49,24 +36,18 @@ $allowedOrigins = [
 
 // Obtiene el origen de la solicitud
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-// Si el origen está en la lista de permitidos, establece el header
-if (in_array($origin, $allowedOrigins)) {
+if (in_array($origin, $allowedOrigins)) {// Si el origen está en la lista de permitidos, establece el header
     header("Access-Control-Allow-Origin: $origin");
 }
 // Permite credenciales en CORS
 header("Access-Control-Allow-Credentials: true");
-// Establece el tipo de contenido a JSON
-header("Content-Type: application/json; charset=UTF-8");
-// Permite métodos HTTP específicos
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-// Permite headers específicos
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header("Content-Type: application/json; charset=UTF-8");// Establece el tipo de contenido a JSON
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");// Permite métodos HTTP específicos
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");// Permite headers específicos
 
 // Manejar solicitudes OPTIONS (preflight)
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    // Retorna código 200 OK
-    http_response_code(200);
-    // Termina el script
+    http_response_code(200); // código 200 OK
     exit();
 }
 ?>

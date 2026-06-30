@@ -1,97 +1,64 @@
 body {
-    /* Fondo negro muy oscuro */
     background: #0f0f10;
-    /* Texto blanco */
     color: #fff;
 }
-
+/* Shell principal */
 .login-shell {
-    /* Altura mínima calculada (100vh menos 180px) */
     min-height: calc(100vh - 180px);
-    /* Usa grid para el layout */
     display: grid;
-    /* Centra los elementos en ambas direcciones */
     place-items: center;
-    /* Relleno de 2rem vertical y 1rem horizontal */
     padding: 2rem 1rem;
 }
-
+/* Card de login */
 .login-card {
-    /* Ancho mínimo entre 100% y 460px */
     width: min(100%, 460px);
-    /* Fondo gris muy oscuro */
     background: #161616;
-    /* Borde de 1px gris */
     border: 1px solid #2a2a2a;
-    /* Bordes redondeados de 18px */
     border-radius: 18px;
-    /* Relleno de 2rem */
     padding: 2rem;
-    /* Sombra con desplazamiento y transparencia */
     box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
-
+/* Título del formulario */
 .login-card h1 {
-    /* Sin margen superior */
     margin-top: 0;
-    /* Margen inferior de 0.5rem */
+    margin-top: 0;
     margin-bottom: 0.5rem;
-    /* Tamaño de fuente de 1.7rem */
     font-size: 1.7rem;
 }
-
+/* Descripción del formulario */
 .login-card p {
-    /* Texto gris claro */
     color: #b7b7b7;
-    /* Margen inferior de 1.4rem */
+    color: #b7b7b7;
     margin-bottom: 1.4rem;
 }
-
+/* Etiqueta del formulario */
 .login-card label {
-    /* Se muestra como bloque */
     display: block;
-    /* Margen inferior de 0.45rem */
     margin-bottom: 0.45rem;
-    /* Grosor de fuente seminegrita de 600 */
     font-weight: 600;
 }
-
+/* Campo de entrada */
 .login-card input {
-    /* Ancho del 100% */
     width: 100%;
-    /* Relleno de 0.8rem vertical y 0.9rem horizontal */
     padding: 0.8rem 0.9rem;
-    /* Bordes redondeados de 8px */
     border-radius: 8px;
-    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
-    /* Fondo gris oscuro */
     background: #232323;
-    /* Texto blanco */
     color: #fff;
-    /* Margen inferior de 1rem */
     margin-bottom: 1rem;
 }
-
+/* Botón de envío */
 .login-card button {
-    /* Ancho del 100% */
     width: 100%;
-    /* Relleno de 0.9rem vertical y 1rem horizontal */
     padding: 0.9rem 1rem;
-    /* Sin borde */
     border: none;
-    /* Bordes redondeados de 8px */
     border-radius: 8px;
-    /* Gradiente azul */
     background: linear-gradient(135deg, #0070d1 0%, #0056b3 100%);
-    /* Texto blanco */
     color: #fff;
-    /* Grosor de fuente negrita de 700 */
     font-weight: 700;
-    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
 }
-
+/* Mensaje de error */
 .login-card .error {
     /* Fondo rojo semitransparente */
     background: rgba(229, 62, 62, 0.15);

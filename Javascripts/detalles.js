@@ -12,8 +12,7 @@ const assetBasePath = isPublicPage ? '../' : '';
 
 // Función para obtener la URL completa de la API
 function getApiUrl(path) {
-  // Retorna una URL absoluta usando la ruta base de la API
-  return new URL(`${apiBasePath}${path}`, window.location.href);
+  return new URL(`${apiBasePath}${path}`, window.location.href);// Retorna una URL absoluta usando la ruta base de la API
 }
 
 // Función para obtener la URL completa de un asset
@@ -27,43 +26,32 @@ console.log('detalles.js loaded');
 
 // Función para decodificar entidades HTML
 function decodeHTMLEntities(text) {
-    // Crea un elemento textarea temporal
-    const textArea = document.createElement('textarea');
-    // Establece el HTML con las entidades
-    textArea.innerHTML = text;
-    // Retorna el valor decodificado
-    return textArea.value;
+    const textArea = document.createElement('textarea');// Crea un elemento textarea temporal
+    textArea.innerHTML = text;// Establece el HTML con las entidades
+    return textArea.value;// Retorna el valor decodificado
 }
 
 // Función para abrir lightbox
 function openLightbox(imgSrc) {
-    // Obtiene el elemento lightbox
-    const lightbox = document.getElementById('lightbox');
-    // Obtiene la imagen del lightbox
-    const lightboxImg = document.getElementById('lightbox-img');
-    // Establece la fuente de la imagen
-    lightboxImg.src = imgSrc;
-    // Agrega la clase active para mostrar el lightbox
-    lightbox.classList.add('active');
+    const lightbox = document.getElementById('lightbox');// Obtiene el elemento lightbox
+    const lightboxImg = document.getElementById('lightbox-img');// Obtiene la imagen del lightbox
+    lightboxImg.src = imgSrc;// Establece la fuente de la imagen
+    lightbox.classList.add('active');// Agrega la clase active para mostrar el lightbox
 }
 
 // Función para cerrar lightbox
 function closeLightbox() {
-    // Obtiene el elemento lightbox
-    const lightbox = document.getElementById('lightbox');
-    // Elimina la clase active para ocultar el lightbox
-    lightbox.classList.remove('active');
+    const lightbox = document.getElementById('lightbox');// Obtiene el elemento lightbox
+    lightbox.classList.remove('active');// Elimina la clase active para ocultar el lightbox
 }
 
 // Agregar event listeners para imágenes después de cargar contenido
 function setupImageLightbox() {
-    // Log para depuración
-    console.log('setupImageLightbox called');
+    console.log('setupImageLightbox called');// Log para depuración
     
     // Función para procesar una imagen individual
     function processImage(img) {
-        // Log para depuración
-        console.log('Processing image:', img);
+        console.log('Processing image:', img);// Log para depuración
         
         // No procesar imágenes que deben respetar su sizing propio
         if (

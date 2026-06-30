@@ -1,12 +1,9 @@
 <?php
-// Inicia la sesión
-session_start();
+session_start();// Inicia la sesión
 
 // Verificar si el usuario está logado como administrador
 if (!isset($_SESSION['admin_id']) || !isset($_SESSION['admin_user'])) {
-    // Si no está logado, redirigir a home.php
-    header('Location: /Prácticas/videojuegos/home.php');
-    // Termina el script
+    header('Location: /Prácticas/videojuegos/home.php');// Si no está logado, redirigir a home.php
     exit;
 }
 ?>

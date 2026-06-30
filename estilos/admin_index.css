@@ -1,318 +1,211 @@
-.game-title { /* Estilos para el título del juego */
-    /* Tamaño de fuente de 1.4rem (sobrescribe cualquier otro estilo) */
+/* Estilos para el título del juego */
+.game-title { 
     font-size: 1.4rem !important;
-    /* Grosor de fuente ligero de 200 (sobrescribe cualquier otro estilo) */
     font-weight: 200 !important;
-    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
-    /* Altura de línea de 1.3 (sobrescribe cualquier otro estilo) */
     line-height: 1.3 !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Transforma el texto a mayúsculas (sobrescribe cualquier otro estilo) */
     text-transform: uppercase !important;
-    /* Espaciado entre letras de 0.1em (sobrescribe cualquier otro estilo) */
     letter-spacing: 0.1em !important;
-    /* Sombra de texto con desplazamiento y transparencia (sobrescribe cualquier otro estilo) */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-    /* Fuente Roboto con fuentes de sistema como fallback (sobrescribe cualquier otro estilo) */
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-.filter-btn.ps4 { /* Estilos para el botón de filtro de PS4 */
-    /* Fondo negro (sobrescribe cualquier otro estilo) */
+/* Estilos para el botón de filtro de PS4 */
+.filter-btn.ps4 { 
     background: #000000 !important;
-    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
-    /* Borde negro de 1px (sobrescribe cualquier otro estilo) */
     border: 1px solid #000000 !important;
-    /* Fuente Zrnic (sobrescribe cualquier otro estilo) */
     font-family: 'Zrnic', sans-serif !important;
-    /* Tamaño de fuente de 1.3rem (sobrescribe cualquier otro estilo) */
     font-size: 1.3rem !important;
 }
 
-.filter-btn.ps5 { /* Estilos para el botón de filtro de PS5 */
-    /* Fondo blanco (sobrescribe cualquier otro estilo) */
+/* Estilos para el botón de filtro de PS5 */
+.filter-btn.ps5 { 
     background: #ffffff !important;
-    /* Texto negro (sobrescribe cualquier otro estilo) */
     color: #000000 !important;
-    /* Borde negro de 1px (sobrescribe cualquier otro estilo) */
     border: 1px solid #000000 !important;
-    /* Fuente Zrnic (sobrescribe cualquier otro estilo) */
     font-family: 'Zrnic', sans-serif !important;
-    /* Tamaño de fuente de 1.3rem (sobrescribe cualquier otro estilo) */
     font-size: 1.3rem !important;
 }
-
-.action-buttons { /* Contenedor de botones de acción */
-    /* Usa flexbox para el layout */
+/* Contenedor de botones de acción */
+.action-buttons { 
     display: flex;
-    /* Alinea los botones a la derecha */
     justify-content: flex-end;
-    /* Margen superior de 1rem */
     margin-top: 1rem;
 }
 
-.btn-primary { /* Botón primario */
-    /* Usa flexbox inline para el layout */
+/* Botón primario */
+.btn-primary { 
     display: inline-flex;
-    /* Alinea el contenido verticalmente al centro */
     align-items: center;
-    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
-    /* Relleno de 0.75rem vertical y 1.5rem horizontal */
     padding: 0.75rem 1.5rem;
-    /* Gradiente azul */
     background: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
-    /* Sin borde */
     border: none;
-    /* Bordes redondeados de 6px */
     border-radius: 6px;
-    /* Texto blanco */
     color: white;
-    /* Grosor de fuente seminegrita de 600 */
     font-weight: 600;
-    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
-    /* Transición suave de todos los cambios */
     transition: all 0.2s;
-    /* Sin decoración de texto */
     text-decoration: none;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
 }
 
-.btn-primary:hover { /* Hover del botón primario */
-    /* Desplaza el botón 1px hacia arriba */
+/* Hover del botón primario */
+.btn-primary:hover { 
     transform: translateY(-1px);
-    /* Sombra azul con desplazamiento y transparencia */
     box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
 }
 
 .modal { /* Modal */
-    /* Posición fija */
     position: fixed;
-    /* Alineado al borde superior */
     top: 0;
-    /* Alineado al borde izquierdo */
     left: 0;
-    /* Alineado al borde derecho */
     right: 0;
-    /* Alineado al borde inferior */
     bottom: 0;
-    /* Fondo negro semitransparente */
     background: rgba(0, 0, 0, 0.8);
-    /* Usa flexbox para el layout */
     display: flex;
-    /* Alinea el contenido verticalmente al centro */
     align-items: center;
-    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
-    /* Índice z alto para estar encima */
     z-index: 1000;
 }
 
 .modal-content { /* Contenido del modal */
-    /* Fondo gris muy oscuro */
     background: #1a1a1a;
-    /* Borde de 1px gris */
     border: 1px solid #2a2a2a;
-    /* Bordes redondeados de 12px */
     border-radius: 12px;
-    /* Relleno de 2rem */
     padding: 2rem;
-    /* Ancho del 90% */
     width: 90%;
-    /* Ancho máximo de 500px */
     max-width: 500px;
-    /* Alto máximo de 90vh */
     max-height: 90vh;
-    /* Scroll vertical si hay desbordamiento */
     overflow-y: auto;
 }
 
-.close { /* Botón de cerrar */
-    /* Sin fondo */
+/* Botón de cerrar */
+.close { 
     background: none;
-    /* Sin borde */
     border: none;
-    /* Texto blanco */
     color: #ffffff;
-    /* Tamaño de fuente de 1.5rem */
     font-size: 1.5rem;
-    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
-    /* Relleno de 0.5rem */
     padding: 0.5rem;
-    /* Bordes redondeados de 4px */
     border-radius: 4px;
-    /* Transición suave del fondo */
     transition: background 0.2s;
 }
 
-.close:hover { /* Hover del botón de cerrar */
-    /* Fondo blanco semitransparente */
+/* Hover del botón de cerrar */
+.close:hover { 
     background: rgba(255, 255, 255, 0.1);
 }
 
-.form-group { /* Grupo de campos del formulario */
-    /* Margen inferior de 1rem */
+/* Grupo de campos del formulario */
+.form-group { 
     margin-bottom: 1rem;
 }
-
-.form-group label { /* Etiqueta del grupo de formulario */
-    /* Se muestra como bloque */
+/* Etiqueta del grupo de formulario */
+.form-group label {
     display: block;
-    /* Margen inferior de 0.5rem */
     margin-bottom: 0.5rem;
-    /* Texto blanco */
     color: #ffffff;
-    /* Grosor de fuente medio de 500 */
     font-weight: 500;
 }
 
+/* Inputs y selects del formulario */
 .form-group input,
-.form-group select { /* Inputs y selects del formulario */
-    /* Ancho del 100% */
+.form-group select { 
     width: 100%;
-    /* Relleno de 0.75rem */
     padding: 0.75rem;
-    /* Fondo gris */
     background: #2a2a2a;
-    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
-    /* Bordes redondeados de 6px */
     border-radius: 6px;
-    /* Texto blanco */
     color: #ffffff;
-    /* Tamaño de fuente de 1rem */
     font-size: 1rem;
-    /* Transición suave del color de borde */
     transition: border-color 0.2s;
 }
 
+/* Focus de inputs y selects */
 .form-group input:focus,
-.form-group select:focus { /* Focus de inputs y selects */
-    /* Elimina el contorno por defecto */
+.form-group select:focus { 
     outline: none;
-    /* Color de borde azul */
     border-color: #0071e3;
 }
-
-.add-btn { /* Botón de añadir */
-    /* Ancho de 50px */
+/* Botón de añadir */
+.add-btn { 
     width: 50px;
-    /* Alto de 50px */
     height: 50px;
-    /* Fondo gris oscuro */
+    height: 50px;
     background: #252525;
-    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
-    /* Bordes completamente redondeados (círculo) */
+    border: 1px solid #3a3a3a;
     border-radius: 50%;
-    /* Usa flexbox para el layout */
     display: flex;
-    /* Alinea el contenido verticalmente al centro */
     align-items: center;
-    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
-    /* Texto blanco */
     color: #ffffff;
-    /* Tamaño de fuente de 1.2rem */
     font-size: 1.2rem;
-    /* Sin decoración de texto */
     text-decoration: none;
-    /* Transición suave de todos los cambios */
     transition: all 0.2s;
 }
 
-.add-btn:hover { /* Hover del botón de añadir */
-    /* Fondo gris */
+/* Hover del botón de añadir */
+.add-btn:hover { 
     background: #3a3a3a;
-    /* Borde gris más claro */
     border-color: #4a4a4a;
 }
-
-.platform-badge { /* Insignia de plataforma */
-    /* Fondo negro (sobrescribe cualquier otro estilo) */
+/* Insignia de plataforma */
+.platform-badge { 
     background: #000000 !important;
-    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: white !important;
 }
-
-.search-box button { /* Botón de búsqueda */
-    /* Fondo gris oscuro (sobrescribe cualquier otro estilo) */
+/* Botón de búsqueda */
+.search-box button { 
     background: #3a3a3a !important;
 }
-
-.search-box button:hover { /* Hover del botón de búsqueda */
-    /* Fondo gris más claro (sobrescribe cualquier otro estilo) */
+/* Hover del botón de búsqueda */
+.search-box button:hover { 
     background: #4a4a4a !important;
 }
 
-.filter-dropdowns { /* Contenedor de dropdowns de filtros */
-    /* Usa flexbox para el layout */
+/* Contenedor de dropdowns de filtros */
+.filter-dropdowns { 
     display: flex;
-    /* Espacio entre elementos de 1rem */
     gap: 1rem;
-    /* Permite que los elementos se envuelvan a la siguiente línea */
     flex-wrap: wrap;
-    /* Margen superior de 1rem */
     margin-top: 1rem;
 }
-
-.dropdown-group { /* Grupo de dropdown con su etiqueta */
-    /* Usa flexbox para el layout */
+/* Grupo de dropdown con su etiqueta */
+.dropdown-group { 
     display: flex;
-    /* Alinea los elementos verticalmente al centro */
     align-items: center;
-    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
 }
-
-.dropdown-group label { /* Etiqueta del dropdown */
-    /* Texto blanco */
+/* Etiqueta del dropdown */
+.dropdown-group label { 
     color: #ffffff;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
-    /* Grosor de fuente medio de 500 */
     font-weight: 500;
 }
-
-.dropdown-group select { /* Elemento select del dropdown */
-    /* Relleno de 0.5rem vertical y 1rem horizontal */
+/* Elemento select del dropdown */
+.dropdown-group select { 
     padding: 0.5rem 1rem;
-    /* Fondo gris oscuro */
     background: #252525;
-    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
-    /* Bordes redondeados de 6px */
     border-radius: 6px;
-    /* Texto blanco */
     color: #ffffff;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
-    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
-    /* Transición suave de todos los cambios */
     transition: all 0.2s;
-    /* Fuente Zrnic */
     font-family: 'Zrnic', sans-serif;
-    /* Ancho mínimo de 150px */
     min-width: 150px;
 }
-
-.dropdown-group select:hover { /* Hover del select */
-    /* Fondo gris */
+/* Hover del select */
+.dropdown-group select:hover { 
     background: #3a3a3a;
-    /* Color de borde gris más claro */
     border-color: #4a4a4a;
 }
-
-.dropdown-group select:focus { /* Focus del select */
-    /* Elimina el contorno por defecto */
+/* Focus del select */
+.dropdown-group select:focus { 
     outline: none;
-    /* Color de borde azul */
     border-color: #0071e3;
 }

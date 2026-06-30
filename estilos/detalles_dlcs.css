@@ -1,364 +1,255 @@
 /* Estilos específicos para la sección de DLCs */
-
+/* DLCS Section */
 .dlcs-section {
-    /* Margen de 2rem en todos los lados excepto abajo */
     margin: 2rem 2rem 0 2rem;
 }
 
+/* DLCS List */
 .dlcs-list {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
+    width: 100% !important;
     max-width: 100% !important;
 }
 
+/* DLC Container */
 .dlc-container {
-    /* Margen inferior de 2rem (sobrescribe cualquier otro estilo) */
     margin: 0 0 2rem 0 !important;
-    /* Se muestra como bloque */
     display: block;
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
     max-width: 100% !important;
-    /* Incluye padding y border en el ancho (sobrescribe cualquier otro estilo) */
     box-sizing: border-box !important;
-    /* Posición relativa para elementos hijos (sobrescribe cualquier otro estilo) */
     position: relative !important;
 }
 
+/* DLC Gallery Card */
 .dlc-container .content-card.dlc-gallery-card {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
+    width: 100% !important;
     max-width: 100% !important;
-    /* Margen superior de 1rem (sobrescribe cualquier otro estilo) */
     margin: 1rem 0 0 0 !important;
-    /* Fondo negro (sobrescribe cualquier otro estilo) */
     background: #000000 !important;
-    /* Bordes redondeados de 8px (sobrescribe cualquier otro estilo) */
     border-radius: 8px !important;
-    /* Se muestra como bloque (sobrescribe cualquier otro estilo) */
     display: block !important;
-    /* Oculta el contenido que desborda (sobrescribe cualquier otro estilo) */
     overflow: hidden !important;
-    /* Sin relleno (sobrescribe cualquier otro estilo) */
     padding: 0 !important;
-    /* Incluye padding y border en el ancho (sobrescribe cualquier otro estilo) */
     box-sizing: border-box !important;
 }
 
+/* DLC Gallery Card - Media Carousel */
 .dlc-container .content-card.dlc-gallery-card .media-carousel {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
     max-width: 100% !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Alto de 400px (sobrescribe cualquier otro estilo) */
     height: 400px !important;
-    /* Posición relativa para elementos hijos (sobrescribe cualquier otro estilo) */
     position: relative !important;
 }
 
+/* DLC Gallery Card - Media Carousel Track */
 .dlc-container .content-card.dlc-gallery-card .media-carousel-track {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Alto de 400px (sobrescribe cualquier otro estilo) */
     height: 400px !important;
-    /* Posición relativa para elementos hijos (sobrescribe cualquier otro estilo) */
     position: relative !important;
 }
 
+/* DLC Header */
 .dlc-container .game-header.dlc-header {
-    /* Relleno vertical de 1.5rem (sobrescribe cualquier otro estilo) */
     padding: 1.5rem 0 !important;
-    /* Margen inferior de 0.75rem (sobrescribe cualquier otro estilo) */
     margin: 0 0 0.75rem 0 !important;
-    /* Usa flexbox para el layout (sobrescribe cualquier otro estilo) */
     display: flex !important;
-    /* Alinea los elementos verticalmente al centro (sobrescribe cualquier otro estilo) */
     align-items: center !important;
-    /* Sin espacio entre elementos (sobrescribe cualquier otro estilo) */
     gap: 0 !important;
-    /* Fondo transparente (sobrescribe cualquier otro estilo) */
     background: transparent !important;
-    /* Sin borde (sobrescribe cualquier otro estilo) */
     border: 0 !important;
-    /* Sin bordes redondeados (sobrescribe cualquier otro estilo) */
     border-radius: 0 !important;
 }
 
+/* DLC Info */
 .dlc-container .game-info.dlc-info {
-    /* Ocupa el espacio disponible (sobrescribe cualquier otro estilo) */
     flex: 1 !important;
-    /* Usa flexbox para el layout (sobrescribe cualquier otro estilo) */
     display: flex !important;
-    /* Dirección de columna (sobrescribe cualquier otro estilo) */
     flex-direction: column !important;
-    /* Espacio entre elementos de 0.35rem (sobrescribe cualquier otro estilo) */
     gap: 0.35rem !important;
-    /* Relleno izquierdo de 0.75rem (sobrescribe cualquier otro estilo) */
     padding-left: 0.75rem !important;
-    /* Ancho mínimo de 0 (sobrescribe cualquier otro estilo) */
     min-width: 0 !important;
 }
 
+/* DLC Icon */
 .dlc-container .game-icon.dlc-icon {
-    /* Ancho de 64px (sobrescribe cualquier otro estilo) */
     width: 64px !important;
-    /* Alto de 64px (sobrescribe cualquier otro estilo) */
     height: 64px !important;
-    /* Ancho mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-width: 64px !important;
-    /* Alto mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-height: 64px !important;
-    /* Fondo gris oscuro (sobrescribe cualquier otro estilo) */
     background: #252525 !important;
-    /* Bordes redondeados de 12px (sobrescribe cualquier otro estilo) */
     border-radius: 12px !important;
-    /* Oculta el contenido que desborda (sobrescribe cualquier otro estilo) */
     overflow: hidden !important;
-    /* Posición relativa para elementos hijos (sobrescribe cualquier otro estilo) */
     position: relative !important;
-    /* No permite que el icono se encoja (sobrescribe cualquier otro estilo) */
     flex-shrink: 0 !important;
-    /* Se muestra como bloque (sobrescribe cualquier otro estilo) */
     display: block !important;
 }
 
+/* DLC Icon Image */
 .dlc-container .game-icon.dlc-icon img {
-    /* Posición absoluta (sobrescribe cualquier otro estilo) */
     position: absolute !important;
-    /* Alineado al 50% del borde superior (sobrescribe cualquier otro estilo) */
     top: 50% !important;
-    /* Alineado al 50% del borde izquierdo (sobrescribe cualquier otro estilo) */
     left: 50% !important;
-    /* Centra la imagen (sobrescribe cualquier otro estilo) */
     transform: translate(-50%, -50%) !important;
-    /* Ancho de 64px (sobrescribe cualquier otro estilo) */
     width: 64px !important;
-    /* Alto de 64px (sobrescribe cualquier otro estilo) */
     height: 64px !important;
-    /* Ancho máximo de 64px (sobrescribe cualquier otro estilo) */
     max-width: 64px !important;
-    /* Alto máximo de 64px (sobrescribe cualquier otro estilo) */
     max-height: 64px !important;
-    /* Ancho mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-width: 64px !important;
-    /* Alto mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-height: 64px !important;
-    /* Ajusta la imagen para contenerla sin deformarse (sobrescribe cualquier otro estilo) */
     object-fit: contain !important;
-    /* Posición de la imagen al centro (sobrescribe cualquier otro estilo) */
     object-position: center !important;
-    /* Se muestra como bloque (sobrescribe cualquier otro estilo) */
     display: block !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Sin relleno (sobrescribe cualquier otro estilo) */
     padding: 0 !important;
 }
 
+/* DLC Title */
 .dlc-container .game-title.dlc-title {
-    /* Tamaño de fuente de 2rem */
     font-size: 2rem;
-    /* Grosor de fuente ligero de 300 */
     font-weight: 300;
-    /* Texto blanco */
     color: #ffffff;
-    /* Sin margen */
     margin: 0;
-    /* Espaciado entre letras de 0.02em */
     letter-spacing: 0.02em;
-    /* Sin transformación de texto */
     text-transform: none;
 }
 
+/* DLC Platform Badge */
 .dlc-container .platform-badge.dlc-platform-badge {
-    /* Relleno de 0.1rem vertical y 0.8rem horizontal */
     padding: 0.1rem 0.8rem;
-    /* Bordes redondeados de 2px */
     border-radius: 2px;
-    /* Tamaño de fuente de 1.2rem */
     font-size: 1.2rem;
-    /* Grosor de fuente negrita de 700 */
     font-weight: 700;
-    /* Transforma el texto a mayúsculas */
     text-transform: uppercase;
-    /* Espaciado entre letras de 0.05em */
     letter-spacing: 0.05em;
-    /* Alinea al inicio del contenedor flex */
     align-self: flex-start;
-    /* Ancho ajustado al contenido */
     width: fit-content;
-    /* Fondo blanco */
     background: #ffffff;
-    /* Texto negro */
     color: #000000;
-    /* Sin borde */
     border: 0;
 }
 
+/* DLC Banner */
 .dlc-banner {
-    /* Ancho del 100% */
     width: 100%;
-    /* Alto de 300px */
     height: 300px;
-    /* Oculta el contenido que desborda */
     overflow: hidden;
-    /* Fondo azul oscuro */
     background: #1a1a2e;
-    /* Posición relativa para elementos hijos */
+    background: #1a1a2e;
     position: relative;
-    /* Sin margen */
     margin: 0;
-    /* Sin bordes redondeados */
     border-radius: 0;
-    /* Se muestra como bloque */
     display: block;
-    /* Incluye padding y border en el ancho */
     box-sizing: border-box;
 }
 
+/* DLC Banner Image */
 .dlc-banner-img {
-    /* Ancho del 100% */
     width: 100%;
-    /* Alto del 100% */
     height: 100%;
-    /* Ajusta la imagen para cubrir el área sin deformarse */
     object-fit: cover;
-    /* Posición de la imagen al centro con 37% de offset vertical */
     object-position: center 37%;
-    /* Se muestra como bloque */
     display: block;
 }
 
+/* DLC Banner Overlay */
 .dlc-banner-overlay {
-    /* Posición absoluta */
     position: absolute;
-    /* A 2rem del borde izquierdo */
     left: 2rem;
-    /* Alineado al 50% del borde superior */
     top: 50%;
-    /* Centra verticalmente */
     transform: translateY(-50%);
-    /* Fondo negro semitransparente */
     background: rgba(0, 0, 0, 0.7);
-    /* Efecto de desenfoque de fondo */
     backdrop-filter: blur(10px);
-    /* Bordes redondeados de 12px */
     border-radius: 12px;
-    /* Relleno de 2rem */
     padding: 2rem;
-    /* Ancho máximo de 400px */
     max-width: 400px;
-    /* Borde blanco semitransparente */
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* DLC Banner Content */
 .dlc-banner-content {
-    /* Texto blanco */
     color: #ffffff;
 }
 
+/* DLC Banner Title */
 .dlc-banner-title {
-    /* Margen inferior de 0.75rem */
     margin: 0 0 0.75rem 0;
-    /* Tamaño de fuente de 1.3rem */
+    margin: 0 0 0.75rem 0;
     font-size: 1.3rem;
-    /* Grosor de fuente medio de 500 */
     font-weight: 500;
 }
 
+/* DLC Banner Meta */
 .dlc-banner-meta {
-    /* Usa flexbox para el layout */
     display: flex;
-    /* Alinea los elementos verticalmente al centro */
     align-items: center;
-    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
-    /* Margen inferior de 1rem */
     margin-bottom: 1rem;
-    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
-    /* Texto gris */
     color: #cccccc;
 }
 
+/* DLC Banner Meta Icon */
 .dlc-banner-meta i {
-    /* Oculta el icono */
     display: none;
 }
 
+/* DLC Content Card */
 .dlc-container .content-card.dlc-content-card {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
+    width: 100% !important;
     max-width: 100% !important;
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
-    /* Incluye padding y border en el ancho (sobrescribe cualquier otro estilo) */
     box-sizing: border-box !important;
-    /* Relleno de 1.5rem (sobrescribe cualquier otro estilo) */
     padding: 1.5rem !important;
 }
 
+/* DLC Content Card - Not Gallery */
 .dlc-container .content-card.dlc-content-card:not(.dlc-gallery-card) {
-    /* Ancho del 100% (sobrescribe cualquier otro estilo) */
     width: 100% !important;
-    /* Ancho máximo del 100% (sobrescribe cualquier otro estilo) */
     max-width: 100% !important;
 }
 
+/* DLC Content Card - Extra Card */
 .dlc-container .content-card.dlc-content-card.extra-card {
-    /* Sin margen superior (sobrescribe cualquier otro estilo) */
     margin-top: 0 !important;
 }
 
+/* DLC Trophy Mini Image */
 .dlc-container .trophy-mini img {
-    /* Ancho de 18px (sobrescribe cualquier otro estilo) */
     width: 18px !important;
-    /* Alto de 18px (sobrescribe cualquier otro estilo) */
     height: 18px !important;
-    /* Ancho máximo de 18px (sobrescribe cualquier otro estilo) */
     max-width: 18px !important;
-    /* Alto máximo de 18px (sobrescribe cualquier otro estilo) */
     max-height: 18px !important;
-    /* Ajusta la imagen para contenerla sin deformarse (sobrescribe cualquier otro estilo) */
     object-fit: contain !important;
 }
 
+/* DLC Trophies Section */
 .dlc-container .dlc-trophies-section {
-    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
 }
 
+/* DLC Trophies Header */
 .dlc-container .dlc-trophies-header {
-    /* Margen inferior de 1rem (sobrescribe cualquier otro estilo) */
+    margin-bottom: 1rem !important;
     margin-bottom: 1rem !important;
 }
 
+/* DLC Trophy Card */
 .dlc-container .trophy-card {
-    /* Relleno de 1rem (sobrescribe cualquier otro estilo) */
     padding: 1rem !important;
 }
 
+/* Trophy card icon */
 .dlc-container .trophy-card-icon {
-    /* Ancho de 64px (sobrescribe cualquier otro estilo) */
     width: 64px !important;
-    /* Alto de 64px (sobrescribe cualquier otro estilo) */
     height: 64px !important;
-    /* Ancho mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-width: 64px !important;
-    /* Alto mínimo de 64px (sobrescribe cualquier otro estilo) */
     min-height: 64px !important;
-    /* Ancho máximo de 64px (sobrescribe cualquier otro estilo) */
     max-width: 64px !important;
-    /* Alto máximo de 64px (sobrescribe cualquier otro estilo) */
     max-height: 64px !important;
-    /* Ajusta la imagen para contenerla sin deformarse (sobrescribe cualquier otro estilo) */
     object-fit: contain !important;
 }

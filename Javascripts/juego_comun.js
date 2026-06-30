@@ -12,15 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const images = container.querySelectorAll('img');
             // Itera sobre cada imagen
             images.forEach(img => {
-                // Establece el ancho a 50px con !important
                 img.style.setProperty('width', '50px', 'important');
-                // Establece el alto a 50px con !important
                 img.style.setProperty('height', '50px', 'important');
-                // Establece el ancho máximo a 50px con !important
                 img.style.setProperty('max-width', '50px', 'important');
-                // Establece el alto máximo a 50px con !important
                 img.style.setProperty('max-height', '50px', 'important');
-                // Establece object-fit a cover con !important
                 img.style.setProperty('object-fit', 'cover', 'important');
             });
         });
@@ -30,39 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
             // Obtiene la imagen del header
             const img = header.querySelector('img');
             if (img) {
-                // Establece el ancho a 50px con !important
                 img.style.setProperty('width', '50px', 'important');
-                // Establece el alto a 50px con !important
                 img.style.setProperty('height', '50px', 'important');
-                // Establece el ancho máximo a 50px con !important
                 img.style.setProperty('max-width', '50px', 'important');
-                // Establece el alto máximo a 50px con !important
                 img.style.setProperty('max-height', '50px', 'important');
             }
         });
     }
-    // Ejecuta la función inmediatamente
-    fixTrophyImageSizes();
+    fixTrophyImageSizes();// Ejecuta la función inmediatamente
     // Ejecuta la función nuevamente después de 1 segundo (para asegurar que se aplique a elementos dinámicos)
     setTimeout(fixTrophyImageSizes, 1000);
 });
 
 // Funciones para manejar mapas interactivos
-// Array para almacenar los datos de los mapas
-let mapasData = [];
-// Variable para almacenar el ID del mapa que se está editando
-let editingMapaId = null;
+let mapasData = [];// Array para almacenar los datos de los mapas
+let editingMapaId = null;// Variable para almacenar el ID del mapa que se está editando
 
 // Función para agregar o editar un mapa
 function addMapaItem() {
-    // Obtiene el input de URL
-    const urlInput = document.getElementById('mapa-url');
-    // Obtiene el input de nombre
-    const nombreInput = document.getElementById('mapa-nombre');
-    // Obtiene y limpia el valor de la URL
-    const url = urlInput.value.trim();
-    // Obtiene y limpia el valor del nombre
-    const nombre = nombreInput.value.trim();
+    const urlInput = document.getElementById('mapa-url');// Obtiene el input de URL
+    const nombreInput = document.getElementById('mapa-nombre');// Obtiene el input de nombre
+    const url = urlInput.value.trim();// Obtiene y limpia el valor de la URL
+    const nombre = nombreInput.value.trim();// Obtiene y limpia el valor del nombre
 
     // Valida que ambos campos estén llenos
     if (!url || !nombre) {
@@ -81,13 +65,10 @@ function addMapaItem() {
         // Busca el índice del mapa en el array
         const index = mapasData.findIndex(m => m.id === editingMapaId);
         if (index !== -1) {
-            // Actualiza la URL del mapa
-            mapasData[index].url = url;
-            // Actualiza el nombre del mapa
-            mapasData[index].nombre = nombre;
+            mapasData[index].url = url;// Actualiza la URL del mapa
+            mapasData[index].nombre = nombre;// Actualiza el nombre del mapa
         }
-        // Limpia el ID de edición
-        editingMapaId = null;
+        editingMapaId = null;// Limpia el ID de edición
     } else {
         // Agregar nuevo mapa
         const mapa = {
@@ -96,8 +77,7 @@ function addMapaItem() {
             url: url,
             nombre: nombre
         };
-        // Agrega el mapa al array
-        mapasData.push(mapa);
+        mapasData.push(mapa);// Agrega el mapa al array
     }
 
     // Renderiza la lista de mapas
@@ -136,24 +116,20 @@ function editMapaItem(id) {
     urlInput.value = mapa.url;
     // Establece el nombre del mapa en el input
     nombreInput.value = mapa.nombre;
-    // Establece el ID del mapa que se está editando
-    editingMapaId = id;
+    editingMapaId = id;// Establece el ID del mapa que se está editando
 }
 
 // Función para renderizar la lista de mapas
 function renderMapasList() {
-    // Obtiene el contenedor de la lista
-    const container = document.getElementById('mapas-list');
-    // Si no existe el contenedor, retorna
-    if (!container) return;
+    const container = document.getElementById('mapas-list');// Obtiene el contenedor de la lista
+    if (!container) return;// Si no existe el contenedor, retorna
 
     // Limpia el contenido del contenedor
     container.innerHTML = '';
 
     // Itera sobre cada mapa en el array
     mapasData.forEach(mapa => {
-        // Crea un elemento div para el item
-        const item = document.createElement('div');
+        const item = document.createElement('div');// Crea un elemento div para el item
         // Establece la clase del item
         item.className = 'mapa-item';
         // Establece el HTML del item
@@ -167,33 +143,25 @@ function renderMapasList() {
                 <i class="fas fa-times"></i>
             </button>
         `;
-        // Agrega el item al contenedor
-        container.appendChild(item);
+        container.appendChild(item);// Agrega el item al contenedor
     });
 }
 
 // Función para actualizar el input JSON con los datos de mapas
 function updateMapasJson() {
-    // Obtiene el input JSON
-    const jsonInput = document.getElementById('mapas-json');
-    // Si existe el input
-    if (jsonInput) {
-        // Convierte el array de mapas a JSON y lo establece en el input
-        jsonInput.value = JSON.stringify(mapasData);
+    const jsonInput = document.getElementById('mapas-json');// Obtiene el input JSON
+    if (jsonInput) {// Si existe el input
+        jsonInput.value = JSON.stringify(mapasData);// Convierte el array de mapas a JSON y lo establece en el input
     }
 }
 
 // Función para cargar mapas desde una cadena JSON
 function loadMapasFromJson(jsonString) {
     try {
-        // Parsea el JSON y lo asigna al array de mapas
-        mapasData = JSON.parse(jsonString);
-        // Renderiza la lista de mapas
-        renderMapasList();
+        mapasData = JSON.parse(jsonString);// Parsea el JSON y lo asigna al array de mapas
+        renderMapasList();// Renderiza la lista de mapas
     } catch (e) {
-        // Log de error si falla el parseo
-        console.error('Error cargando mapas:', e);
-        // Establece el array vacío en caso de error
-        mapasData = [];
+        console.error('Error cargando mapas:', e);// Log de error si falla el parseo
+        mapasData = [];// Establece el array vacío en caso de error
     }
 }

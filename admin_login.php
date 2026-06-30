@@ -16,37 +16,30 @@ if (!empty($_SESSION['admin_id'])) {
 $error = '';
 // Si el método es POST, procesa el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar token CSRF
-    $csrfToken = $_POST['csrf_token'] ?? '';
+    $csrfToken = $_POST['csrf_token'] ?? '';// Validar token CSRF
     if (!validateCsrfToken($csrfToken)) {
         $error = 'Error de seguridad. Por favor, recargue la página e intente nuevamente.';
     } else {
-        // Obtiene y limpia el usuario
-        $usuario = trim($_POST['usuario'] ?? '');
-        // Obtiene la contraseña
-        $password = $_POST['password'] ?? '';
+        $usuario = trim($_POST['usuario'] ?? '');// Obtiene y limpia el usuario
+        $password = $_POST['password'] ?? '';// Obtiene la contraseña
 
         // Valida que usuario y contraseña no estén vacíos
         if ($usuario !== '' && $password !== '') {
             try {
-                // Obtiene la conexión a la base de datos
-                $conn = getConnection();
-                // Prepara la consulta para buscar el administrador
-                $stmt = $conn->prepare('SELECT id, usuario, password_hash FROM admins WHERE usuario = :usuario LIMIT 1');
+                $conn = getConnection(); // Obtiene la conexión a la base de datos
+                $stmt = $conn->prepare('SELECT id, usuario, password_hash FROM admins WHERE usuario = :usuario LIMIT 1');// Prepara la consulta para buscar el administrador
                 $stmt->execute([':usuario' => $usuario]);
                 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 // Verifica la contraseña
                 if ($admin && password_verify($password, $admin['password_hash'])) {
-                    // Regenerar token CSRF después de login exitoso
-                    regenerateCsrfToken();
+                    regenerateCsrfToken();// Regenerar token CSRF después de login exitoso
 
                     // Establece las variables de sesión
                     $_SESSION['admin_id'] = (int) $admin['id'];
                     $_SESSION['admin_user'] = $admin['usuario'];
                     $_SESSION['login_success'] = true;
-                    // Redirige al index
-                    header('Location: index.php');
+                    header('Location: index.php');// Redirige al index
                     exit;
                 }
             } catch (Exception $e) {

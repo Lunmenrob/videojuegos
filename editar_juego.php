@@ -11,8 +11,8 @@
  * - Mapas interactivos
  * Requiere autenticación (auth.php) y protección CSRF (csrf.php)
  */
-require_once 'auth.php';
-require_once 'csrf.php';
+require_once 'auth.php'; // Incluye el archivo de autenticación
+require_once 'csrf.php'; // Incluye el archivo de protección CSRF
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,20 +1,13 @@
 // Clase principal de la aplicación de videojuegos
 class VideojuegosApp {
     constructor() {
-        // Filtro actual de plataforma (todos por defecto)
-        this.currentFilter = 'todos';
-        // Ordenamiento actual (nombre por defecto)
-        this.currentSort = 'nombre';
-        // Juego actual seleccionado
-        this.currentGame = null;
-        // Array de juegos cargados
-        this.games = [];
-        // Verifica si es la página pública
-        this.isPublicPage = window.location.pathname.includes('/publico/');
-        // Ruta base de la API según si es página pública o admin
-        this.apiBasePath = this.isPublicPage ? '../api/' : 'api/';
-        // Ruta base de assets según si es página pública o admin
-        this.assetBasePath = this.isPublicPage ? '../' : '';
+        this.currentFilter = 'todos';// Filtro actual de plataforma (todos por defecto)
+        this.currentSort = 'nombre';// Ordenamiento actual (nombre por defecto)
+        this.currentGame = null;// Juego actual seleccionado
+        this.games = [];// Array de juegos cargados
+        this.isPublicPage = window.location.pathname.includes('/publico/');// Verifica si es la página pública
+        this.apiBasePath = this.isPublicPage ? '../api/' : 'api/';// Ruta base de la API según si es página pública o admin
+        this.assetBasePath = this.isPublicPage ? '../' : '';// Ruta base de assets según si es página pública o admin
         // Página de detalles según si es página pública o admin
         this.detailsPage = this.isPublicPage ? 'public_detalles.php' : 'detalles.php';
         // Inicializa la aplicación
@@ -23,18 +16,14 @@ class VideojuegosApp {
 
     // Método de inicialización
     init() {
-        // Configura los event listeners
-        this.setupEventListeners();
-        // Carga los juegos
-        this.loadGames();
+        this.setupEventListeners();// Configura los event listeners
+        this.loadGames();// Carga los juegos
     }
 
     // Configura los event listeners de la interfaz
     setupEventListeners() {
-        // Event listener para el botón de búsqueda
-        document.getElementById('searchBtn').addEventListener('click', () => this.searchGames());
-        // Event listener para la tecla Enter en el input de búsqueda
-        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+        document.getElementById('searchBtn').addEventListener('click', () => this.searchGames());// Event listener para el botón de búsqueda
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {// Event listener para la tecla Enter en el input de búsqueda
             if (e.key === 'Enter') this.searchGames();
         });
 
@@ -48,28 +37,20 @@ class VideojuegosApp {
     // Carga los juegos desde la API
     async loadGames() {
         try {
-            // Realiza la petición fetch a la API de juegos
-            const response = await fetch(`${this.apiBasePath}games.php`);
-            // Parsea la respuesta JSON y la asigna al array de juegos
-            this.games = await response.json();
-            // Renderiza los juegos
-            this.renderGames();
+            const response = await fetch(`${this.apiBasePath}games.php`);// Realiza la petición fetch a la API de juegos
+            this.games = await response.json();// Parsea la respuesta JSON y la asigna al array de juegos
+            this.renderGames();// Renderiza los juegos
         } catch (error) {
-            // Log de error si falla la carga
-            console.error('Error al cargar videojuegos:', error);
-            // Muestra mensaje de error
-            this.showMessage('Error al cargar los videojuegos', 'error');
+            console.error('Error al cargar videojuegos:', error);// Log de error si falla la carga
+            this.showMessage('Error al cargar los videojuegos', 'error');// Muestra mensaje de error
         }
     }
 
     // Renderiza los juegos en el contenedor
     renderGames() {
-        // Obtiene el contenedor de juegos
-        const container = document.getElementById('gamesContainer');
-        // Filtra los juegos por plataforma
-        let filteredGames = this.filterGamesByPlatform(this.games);
-        // Ordena los juegos
-        filteredGames = this.sortGames(filteredGames);
+        const container = document.getElementById('gamesContainer');// Obtiene el contenedor de juegos
+        let filteredGames = this.filterGamesByPlatform(this.games);// Filtra los juegos por plataforma
+        filteredGames = this.sortGames(filteredGames);// Ordena los juegos
         
         // Genera el HTML para cada juego
         container.innerHTML = filteredGames.map(game => `
@@ -118,10 +99,8 @@ class VideojuegosApp {
 
     // Filtra los juegos por plataforma
     filterGamesByPlatform(games) {
-        // Si el filtro es 'todos', retorna todos los juegos sin filtrar
-        if (this.currentFilter === 'todos') return games;
-        // Filtra los juegos según la plataforma seleccionada
-        return games.filter(game => 
+        if (this.currentFilter === 'todos') return games;// Si el filtro es 'todos', retorna todos los juegos sin filtrar
+        return games.filter(game => // Filtra los juegos según la plataforma seleccionada
             game.plataforma.toLowerCase() === this.currentFilter || 
             (this.currentFilter === 'ambos' && game.plataforma === 'AMBOS')
         );
@@ -129,32 +108,25 @@ class VideojuegosApp {
 
     // Establece el filtro de plataforma
     setFilter(filter) {
-        // Actualiza el filtro actual
-        this.currentFilter = filter;
-        // Actualiza la clase active en los botones de filtro
+        this.currentFilter = filter;// Actualiza el filtro actual
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.filter === filter);
         });
-        // Renderiza los juegos con el nuevo filtro
-        this.renderGames();
+        this.renderGames();// Renderiza los juegos con el nuevo filtro
     }
 
     // Establece el ordenamiento
     setSort(sort) {
-        // Actualiza el ordenamiento actual
-        this.currentSort = sort;
-        // Actualiza la clase active en los botones de ordenamiento
+        this.currentSort = sort;// Actualiza el ordenamiento actual
         document.querySelectorAll('.sort-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.sort === sort);
         });
-        // Renderiza los juegos con el nuevo ordenamiento
-        this.renderGames();
+        this.renderGames();// Renderiza los juegos con el nuevo ordenamiento
     }
 
     // Ordena los juegos según el criterio seleccionado
     sortGames(games) {
-        // Crea una copia del array de juegos
-        let sortedGames = [...games];
+        let sortedGames = [...games];// Crea una copia del array de juegos
 
         // Log para depuración
         console.log('sortGames - currentSort:', this.currentSort);
@@ -163,8 +135,7 @@ class VideojuegosApp {
         // Switch según el tipo de ordenamiento
         switch (this.currentSort) {
             case 'nombre':
-                // Ordena alfabéticamente por título
-                sortedGames.sort((a, b) => a.titulo.localeCompare(b.titulo));
+                sortedGames.sort((a, b) => a.titulo.localeCompare(b.titulo));// Ordena alfabéticamente por título
                 break;
             case 'completados':
                 // Filtrar solo juegos con platino o 100% de completado
@@ -207,25 +178,21 @@ class VideojuegosApp {
 
     // Busca juegos por término de búsqueda
     async searchGames() {
-        // Obtiene el término de búsqueda y lo convierte a minúsculas
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();// Obtiene el término de búsqueda y lo convierte a minúsculas
         // Si no hay término de búsqueda, recarga todos los juegos
         if (!searchTerm) {
-            // Recargar todos los juegos cuando se borra la búsqueda
-            await this.loadGames();
+            
+            await this.loadGames();// Recargar todos los juegos cuando se borra la búsqueda
             return;
         }
 
         try {
             // Realiza la petición fetch con el término de búsqueda
             const response = await fetch(`${this.apiBasePath}games.php?search=${encodeURIComponent(searchTerm)}`);
-            // Parsea la respuesta JSON y la asigna al array de juegos
-            this.games = await response.json();
-            // Renderiza los juegos filtrados
-            this.renderGames();
+            this.games = await response.json();// Parsea la respuesta JSON y la asigna al array de juegos
+            this.renderGames();// Renderiza los juegos filtrados
         } catch (error) {
-            // Log de error si falla la búsqueda
-            console.error('Error en búsqueda:', error);
+            console.error('Error en búsqueda:', error);// Log de error si falla la búsqueda
         }
     }
 
