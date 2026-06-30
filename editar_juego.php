@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 /**
  * Página de edición de juego existente
  * Permite modificar todos los datos de un juego:
@@ -12,8 +11,6 @@
  * - Mapas interactivos
  * Requiere autenticación (auth.php) y protección CSRF (csrf.php)
  */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 require_once 'auth.php';
 require_once 'csrf.php';
 ?>
@@ -23,7 +20,6 @@ require_once 'csrf.php';
     <meta charset="UTF-8">
     <title>Editar Juego</title>
     <link rel="stylesheet" href="estilos/editar_juego.css?v=4">
-<<<<<<< HEAD
     <link rel="stylesheet" href="estilos/juego_comun.css?v=1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -31,67 +27,6 @@ require_once 'csrf.php';
     <script src="Javascripts/juego_comun.js"></script>
     <script src="Javascripts/editar_juego.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-=======
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
-    <script src="Javascripts/editar_juego.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-    <style>
-        .trophy-item-info img, .dlc-trophy-form img, .trophy-form-inline img, .trophy-item-edit img, #trophies-list img, #dlc-trophies-list img {
-            max-width: 50px !important;
-            max-height: 50px !important;
-            width: 50px !important;
-            height: 50px !important;
-            object-fit: cover !important;
-        }
-        .dlc-item-edit {
-            border-bottom: 2px solid #2d2847;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
-        .dlc-item-edit:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .dlc-form-inline > div:first-child > img {
-            max-width: 50px !important;
-            max-height: 50px !important;
-            width: 50px !important;
-            height: 50px !important;
-            object-fit: cover !important;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function fixTrophyImageSizes() {
-                const containers = document.querySelectorAll('.trophy-item-info, .dlc-trophy-form, .trophy-form-inline, .trophy-item-edit, #trophies-list, #dlc-trophies-list, .dlc-form-inline');
-                containers.forEach(container => {
-                    const images = container.querySelectorAll('img');
-                    images.forEach(img => {
-                        img.style.setProperty('width', '50px', 'important');
-                        img.style.setProperty('height', '50px', 'important');
-                        img.style.setProperty('max-width', '50px', 'important');
-                        img.style.setProperty('max-height', '50px', 'important');
-                    });
-                });
-                // Also fix images in DLC edit form header
-                const dlcEditHeaders = document.querySelectorAll('#dlcs-list > div > div[style*="display: flex"]');
-                dlcEditHeaders.forEach(header => {
-                    const img = header.querySelector('img');
-                    if (img) {
-                        img.style.setProperty('width', '50px', 'important');
-                        img.style.setProperty('height', '50px', 'important');
-                        img.style.setProperty('max-width', '50px', 'important');
-                        img.style.setProperty('max-height', '50px', 'important');
-                    }
-                });
-            }
-            fixTrophyImageSizes();
-            setTimeout(fixTrophyImageSizes, 1000);
-        });
-    </script>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     </head>
 <body>
     <?php include 'estilos/header.php'; ?>
@@ -105,11 +40,7 @@ require_once 'csrf.php';
         <button type="button" id="scroll-to-dlcs-btn" class="scroll-btn" onclick="scrollToDLCs()">
             <i class="fas fa-box"></i>
         </button>
-<<<<<<< HEAD
         <button type="submit" id="save-btn" class="save-btn">
-=======
-        <button type="button" id="save-btn" class="save-btn">
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             <i class="fas fa-save"></i>
         </button>
     </div>
@@ -126,10 +57,7 @@ require_once 'csrf.php';
         <input type="hidden" id="game-id" name="id" value="">
         <div class="edit-section">
             <h2 class="section-title">Datos del Juego</h2>
-<<<<<<< HEAD
             <div class="section-divider"></div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             
             <div class="form-row">
                 <div class="form-group">
@@ -180,10 +108,7 @@ require_once 'csrf.php';
                 </div>
             </div>
             
-<<<<<<< HEAD
             <div class="section-divider"></div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             <div class="form-group">
                 <label>Icono del juego</label>
                 <div class="image-inline-editor">
@@ -194,10 +119,7 @@ require_once 'csrf.php';
                         <input type="text" id="icono-url" name="icono_url" placeholder="URL de la imagen" maxlength="500">
                         <label class="image-file-btn">
                             <input type="file" id="icono" name="icono_file" accept="image/*">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                     </div>
@@ -214,10 +136,7 @@ require_once 'csrf.php';
                         <input type="text" id="banner-url" name="banner_url" placeholder="URL del banner" maxlength="500">
                         <label class="image-file-btn">
                             <input type="file" id="banner" name="banner_file" accept="image/*">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                         <button type="button" id="crop-banner-btn" class="crop-btn">Recortar Banner</button>
@@ -247,10 +166,7 @@ require_once 'csrf.php';
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="section-divider"></div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 <!-- PEGI -->
 <div class="form-group">
     <label>PEGI</label>
@@ -262,10 +178,7 @@ require_once 'csrf.php';
             <input type="text" id="pegi-url" name="pegi_url" placeholder="URL del PEGI" maxlength="500">
             <label class="image-file-btn">
                 <input type="file" id="pegi" name="pegi_file" accept="image/*">
-<<<<<<< HEAD
                 <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 <span>Subir archivo</span>
             </label>
         </div>
@@ -288,10 +201,7 @@ require_once 'csrf.php';
             <input type="text" id="clasificacion1-url" name="clasificacion_1_url" placeholder="URL de la clasificación" maxlength="500">
             <label class="image-file-btn">
                 <input type="file" id="clasificacion1" name="clasificacion_1_file" accept="image/*">
-<<<<<<< HEAD
                 <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 <span>Subir archivo</span>
             </label>
         </div>
@@ -314,10 +224,7 @@ require_once 'csrf.php';
             <input type="text" id="clasificacion2-url" name="clasificacion_2_url" placeholder="URL de la clasificación" maxlength="500">
             <label class="image-file-btn">
                 <input type="file" id="clasificacion2" name="clasificacion_2_file" accept="image/*">
-<<<<<<< HEAD
                 <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 <span>Subir archivo</span>
             </label>
         </div>
@@ -340,16 +247,12 @@ require_once 'csrf.php';
             <input type="text" id="clasificacion3-url" name="clasificacion_3_url" placeholder="URL de la clasificación" maxlength="500">
             <label class="image-file-btn">
                 <input type="file" id="clasificacion3" name="clasificacion_3_file" accept="image/*">
-<<<<<<< HEAD
                 <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 <span>Subir archivo</span>
             </label>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <div class="section-divider"></div>
 
 <div class="form-group">
@@ -376,12 +279,6 @@ require_once 'csrf.php';
 <div class="gallery-warning">
     <i class="fas fa-info-circle"></i>
     <span>La galería multimedia se guarda por separado. Usa el botón <i class="fas fa-save"></i> de guardar galería para guardar los cambios.</span>
-=======
-
-<div class="form-group">
-    <label for="mapa-interactivo-url">Mapa interactivo</label>
-    <input type="text" id="mapa-interactivo-url" name="mapa_interactivo_url" placeholder="URL del mapa interactivo" maxlength="500">
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 </div>
 
 <div class="form-group">
@@ -402,13 +299,10 @@ require_once 'csrf.php';
             <button type="button" id="add-media-btn" class="add-trophy-btn" onclick="addMediaItem()">
                 <i class="fas fa-plus"></i>
             </button>
-<<<<<<< HEAD
             <input type="file" id="media-file" accept="image/*,video/*" style="display: none;" onchange="uploadMediaFile()">
             <button type="button" class="add-trophy-btn" onclick="document.getElementById('media-file').click()">
                 <i class="fas fa-upload"></i>
             </button>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             <button type="button" id="save-media-btn" class="save-btn">
                 <i class="fas fa-save"></i>
             </button>
@@ -417,20 +311,9 @@ require_once 'csrf.php';
     <div id="media-gallery-editor" class="media-gallery-editor"></div>
     <input type="hidden" id="media-items-json" name="media_items_json" value="[]">
 </div>
-<<<<<<< HEAD
 <div class="section-divider"></div>
 
             <div class="form-group">
-=======
-
-            <div class="form-group">
-                <label for="comentario">Comentarios y consejos</label>
-                <div id="comentario-editor" style="height: 200px; background: #1a1a1a; resize: both; overflow: auto; min-height: 200px;"></div>
-                <input type="hidden" id="comentario" name="comentario">
-            </div>
-            
-            <div class="form-group">
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 <label>Trofeos Offline</label>
                 <div class="form-row">
                     <div class="form-group">
@@ -523,10 +406,7 @@ require_once 'csrf.php';
                     </select>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="section-divider"></div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 
             <div class="form-group">
                 <label for="trofeos-ocultos-editor">Trofeos Ocultos</label>
@@ -539,15 +419,12 @@ require_once 'csrf.php';
                 <div id="trofeos-perdibles-editor" style="height: 180px; background: #1a1a1a; resize: both; overflow: auto; min-height: 180px;"></div>
                 <input type="hidden" id="trofeos_perdibles" name="trofeos_perdibles">
             </div>
-<<<<<<< HEAD
             <div class="section-divider"></div>
             <div class="form-group">
                 <label for="comentario">Comentarios y consejos</label>
                 <div id="comentario-editor" style="height: 200px; background: #1a1a1a; resize: both; overflow: auto; min-height: 200px;"></div>
                 <input type="hidden" id="comentario" name="comentario">
             </div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         </div>
         </div>
         
@@ -681,7 +558,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('game-form');
     const saveBtn = document.getElementById('save-btn');
     
-<<<<<<< HEAD
     console.log('Formulario encontrado:', form);
     console.log('Botón guardar encontrado:', saveBtn);
     
@@ -689,17 +565,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Registrando event listener en botón guardar');
         saveBtn.addEventListener('click', function(e) {
             e.preventDefault();
-=======
-    if (form && saveBtn) {
-        saveBtn.addEventListener('click', function(e) {
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             console.log('Botón guardar clickeado, mediaItems:', mediaItems);
             const mediaItemsJson = JSON.stringify(mediaItems);
             document.getElementById('media-items-json').value = mediaItemsJson;
             console.log('media-items-json value:', mediaItemsJson);
             console.log('media-items-json element value:', document.getElementById('media-items-json').value);
             
-<<<<<<< HEAD
             // Actualizar mapas interactivos
             console.log('Llamando updateMapasJson()...');
             if (typeof updateMapasJson === 'function') {
@@ -709,23 +580,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('updateMapasJson no es una función');
             }
             
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             // Verificar que el campo tiene el valor correcto antes de enviar
             if (document.getElementById('media-items-json').value !== mediaItemsJson) {
                 console.error('Error: El campo media-items-json no tiene el valor correcto');
             }
             
-<<<<<<< HEAD
             console.log('Enviando formulario...');
             form.submit();
         });
     } else {
         console.error('No se encontró el formulario o el botón de guardar');
-=======
-            form.submit();
-        });
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     }
 
     const saveMediaBtn = document.getElementById('save-media-btn');
@@ -773,7 +637,6 @@ function addMediaItem() {
     renderMediaGalleryEditor();
 }
 
-<<<<<<< HEAD
 // Función para subir archivo multimedia del juego
 async function uploadMediaFile() {
     const fileInput = document.getElementById('media-file');
@@ -819,8 +682,6 @@ async function uploadMediaFile() {
     }
 }
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 function removeMediaItem(index) {
     mediaItems.splice(index, 1);
     mediaItems = mediaItems.map((item, idx) => ({ ...item, orden: idx }));
@@ -1112,10 +973,7 @@ function showAddTrophyForm() {
                         <input type="text" id="new-trophy-icon" placeholder="URL de la imagen" maxlength="500">
                         <label class="image-file-btn">
                             <input type="file" id="new-trophy-icon-file" accept="image/*">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                     </div>
@@ -1303,10 +1161,7 @@ function editTrophyInline(trophyId) {
                                 <input type="text" id="edit-icon-${trophyId}" value="${trophy.icono_url || ''}" placeholder="URL de la imagen" maxlength="500">
                                 <label class="image-file-btn">
                                     <input type="file" id="edit-icon-file-${trophyId}" accept="image/*">
-<<<<<<< HEAD
                                     <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                                     <span>Subir archivo</span>
                                 </label>
                             </div>
@@ -1648,10 +1503,7 @@ function showAddDLCForm() {
                         <input type="text" id="new-dlc-image" placeholder="URL del icono" maxlength="500" oninput="document.getElementById('new-dlc-preview').src = this.value || 'interfaz/trofeos/default.png'">
                         <label class="image-file-btn">
                             <input type="file" id="new-dlc-file" accept="image/*" onchange="const file=this.files[0]; if(file){const reader=new FileReader(); reader.onload=function(e){document.getElementById('new-dlc-image').value=e.target.result; document.getElementById('new-dlc-preview').src=e.target.result;}; reader.readAsDataURL(file);}">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                     </div>
@@ -1667,10 +1519,7 @@ function showAddDLCForm() {
                         <input type="text" id="new-dlc-banner-url" placeholder="URL del banner" maxlength="500" oninput="document.getElementById('new-dlc-banner-preview').src = this.value || 'interfaz/trofeos/default.png'">
                         <label class="image-file-btn">
                             <input type="file" id="new-dlc-banner-file" accept="image/*" onchange="const file=this.files[0]; if(file){const reader=new FileReader(); reader.onload=function(e){document.getElementById('new-dlc-banner-url').value=e.target.result; document.getElementById('new-dlc-banner-preview').src=e.target.result;}; reader.readAsDataURL(file);}">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                     </div>
@@ -1912,14 +1761,6 @@ function editDLCInline(dlcId) {
                         </div>
                     </div>
                     <div class="form-group">
-<<<<<<< HEAD
-=======
-                        <label>Descripción:</label>
-                        <div id="edit-dlc-desc-editor-${dlcId}" style="height: 150px; background: #1a1a1a; resize: both; overflow: auto; min-height: 150px;"></div>
-                        <input type="hidden" id="edit-dlc-desc-${dlcId}">
-                    </div>
-                    <div class="form-group">
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                         <label>Icono del DLC</label>
                         <div class="image-inline-editor">
                             <div class="image-inline-preview image-inline-preview--small">
@@ -1929,10 +1770,7 @@ function editDLCInline(dlcId) {
                                 <input type="text" id="edit-dlc-image-${dlcId}" value="${dlc.imagen_url || ''}" maxlength="500" oninput="document.getElementById('edit-dlc-preview-${dlcId}').src = this.value || 'interfaz/trofeos/default.png'">
                                 <label class="image-file-btn">
                                     <input type="file" id="edit-dlc-file-${dlcId}" accept="image/*" onchange="const file=this.files[0]; if(file){const reader=new FileReader(); reader.onload=function(e){document.getElementById('edit-dlc-image-${dlcId}').value=e.target.result; document.getElementById('edit-dlc-preview-${dlcId}').src=e.target.result;}; reader.readAsDataURL(file);}">
-<<<<<<< HEAD
                                     <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                                     <span>Subir archivo</span>
                                 </label>
                             </div>
@@ -1948,10 +1786,7 @@ function editDLCInline(dlcId) {
                                 <input type="text" id="edit-dlc-banner-url-${dlcId}" value="${dlc.banner_url || ''}" maxlength="500" oninput="document.getElementById('edit-dlc-banner-preview-${dlcId}').src = this.value || 'interfaz/trofeos/default.png'">
                                 <label class="image-file-btn">
                                     <input type="file" id="edit-dlc-banner-file-${dlcId}" accept="image/*" onchange="const file=this.files[0]; if(file){const reader=new FileReader(); reader.onload=function(e){document.getElementById('edit-dlc-banner-url-${dlcId}').value=e.target.result; document.getElementById('edit-dlc-banner-preview-${dlcId}').src=e.target.result;}; reader.readAsDataURL(file);}">
-<<<<<<< HEAD
                                     <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                                     <span>Subir archivo</span>
                                 </label>
                             </div>
@@ -2016,15 +1851,12 @@ function editDLCInline(dlcId) {
                     </div>
                     
                     <div class="form-group">
-<<<<<<< HEAD
                         <label>Descripción:</label>
                         <div id="edit-dlc-desc-editor-${dlcId}" style="height: 150px; background: #1a1a1a; resize: both; overflow: auto; min-height: 150px;"></div>
                         <input type="hidden" id="edit-dlc-desc-${dlcId}">
                     </div>
                     
                     <div class="form-group">
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                         <label>Trofeos Perdibles</label>
                         <div id="edit-dlc-perdibles-editor-${dlcId}" style="height: 140px; background: #1a1a1a; resize: both; overflow: auto; min-height: 140px;"></div>
                         <input type="hidden" id="edit-dlc-perdibles-${dlcId}">
@@ -2044,7 +1876,6 @@ function editDLCInline(dlcId) {
                                     <option value="video">Vídeo</option>
                                 </select>
                             </div>
-<<<<<<< HEAD
                             <div class="form-group" style="align-self: end; display: flex; gap: 0.5rem;">
                                 <button type="button" class="add-trophy-btn" onclick="addDLCMediaItem(${dlcId})">
                                     <i class="fas fa-plus"></i>
@@ -2056,22 +1887,10 @@ function editDLCInline(dlcId) {
                                 <button type="button" id="save-dlc-media-btn-${dlcId}" class="save-btn" onclick="saveDLCMedia(${dlcId})">
                                     <i class="fas fa-save"></i>
                                 </button>
-=======
-                            <div class="form-group" style="align-self: end;">
-                                <button type="button" class="add-trophy-btn" onclick="addDLCMediaItem(${dlcId})">
-                                    <i class="fas fa-plus"></i>
-                                </button>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             </div>
                         </div>
                         <div id="dlc-media-gallery-editor-${dlcId}" class="media-gallery-editor"></div>
                         <input type="hidden" id="dlc-media-items-json-${dlcId}" name="dlc_media_items_json_${dlcId}" value="[]">
-<<<<<<< HEAD
-=======
-                        <button type="button" id="save-dlc-media-btn-${dlcId}" class="save-btn" style="margin-top: 0.75rem;" onclick="saveDLCMedia(${dlcId})">
-                            <i class="fas fa-save"></i>
-                        </button>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     </div>
                     
                     <div style="text-align: center; margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
@@ -2242,7 +2061,6 @@ function addDLCMediaItem(dlcId) {
     console.log('addDLCMediaItem called for dlcId:', dlcId);
     const url = document.getElementById(`dlc-media-url-${dlcId}`).value.trim();
     const type = document.getElementById(`dlc-media-type-${dlcId}`).value;
-<<<<<<< HEAD
 
     console.log('URL:', url);
     console.log('Type:', type);
@@ -2251,16 +2069,6 @@ function addDLCMediaItem(dlcId) {
         dlcMediaItems[dlcId] = [];
     }
 
-=======
-    
-    console.log('URL:', url);
-    console.log('Type:', type);
-    
-    if (!dlcMediaItems[dlcId]) {
-        dlcMediaItems[dlcId] = [];
-    }
-    
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     if (!url) {
         alert('Introduce una URL para añadir un elemento a la galería.');
         return;
@@ -2278,7 +2086,6 @@ function addDLCMediaItem(dlcId) {
     renderDLCMediaGalleryEditor(dlcId);
 }
 
-<<<<<<< HEAD
 // Función para subir archivo multimedia de DLC
 async function uploadDLCMediaFile(dlcId) {
     const fileInput = document.getElementById(`dlc-media-file-${dlcId}`);
@@ -2329,8 +2136,6 @@ async function uploadDLCMediaFile(dlcId) {
     }
 }
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 // Función para eliminar elemento multimedia de DLC
 function removeDLCMediaItem(dlcId, index) {
     if (!dlcMediaItems[dlcId]) return;
@@ -2359,11 +2164,7 @@ function renderDLCMediaGalleryEditor(dlcId) {
                         ? `<div style="width:100%; height:100%; background:#0f0d1d; display:flex; align-items:center; justify-content:center;">
                             <span style="color:#fff; font-size:0.8rem;">Vídeo</span>
                             </div>`
-<<<<<<< HEAD
                         : `<img src="${item.url}" alt="Media" style="width:100% !important; height:100% !important; object-fit:cover !important; max-width:none !important; display:block !important;">`
-=======
-                        : `<img src="${item.url}" alt="Media" style="width:100%; height:100%; object-fit:cover;">`
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     }
                     <button type="button" onclick="removeDLCMediaItem(${dlcId}, ${index})" style="position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px;">
                         <i class="fas fa-times"></i>
@@ -2508,12 +2309,7 @@ function renderDLCTrophies(dlcId, trophies) {
                     <p style="margin: 0 0 0.3rem 0; font-size: 0.8rem; color: #888;">${trophy.instrucciones || ''}</p>
                     
                     <small style="color: #666;">
-<<<<<<< HEAD
                         ${trophy.conseguido ? '<i class="fas fa-trophy" style="color: #ffd700;"></i> Conseguido' : '<i class="fas fa-trophy" style="color: #999;"></i> No conseguido'}
-=======
-                        <i class="fas fa-trophy" style="color: #ffd700;"></i> Conseguido
-                        ${trophy.conseguido ? '<i class="fas fa-check-circle" style="color: #48bb78;"></i>' : '<i class="fas fa-times-circle" style="color: #e53e3e;"></i>'}
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                         ${trophy.online ? '<i class="fas fa-globe" style="color: #4299e1; margin-left: 0.5rem;" title="Online"></i>' : ''}
                         ${trophy.perdible ? '<i class="fas fa-exclamation-triangle" style="color: #ed8936; margin-left: 0.5rem;" title="Perdible"></i>' : ''}
                     </small>
@@ -2562,11 +2358,7 @@ function showAddDLCTrophyForm(dlcId) {
             </div>
             <div class="form-group">
                 <label>Descripción:</label>
-<<<<<<< HEAD
                 <input type="text" id="new-dlc-trophy-desc-${dlcId}" placeholder="Descripción del trofeo">
-=======
-                <textarea id="new-dlc-trophy-desc-${dlcId}" rows="2" placeholder="Descripción del trofeo"></textarea>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             </div>
             <div class="form-group">
                 <label>Tipo:</label>
@@ -2601,10 +2393,7 @@ function showAddDLCTrophyForm(dlcId) {
                         <input type="text" id="new-dlc-trophy-icon-${dlcId}" placeholder="URL de la imagen" maxlength="500">
                         <label class="image-file-btn">
                             <input type="file" id="new-dlc-trophy-icon-file-${dlcId}" accept="image/*">
-<<<<<<< HEAD
                             <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                             <span>Subir archivo</span>
                         </label>
                     </div>
@@ -2614,7 +2403,6 @@ function showAddDLCTrophyForm(dlcId) {
                 <label>Video URL:</label>
                 <input type="text" id="new-dlc-trophy-video-${dlcId}" placeholder="https://youtube.com/watch?v=...">
             </div>
-<<<<<<< HEAD
             <div class="form-group" style="display: flex; gap: 1rem; align-items: center;">
                 <label style="display: flex; align-items: center; gap: 0.5rem;">
                     <input type="checkbox" id="new-dlc-trophy-conseguido-${dlcId}"> Conseguido
@@ -2623,16 +2411,6 @@ function showAddDLCTrophyForm(dlcId) {
                     <input type="checkbox" id="new-dlc-trophy-perdible-${dlcId}"> Perdible
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem;">
-=======
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="new-dlc-trophy-conseguido-${dlcId}"> Conseguido
-                </label>
-                <label>
-                    <input type="checkbox" id="new-dlc-trophy-perdible-${dlcId}"> Perdible
-                </label>
-                <label>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     <input type="checkbox" id="new-dlc-trophy-online-${dlcId}"> Online
                 </label>
             </div>
@@ -2787,10 +2565,7 @@ function editDLCTrophyInline(trophyId, dlcId) {
                                 <input type="text" id="edit-dlc-trophy-icon-${trophyId}" value="${trophy.icono_url || ''}" placeholder="URL de la imagen" maxlength="500">
                                 <label class="image-file-btn">
                                     <input type="file" id="edit-dlc-trophy-icon-file-${trophyId}" accept="image/*">
-<<<<<<< HEAD
                                     <i class="fas fa-upload"></i>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                                     <span>Subir archivo</span>
                                 </label>
                             </div>
@@ -3228,7 +3003,6 @@ loadGameData = function(gameId) {
             }
             document.getElementById('show-clas3').checked = data.show_clas3 == 1;
 
-<<<<<<< HEAD
             // Cargar mapas interactivos
             if (data.mapas_interactivos && Array.isArray(data.mapas_interactivos)) {
                 const mapasData = data.mapas_interactivos.map(m => ({
@@ -3240,12 +3014,6 @@ loadGameData = function(gameId) {
                 loadMapasFromJson(JSON.stringify(mapasData));
             }
 
-=======
-            if (data.mapa_interactivo_url) {
-                document.getElementById('mapa-interactivo-url').value = data.mapa_interactivo_url;
-            }
-            
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             console.log('Formulario de juego actualizado');
         })
         .catch(err => {

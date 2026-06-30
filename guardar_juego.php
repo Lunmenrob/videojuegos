@@ -1,10 +1,13 @@
 <?php
-require_once 'config.php';
-require_once 'csrf.php';
+
+require_once 'config.php'; // Incluye el archivo de configuración
+require_once 'csrf.php'; // Incluye el archivo de protección CSRF
 
 try {
+    // Obtiene la conexión a la base de datos
     $conn = getConnection();
 } catch (Exception $e) {
+    // Muestra un error si no se puede conectar a la base de datos
     die('Error de conexión: ' . $e->getMessage());
 }
 
@@ -77,12 +80,14 @@ function uploadFileIfPresent($fieldName, $existingValue = null) {
 }
 
 try {
+    // Obtiene la conexión a la base de datos
     $conn = getConnection();
     
     // Si solo se está guardando la galería, no validar los campos requeridos del formulario
     $saveGalleryOnly = isset($_POST['save_gallery_only']) && $_POST['save_gallery_only'] === 'true';
     
     if (!$saveGalleryOnly) {
+        // Obtiene y valida los campos del formulario
         $id = $_POST['id'] ?? null;
         $titulo = $_POST['titulo'] ?? '';
         $plataforma = $_POST['plataforma'] ?? 'PS4';
@@ -93,19 +98,17 @@ try {
         $clasificacion_1_url = !empty($_POST['clasificacion_1_url']) ? $_POST['clasificacion_1_url'] : null;
         $clasificacion_2_url = !empty($_POST['clasificacion_2_url']) ? $_POST['clasificacion_2_url'] : null;
         $clasificacion_3_url = !empty($_POST['clasificacion_3_url']) ? $_POST['clasificacion_3_url'] : null;
+        // Valida checkboxes de clasificaciones
         $show_clas1 = isset($_POST['show_clas1']) ? 1 : 0;
         $show_clas2 = isset($_POST['show_clas2']) ? 1 : 0;
         $show_clas3 = isset($_POST['show_clas3']) ? 1 : 0;
-<<<<<<< HEAD
-=======
-        $mapa_interactivo_url = !empty($_POST['mapa_interactivo_url']) ? $_POST['mapa_interactivo_url'] : null;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         $genero = !empty($_POST['genero']) ? $_POST['genero'] : null;
         $desarrollador = !empty($_POST['desarrollador']) ? $_POST['desarrollador'] : null;
         $dificultad_platino = $_POST['dificultad_platino'] ?? '1 sobre 10';
         $duracion_estimada = !empty($_POST['duracion_estimada']) ? $_POST['duracion_estimada'] : null;
         $comentario = !empty($_POST['comentario']) ? $_POST['comentario'] : null;
         
+        // Valida que el título esté presente
         if (!$titulo) {
             die('Faltan datos requeridos');
         }
@@ -134,13 +137,6 @@ try {
         if (!empty($comentario) && strlen($comentario) > 5000) {
             die('Los comentarios no pueden superar los 5000 caracteres');
         }
-<<<<<<< HEAD
-=======
-        
-        if (!empty($mapa_interactivo_url) && strlen($mapa_interactivo_url) > 500) {
-            die('La URL del mapa interactivo no puede superar los 500 caracteres');
-        }
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     } else {
         // Solo guardar galería, obtener solo el ID y los media items
         $id = $_POST['id'] ?? null;
@@ -153,10 +149,6 @@ try {
         $clasificacion_1_url = null;
         $clasificacion_2_url = null;
         $clasificacion_3_url = null;
-<<<<<<< HEAD
-=======
-        $mapa_interactivo_url = null;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         $genero = null;
         $desarrollador = null;
         $dificultad_platino = '1 sobre 10';
@@ -164,27 +156,25 @@ try {
         $comentario = null;
     }
     
+    // Decodifica JSON de media items
     $mediaItemsJson = $_POST['media_items_json'] ?? '[]';
     $mediaItems = json_decode($mediaItemsJson, true);
     if (!is_array($mediaItems)) {
         $mediaItems = [];
     }
     
-<<<<<<< HEAD
+    // Decodifica JSON de mapas interactivos
     $mapasJson = $_POST['mapas_json'] ?? '[]';
     $mapas = json_decode($mapasJson, true);
     if (!is_array($mapas)) {
         $mapas = [];
     }
     
+    // Logs para depuración
     error_log('Media items JSON: ' . $mediaItemsJson);
     error_log('Media items decoded: ' . print_r($mediaItems, true));
     error_log('Mapas JSON: ' . $mapasJson);
     error_log('Mapas decoded: ' . print_r($mapas, true));
-=======
-    error_log('Media items JSON: ' . $mediaItemsJson);
-    error_log('Media items decoded: ' . print_r($mediaItems, true));
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     
     // Campos de trofeos - convertir a enteros
     $trofeos_offline_platino = (int)($_POST['trofeos_offline_platino'] ?? 0);
@@ -201,6 +191,7 @@ try {
     $total_trofeos = $trofeos_offline_platino + $trofeos_offline_oro + $trofeos_offline_plata + $trofeos_offline_bronce +
                 $trofeos_online_platino + $trofeos_online_oro + $trofeos_online_plata + $trofeos_online_bronce;
     
+    // Campos adicionales de trofeos
     $pase_online = $_POST['pase_online'] ?? 0;
     $necesario_platino = $_POST['necesario_platino'] ?? 'NO';
     $trofeos_ocultos = !empty($_POST['trofeos_ocultos']) ? $_POST['trofeos_ocultos'] : null;
@@ -209,6 +200,7 @@ try {
     $trucos_afectan = $_POST['trucos_afectan'] ?? 0;
     $dificultad_afecta = $_POST['dificultad_afecta'] ?? 0;
 
+    // Procesa subida de archivos de imágenes
     $icono_url = uploadFileIfPresent('icono_file', $icono_url);
     $banner_url = uploadFileIfPresent('banner_file', $banner_url);
     $pegi_url = uploadFileIfPresent('pegi_file', $pegi_url);
@@ -224,6 +216,7 @@ try {
         $banner_crop_width = !empty($_POST['banner_crop_width']) ? (float)$_POST['banner_crop_width'] : 100;
         $banner_crop_height = !empty($_POST['banner_crop_height']) ? (float)$_POST['banner_crop_height'] : 100;
         
+        // Procesa subida de archivos de imágenes nuevamente
         $icono_url = uploadFileIfPresent('icono_file', $icono_url);
         $banner_url = uploadFileIfPresent('banner_file', $banner_url);
         $pegi_url = uploadFileIfPresent('pegi_file', $pegi_url);
@@ -239,22 +232,14 @@ try {
             $stmt = $conn->prepare("
                 INSERT INTO juegos (
                     titulo, plataforma, fecha_lanzamiento, imagen_url, banner_url, banner_crop_x, banner_crop_y, banner_crop_width, banner_crop_height,
-<<<<<<< HEAD
                     pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, show_clas1, show_clas2, show_clas3,
-=======
-                    pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, show_clas1, show_clas2, show_clas3, mapa_interactivo_url,
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     genero, desarrollador, dificultad_platino, duracion_estimada, trofeos_offline_platino, trofeos_offline_oro,
                     trofeos_offline_plata, trofeos_offline_bronce, trofeos_online_platino, trofeos_online_oro,
                     trofeos_online_plata, trofeos_online_bronce, total_trofeos, pase_online, necesario_platino,
                     trofeos_ocultos, min_partidas, trofeos_perdibles, trucos_afectan, dificultad_afecta, comentario
                 ) VALUES (
                     :titulo, :plataforma, :fecha_lanzamiento, :imagen_url, :banner_url, :banner_crop_x, :banner_crop_y, :banner_crop_width, :banner_crop_height,
-<<<<<<< HEAD
                     :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :show_clas1, :show_clas2, :show_clas3,
-=======
-                    :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :show_clas1, :show_clas2, :show_clas3, :mapa_interactivo_url,
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     :genero, :desarrollador, :dificultad_platino, :duracion_estimada, :trofeos_offline_platino, :trofeos_offline_oro,
                     :trofeos_offline_plata, :trofeos_offline_bronce, :trofeos_online_platino, :trofeos_online_oro,
                     :trofeos_online_plata, :trofeos_online_bronce, :total_trofeos, :pase_online, :necesario_platino,
@@ -262,6 +247,7 @@ try {
                 )
             ");
             
+            // Ejecuta la inserción
             $stmt->execute([
                 ':titulo' => $titulo,
                 ':plataforma' => $plataforma,
@@ -279,10 +265,6 @@ try {
                 ':show_clas1' => $show_clas1,
                 ':show_clas2' => $show_clas2,
                 ':show_clas3' => $show_clas3,
-<<<<<<< HEAD
-=======
-                ':mapa_interactivo_url' => $mapa_interactivo_url,
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ':genero' => $genero,
                 ':desarrollador' => $desarrollador,
                 ':dificultad_platino' => $dificultad_platino,
@@ -306,16 +288,15 @@ try {
                 ':comentario' => $comentario
             ]);
             
+            // Obtiene el ID del juego insertado
             $id = $conn->lastInsertId();
         } else {
             // UPDATE para juego existente
-<<<<<<< HEAD
+            // Obtiene las URLs actuales de imágenes del juego
             $stmtGet = $conn->prepare("SELECT imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url FROM juegos WHERE id = :id");
-=======
-            $stmtGet = $conn->prepare("SELECT imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, mapa_interactivo_url FROM juegos WHERE id = :id");
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             $stmtGet->execute([':id' => $id]);
             $currentGame = $stmtGet->fetch(PDO::FETCH_ASSOC);
+            // Si no se proporcionó nueva URL, mantiene la existente
             if (empty($icono_url)) {
                 $icono_url = $currentGame['imagen_url'] ?? null;
             }
@@ -334,13 +315,8 @@ try {
             if (empty($clasificacion_3_url)) {
                 $clasificacion_3_url = $currentGame['clasificacion_3_url'] ?? null;
             }
-<<<<<<< HEAD
-=======
-            if (empty($mapa_interactivo_url)) {
-                $mapa_interactivo_url = $currentGame['mapa_interactivo_url'] ?? null;
-            }
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             
+            // Prepara la consulta de actualización
             $stmt = $conn->prepare("
                 UPDATE juegos 
                 SET titulo = :titulo,
@@ -359,10 +335,6 @@ try {
                     show_clas1 = :show_clas1,
                     show_clas2 = :show_clas2,
                     show_clas3 = :show_clas3,
-<<<<<<< HEAD
-=======
-                    mapa_interactivo_url = :mapa_interactivo_url,
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     genero = :genero,
                     desarrollador = :desarrollador,
                     dificultad_platino = :dificultad_platino,
@@ -387,6 +359,7 @@ try {
                 WHERE id = :id
             ");
             
+            // Ejecuta la actualización
             $stmt->execute([
                 ':id' => $id,
                 ':titulo' => $titulo,
@@ -405,10 +378,6 @@ try {
                 ':show_clas1' => $show_clas1,
                 ':show_clas2' => $show_clas2,
                 ':show_clas3' => $show_clas3,
-<<<<<<< HEAD
-=======
-                ':mapa_interactivo_url' => $mapa_interactivo_url,
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ':genero' => $genero,
                 ':desarrollador' => $desarrollador,
                 ':dificultad_platino' => $dificultad_platino,
@@ -434,20 +403,22 @@ try {
         }
     }
 
-<<<<<<< HEAD
     // Guardar mapas interactivos siempre que haya un ID
     if (!empty($id) && is_array($mapas)) {
         error_log('Guardando mapas interactivos para juego ID: ' . $id);
         error_log('Cantidad de mapas: ' . count($mapas));
         
+        // Elimina mapas existentes del juego
         $stmtDeleteMapas = $conn->prepare('DELETE FROM mapas_interactivos WHERE juego_id = :juego_id');
         $stmtDeleteMapas->execute([':juego_id' => (int)$id]);
         error_log('Mapas interactivos eliminados');
 
+        // Inserta los nuevos mapas
         if (count($mapas) > 0) {
             $stmtInsertMapa = $conn->prepare('INSERT INTO mapas_interactivos (juego_id, nombre, url, orden) VALUES (:juego_id, :nombre, :url, :orden)');
             foreach ($mapas as $index => $mapa) {
                 error_log('Procesando mapa ' . $index . ': ' . print_r($mapa, true));
+                // Valida que el mapa tenga URL y nombre
                 if (empty($mapa['url']) || empty($mapa['nombre'])) {
                     error_log('Mapa ' . $index . ' sin URL o nombre, saltando');
                     continue;
@@ -463,20 +434,22 @@ try {
         }
     }
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
+    // Guardar media items siempre que haya un ID
     if (!empty($id) && is_array($mediaItems)) {
         error_log('Guardando media items para juego ID: ' . $id);
         error_log('Cantidad de media items: ' . count($mediaItems));
         
+        // Elimina media items existentes del juego
         $stmtDeleteMedia = $conn->prepare('DELETE FROM media_juegos WHERE videojuego_id = :videojuego_id');
         $stmtDeleteMedia->execute([':videojuego_id' => (int)$id]);
         error_log('Media items eliminados');
 
+        // Inserta los nuevos media items
         if (count($mediaItems) > 0) {
             $stmtInsertMedia = $conn->prepare('INSERT INTO media_juegos (videojuego_id, tipo, url, orden) VALUES (:videojuego_id, :tipo, :url, :orden)');
             foreach ($mediaItems as $index => $item) {
                 error_log('Procesando media item ' . $index . ': ' . print_r($item, true));
+                // Valida que el item tenga URL
                 if (empty($item['url'])) {
                     error_log('Media item ' . $index . ' sin URL, saltando');
                     continue;
@@ -499,9 +472,11 @@ try {
         exit;
     }
     
+    // Redirige a la página de edición del juego
     header('Location: editar_juego.php?id=' . $id);
     exit;
     
 } catch (Exception $e) {
+    // Captura errores y muestra mensaje
     echo 'Error: ' . $e->getMessage();
 }

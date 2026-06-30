@@ -3,21 +3,26 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Incluye el archivo de configuración
 require_once '../config.php';
 
 try {
+    // Obtiene la conexión a la base de datos
     $conn = getConnection();
-    $method = $_SERVER['REQUEST_METHOD'];
+    // Obtiene el método HTTP de la solicitud
+    $method = $_SERVER['REQUEST_METHOD';
     
     switch ($method) {
         case 'GET':
             // Obtener un videojuego específico
             if (isset($_GET['id'])) {
+                // Convierte el ID a entero
                 $gameId = (int)$_GET['id'];
                 
                 // Debug: Log del ID recibido
                 error_log("API: Buscando juego con ID: " . $gameId);
                 
+                // Prepara la consulta para obtener el juego con su progreso
                 $stmt = $conn->prepare("
                     SELECT v.*, 
                         p.total_trofeos,
@@ -31,6 +36,7 @@ try {
                     WHERE v.id = :id
                 ");
                 $stmt->execute([':id' => $gameId]);
+                // Obtiene el resultado
                 $game = $stmt->fetch(PDO::FETCH_ASSOC);
                 
                 // Debug: Log del resultado
@@ -40,6 +46,7 @@ try {
                 }
                 
                 if ($game) {
+                    // Convierte los campos a los tipos correctos
                     $game['id'] = (int)$game['id'];
                     $game['total_trofeos'] = (int)($game['total_trofeos'] ?? 0);
                     $game['bronce_conseguidos'] = (int)($game['bronce_conseguidos'] ?? 0);
@@ -59,21 +66,21 @@ try {
                         $game['trofeos_perdibles'] = html_entity_decode($game['trofeos_perdibles'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
                     }
                     
-<<<<<<< HEAD
                     // Cargar mapas interactivos
                     $stmtMapas = $conn->prepare("SELECT id, nombre, url, orden FROM mapas_interactivos WHERE juego_id = :juego_id ORDER BY orden ASC");
                     $stmtMapas->execute([':juego_id' => $gameId]);
                     $mapas = $stmtMapas->fetchAll(PDO::FETCH_ASSOC);
                     $game['mapas_interactivos'] = $mapas;
                     
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
+                    // Retorna el juego en formato JSON
                     echo json_encode($game, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                 } else {
+                    // Si no se encuentra el juego, retorna error 404
                     http_response_code(404);
                     echo json_encode(['error' => 'Videojuego no encontrado con ID: ' . $gameId]);
                 }
             } else {
+                // Si no se proporciona ID, retorna error 400
                 http_response_code(400);
                 echo json_encode(['error' => 'ID de juego no proporcionado']);
             }
@@ -83,22 +90,20 @@ try {
             // Crear nuevo videojuego
             $data = json_decode(file_get_contents('php://input'), true);
             
+            // Valida que los datos requeridos estén presentes
             if (!$data || !isset($data['titulo']) || !isset($data['plataforma'])) {
                 http_response_code(400);
                 echo json_encode(['error' => 'Faltan datos requeridos']);
                 break;
             }
             
+            // Prepara la consulta para insertar el nuevo juego
             $stmt = $conn->prepare("
-<<<<<<< HEAD
                 INSERT INTO juegos (titulo, plataforma, fecha_lanzamiento, genero, desarrollador, imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url)
                 VALUES (:titulo, :plataforma, :fecha_lanzamiento, :genero, :desarrollador, :imagen_url, :banner_url, :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url)
-=======
-                INSERT INTO juegos (titulo, plataforma, fecha_lanzamiento, genero, desarrollador, imagen_url, banner_url, pegi_url, clasificacion_1_url, clasificacion_2_url, clasificacion_3_url, mapa_interactivo_url)
-                VALUES (:titulo, :plataforma, :fecha_lanzamiento, :genero, :desarrollador, :imagen_url, :banner_url, :pegi_url, :clasificacion_1_url, :clasificacion_2_url, :clasificacion_3_url, :mapa_interactivo_url)
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             ");
             
+            // Ejecuta la inserción con los parámetros
             $stmt->execute([
                 ':titulo' => $data['titulo'],
                 ':plataforma' => $data['plataforma'],
@@ -110,14 +115,10 @@ try {
                 ':pegi_url' => $data['pegi_url'] ?? null,
                 ':clasificacion_1_url' => $data['clasificacion_1_url'] ?? null,
                 ':clasificacion_2_url' => $data['clasificacion_2_url'] ?? null,
-<<<<<<< HEAD
                 ':clasificacion_3_url' => $data['clasificacion_3_url'] ?? null
-=======
-                ':clasificacion_3_url' => $data['clasificacion_3_url'] ?? null,
-                ':mapa_interactivo_url' => $data['mapa_interactivo_url'] ?? null
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             ]);
             
+            // Obtiene el ID del juego insertado
             $gameId = $conn->lastInsertId();
             
             // Crear registro de progreso inicial
@@ -126,6 +127,7 @@ try {
                 VALUES (:game_id, 0, 0.00)
             ")->execute([':game_id' => $gameId]);
             
+            // Retorna éxito con el ID del juego
             echo json_encode(['id' => (int)$gameId, 'message' => 'Videojuego creado correctamente']);
             break;
             
@@ -133,17 +135,22 @@ try {
             // Actualizar videojuego existente
             $data = json_decode(file_get_contents('php://input'), true);
             
+            // Debug: Log de los datos recibidos
             error_log("Datos recibidos en PUT: " . print_r($data, true));
             
+            // Valida que los datos requeridos estén presentes
             if (!$data || !isset($data['id'])) {
                 http_response_code(400);
                 echo json_encode(['error' => 'Faltan datos requeridos']);
                 break;
             }
             
+            // Convierte el ID a entero
             $gameId = (int)$data['id'];
+            // Debug: Log del ID del juego
             error_log("Game ID: " . $gameId);
             
+            // Prepara la consulta para actualizar el juego
             $stmt = $conn->prepare("
                 UPDATE juegos 
                 SET titulo = :titulo,
@@ -177,6 +184,7 @@ try {
                 WHERE id = :id
             ");
             
+            // Ejecuta la actualización con los parámetros
             $stmt->execute([
                 ':id' => $gameId,
                 ':titulo' => $data['titulo'] ?? '',
@@ -209,6 +217,7 @@ try {
                 ':show_clas3' => isset($data['show_clas3']) ? (int)$data['show_clas3'] : 1
             ]);
             
+            // Retorna mensaje de éxito
             echo json_encode(['message' => 'Videojuego actualizado correctamente']);
             break;
             
@@ -220,21 +229,26 @@ try {
                 break;
             }
             
+            // Convierte el ID a entero
             $gameId = (int)$_GET['id'];
             
+            // Prepara y ejecuta la eliminación
             $stmt = $conn->prepare("DELETE FROM juegos WHERE id = :id");
             $stmt->execute([':id' => $gameId]);
             
+            // Retorna mensaje de éxito
             echo json_encode(['message' => 'Videojuego eliminado correctamente']);
             break;
             
         default:
+            // Método no permitido
             http_response_code(405);
             echo json_encode(['error' => 'Método no permitido']);
             break;
     }
     
 } catch(PDOException $e) {
+    // Captura errores de base de datos
     http_response_code(500);
     echo json_encode(['error' => 'Error en la base de datos: ' . $e->getMessage()]);
 }

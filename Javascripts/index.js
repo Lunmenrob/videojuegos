@@ -1,51 +1,77 @@
+// Clase principal de la aplicación de videojuegos
 class VideojuegosApp {
     constructor() {
+        // Filtro actual de plataforma (todos por defecto)
         this.currentFilter = 'todos';
+        // Ordenamiento actual (nombre por defecto)
         this.currentSort = 'nombre';
+        // Juego actual seleccionado
         this.currentGame = null;
+        // Array de juegos cargados
         this.games = [];
+        // Verifica si es la página pública
         this.isPublicPage = window.location.pathname.includes('/publico/');
+        // Ruta base de la API según si es página pública o admin
         this.apiBasePath = this.isPublicPage ? '../api/' : 'api/';
+        // Ruta base de assets según si es página pública o admin
         this.assetBasePath = this.isPublicPage ? '../' : '';
+        // Página de detalles según si es página pública o admin
         this.detailsPage = this.isPublicPage ? 'public_detalles.php' : 'detalles.php';
+        // Inicializa la aplicación
         this.init();
     }
 
+    // Método de inicialización
     init() {
+        // Configura los event listeners
         this.setupEventListeners();
+        // Carga los juegos
         this.loadGames();
     }
 
+    // Configura los event listeners de la interfaz
     setupEventListeners() {
-        // Búsqueda
+        // Event listener para el botón de búsqueda
         document.getElementById('searchBtn').addEventListener('click', () => this.searchGames());
+        // Event listener para la tecla Enter en el input de búsqueda
         document.getElementById('searchInput').addEventListener('keyup', (e) => {
             if (e.key === 'Enter') this.searchGames();
         });
 
-        // Filtros
+        // Event listener para el filtro de plataforma
         document.getElementById('platformFilter').addEventListener('change', (e) => this.setFilter(e.target.value));
 
-        // Ordenamiento
+        // Event listener para el ordenamiento
         document.getElementById('sortFilter').addEventListener('change', (e) => this.setSort(e.target.value));
     }
 
+    // Carga los juegos desde la API
     async loadGames() {
         try {
+            // Realiza la petición fetch a la API de juegos
             const response = await fetch(`${this.apiBasePath}games.php`);
+            // Parsea la respuesta JSON y la asigna al array de juegos
             this.games = await response.json();
+            // Renderiza los juegos
             this.renderGames();
         } catch (error) {
+            // Log de error si falla la carga
             console.error('Error al cargar videojuegos:', error);
+            // Muestra mensaje de error
             this.showMessage('Error al cargar los videojuegos', 'error');
         }
     }
 
+    // Renderiza los juegos en el contenedor
     renderGames() {
+        // Obtiene el contenedor de juegos
         const container = document.getElementById('gamesContainer');
+        // Filtra los juegos por plataforma
         let filteredGames = this.filterGamesByPlatform(this.games);
+        // Ordena los juegos
         filteredGames = this.sortGames(filteredGames);
         
+        // Genera el HTML para cada juego
         container.innerHTML = filteredGames.map(game => `
             <a href="${this.detailsPage}?id=${game.id}" class="game-item-link">
                 <div class="game-item">
@@ -90,45 +116,57 @@ class VideojuegosApp {
         `).join('');
     }
 
+    // Filtra los juegos por plataforma
     filterGamesByPlatform(games) {
+        // Si el filtro es 'todos', retorna todos los juegos sin filtrar
         if (this.currentFilter === 'todos') return games;
+        // Filtra los juegos según la plataforma seleccionada
         return games.filter(game => 
             game.plataforma.toLowerCase() === this.currentFilter || 
             (this.currentFilter === 'ambos' && game.plataforma === 'AMBOS')
         );
     }
 
+    // Establece el filtro de plataforma
     setFilter(filter) {
+        // Actualiza el filtro actual
         this.currentFilter = filter;
+        // Actualiza la clase active en los botones de filtro
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.filter === filter);
         });
+        // Renderiza los juegos con el nuevo filtro
         this.renderGames();
     }
 
+    // Establece el ordenamiento
     setSort(sort) {
+        // Actualiza el ordenamiento actual
         this.currentSort = sort;
+        // Actualiza la clase active en los botones de ordenamiento
         document.querySelectorAll('.sort-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.sort === sort);
         });
+        // Renderiza los juegos con el nuevo ordenamiento
         this.renderGames();
     }
 
+    // Ordena los juegos según el criterio seleccionado
     sortGames(games) {
+        // Crea una copia del array de juegos
         let sortedGames = [...games];
 
-<<<<<<< HEAD
+        // Log para depuración
         console.log('sortGames - currentSort:', this.currentSort);
         console.log('sortGames - games before sort:', games.map(g => ({ titulo: g.titulo, porcentaje: g.porcentaje_completado })));
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
+        // Switch según el tipo de ordenamiento
         switch (this.currentSort) {
             case 'nombre':
+                // Ordena alfabéticamente por título
                 sortedGames.sort((a, b) => a.titulo.localeCompare(b.titulo));
                 break;
             case 'completados':
-<<<<<<< HEAD
                 // Filtrar solo juegos con platino o 100% de completado
                 sortedGames = sortedGames.filter(game => {
                     const aPercent = parseFloat(game.porcentaje_completado) || 0;
@@ -152,19 +190,6 @@ class VideojuegosApp {
                     const aPercent = parseFloat(a.porcentaje_completado) || 0;
                     const bPercent = parseFloat(b.porcentaje_completado) || 0;
                     return aPercent - bPercent;
-=======
-                sortedGames.sort((a, b) => {
-                    const aCompleted = a.platino_conseguido ? 1 : 0;
-                    const bCompleted = b.platino_conseguido ? 1 : 0;
-                    return bCompleted - aCompleted;
-                });
-                break;
-            case 'incompletos':
-                sortedGames.sort((a, b) => {
-                    const aCompleted = a.platino_conseguido ? 1 : 0;
-                    const bCompleted = b.platino_conseguido ? 1 : 0;
-                    return aCompleted - bCompleted;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 });
                 break;
             default:
@@ -173,39 +198,46 @@ class VideojuegosApp {
                 break;
         }
 
-<<<<<<< HEAD
+        // Log para depuración
         console.log('sortGames - games after sort:', sortedGames.map(g => ({ titulo: g.titulo, porcentaje: g.porcentaje_completado })));
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
+        // Retorna los juegos ordenados
         return sortedGames;
     }
 
+    // Busca juegos por término de búsqueda
     async searchGames() {
+        // Obtiene el término de búsqueda y lo convierte a minúsculas
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        // Si no hay término de búsqueda, recarga todos los juegos
         if (!searchTerm) {
-<<<<<<< HEAD
             // Recargar todos los juegos cuando se borra la búsqueda
             await this.loadGames();
-=======
-            this.renderGames();
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             return;
         }
 
         try {
+            // Realiza la petición fetch con el término de búsqueda
             const response = await fetch(`${this.apiBasePath}games.php?search=${encodeURIComponent(searchTerm)}`);
+            // Parsea la respuesta JSON y la asigna al array de juegos
             this.games = await response.json();
+            // Renderiza los juegos filtrados
             this.renderGames();
         } catch (error) {
+            // Log de error si falla la búsqueda
             console.error('Error en búsqueda:', error);
         }
     }
 
+    // Muestra un mensaje flotante en la pantalla
     showMessage(message, type = 'info') {
+        // Crea un elemento div para el mensaje
         const messageDiv = document.createElement('div');
+        // Establece la clase del mensaje según el tipo
         messageDiv.className = `message message-${type}`;
+        // Establece el texto del mensaje
         messageDiv.textContent = message;
+        // Establece los estilos inline del mensaje
         messageDiv.style.cssText = `
             position: fixed;
             top: 20px;
@@ -218,14 +250,18 @@ class VideojuegosApp {
             animation: slideIn 0.3s ease;
         `;
         
+        // Agrega el mensaje al body
         document.body.appendChild(messageDiv);
         
+        // Elimina el mensaje después de 3 segundos
         setTimeout(() => {
             messageDiv.remove();
         }, 3000);
     }
 }
 
+// Event listener que se ejecuta cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
+    // Crea una instancia de la aplicación de videojuegos
     const app = new VideojuegosApp();
 });

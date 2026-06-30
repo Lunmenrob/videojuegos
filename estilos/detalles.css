@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Estilos para la página de detalles del juego (detalles.php)
  * Contiene estilos para:
@@ -13,10 +12,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
 
 /* Estilos base del body */
-=======
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
-
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 body {
     background: #181624;
     color: #ffffff;
@@ -27,10 +22,7 @@ body {
     line-height: 1.15;
 }
 
-<<<<<<< HEAD
 /* Contenedor principal del contenido de la página */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .page-content {
     padding-top: 60px;
 }
@@ -108,10 +100,7 @@ body {
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Banner del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-banner {
     width: 100%;
     height: 300px;
@@ -120,10 +109,7 @@ body {
     position: relative;
 }
 
-<<<<<<< HEAD
 /* Imagen del banner del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-banner img {
     width: 100%;
     height: 100%;
@@ -131,20 +117,13 @@ body {
     object-position: center 37%;
 }
 
-<<<<<<< HEAD
 /* Overlay de información sobre el banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-overlay {
     position: absolute;
     left: 2rem;
     top: 50%;
     transform: translateY(-50%);
-<<<<<<< HEAD
     background: rgba(0, 0, 0, 0.331);
-=======
-    background: rgba(0, 0, 0, 0.7);
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 2rem;
@@ -152,28 +131,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-<<<<<<< HEAD
 /* Contenido del overlay del banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-content {
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Título en el overlay del banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-title {
     margin: 0 0 0.75rem 0;
     font-size: 1.3rem;
     font-weight: 500;
 }
 
-<<<<<<< HEAD
 /* Plataforma en el overlay del banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-platform {
     display: flex;
     align-items: center;
@@ -183,10 +153,7 @@ body {
     color: #cccccc;
 }
 
-<<<<<<< HEAD
 /* Badge de plataforma en el banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #banner-plataforma {
     display: inline-block;
     padding: 0.3rem 0.6rem;
@@ -197,54 +164,36 @@ body {
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Icono de plataforma en el banner (oculto) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #banner-platform-icon {
     display: none;
 }
 
-<<<<<<< HEAD
 /* Detalles en el overlay del banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-details {
     margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
 /* Item individual de detalle en el banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-item {
     display: flex;
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
 }
 
-<<<<<<< HEAD
 /* Etiqueta de item de detalle */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-label {
     color: #888;
     margin-right: 0.5rem;
     min-width: 80px;
 }
 
-<<<<<<< HEAD
 /* Valor de item de detalle */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-value {
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Clasificaciones en el overlay del banner */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .banner-info-classifications {
     display: flex;
     gap: 0.5rem;
@@ -252,10 +201,7 @@ body {
     align-items: center;
 }
 
-<<<<<<< HEAD
 /* Item individual de clasificación */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .classification-item {
     width: 52px;
     height: 52px;
@@ -796,7 +742,6 @@ body {
 .trophy-card-icon {
     width: 76px !important;
     height: 76px !important;
-<<<<<<< HEAD
     max-width: 76px !important;
     max-height: 76px !important;
     min-width: 76px !important;
@@ -804,10 +749,6 @@ body {
     object-fit: contain !important;
     flex-shrink: 0 !important;
     display: block !important;
-=======
-    object-fit: contain;
-    flex-shrink: 0;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 .trophy-card-info {
@@ -919,13 +860,8 @@ body {
 }
 
 .trophy-card-instructions p {
-<<<<<<< HEAD
     margin: 0.15rem 0;
     line-height: 1.2;
-=======
-    margin: 0.3rem 0;
-    line-height: 1;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 .trophy-card-instructions img {
@@ -942,22 +878,14 @@ body {
     margin-top: 1rem !important;
     position: relative !important;
     width: 100% !important;
-<<<<<<< HEAD
     max-width: 500px !important;
-=======
-    max-width: 800px !important;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     margin-left: auto !important;
     margin-right: auto !important;
     background: #000 !important;
     border-radius: 8px !important;
     overflow: hidden !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-<<<<<<< HEAD
     height: 280px !important;
-=======
-    height: 450px !important;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 .trophy-video-iframe {
@@ -998,10 +926,7 @@ body {
     border-radius: 4px;
     background: transparent;
     transition: all 0.2s;
-<<<<<<< HEAD
     position: relative;
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 .trophy-checkbox input:checked + .checkmark {
@@ -1017,18 +942,14 @@ body {
     justify-content: center;
     font-size: 14px;
     font-weight: bold;
-<<<<<<< HEAD
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 }
 
 /* DLC Styles */
 /* Movidos a detalles_dlcs.css para evitar conflictos */
-<<<<<<< HEAD
 
 /* Botones de iconos de DLCs */
 .dlc-icon-btn {
@@ -1060,8 +981,6 @@ body {
     height: auto;
     object-fit: contain;
 }
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .toggle-trophies-btn {
     display: block;
     width: 100%;
@@ -1162,7 +1081,6 @@ body {
     background: transparent;
     color: #ffffff;
 }
-<<<<<<< HEAD
 
 /* Estilos para mapas interactivos */
 .mapas-interactivos-container {
@@ -1199,5 +1117,3 @@ body {
 .mapa-interactivo-btn:active {
     transform: translateY(0);
 }
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a

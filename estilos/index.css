@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Estilos para la página principal de juegos (index.php)
  * Contiene estilos para:
@@ -8,19 +7,18 @@
  * - Tarjetas individuales de juegos con icono, título y plataforma
  * - Diseño responsive
  */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 /* ESTILOS PARA INDEX.PHP - PÁGINA PRINCIPAL */
 
+/* Importa la fuente Roboto de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+/* Importa la fuente PlayStation de CDN */
 @import url('https://cdn.jsdelivr.net/gh/googlefonts/playstation-font@main/PlayStationFont.woff2');
+/* Importa la fuente Zrnic de CDN Fonts */
 @import url('https://fonts.cdnfonts.com/css/zrnic');
 
-<<<<<<< HEAD
 /* Estilos base del body */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 body {
+    /* Fuente SCE-PS3 con Roboto como fallback */
     font-family: 'SCE-PS3', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #181624;
     color: #ffffff;
@@ -30,28 +28,19 @@ body {
     line-height: 1.2;
 }
 
-<<<<<<< HEAD
 /* Contenedor principal del contenido de la página */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .page-content {
     padding-top: 60px;
 }
 
-<<<<<<< HEAD
 /* Contenedor centrado con ancho máximo */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-<<<<<<< HEAD
 /* Cabecera de la página con gradiente */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 header {
     background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
     border-bottom: 1px solid #2a2a2a;
@@ -59,10 +48,7 @@ header {
     margin-bottom: 2rem;
 }
 
-<<<<<<< HEAD
 /* Título principal de la página */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -72,10 +58,7 @@ h1 {
     letter-spacing: 0.05em;
 }
 
-<<<<<<< HEAD
 /* Contenedor de controles (búsqueda y filtros) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .controls {
     display: flex;
     justify-content: space-between;
@@ -85,10 +68,7 @@ h1 {
     gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* Caja de búsqueda */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .search-box {
     display: flex;
     gap: 0.5rem;
@@ -96,10 +76,7 @@ h1 {
     max-width: 400px;
 }
 
-<<<<<<< HEAD
 /* Campo de input de búsqueda */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .search-box input {
     flex: 1;
     padding: 0.75rem;
@@ -111,19 +88,13 @@ h1 {
     transition: border-color 0.2s;
 }
 
-<<<<<<< HEAD
 /* Focus del input de búsqueda: borde azul */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .search-box input:focus {
     outline: none;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón de búsqueda */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .search-box button {
     padding: 0.75rem 1rem;
     background: #3a3a3a;
@@ -135,29 +106,20 @@ h1 {
     transition: all 0.2s;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de búsqueda */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .search-box button:hover {
     transform: translateY(-1px);
     background: #4a4a4a;
 }
 
-<<<<<<< HEAD
 /* Contenedor de botones de filtro */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .filter-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
 /* Botón de filtro individual */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .filter-btn {
     padding: 0.5rem 1.5rem;
     border: none;
@@ -169,10 +131,7 @@ h1 {
     letter-spacing: 0.05em;
 }
 
-<<<<<<< HEAD
 /* Estilo específico para botón de filtro PS4 (negro) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .filter-btn.ps4 {
     background: #000000 !important;
     color: #ffffff !important;
@@ -181,10 +140,7 @@ h1 {
     font-size: 0.9rem !important;
 }
 
-<<<<<<< HEAD
 /* Estilo específico para botón de filtro PS5 (blanco) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .filter-btn.ps5 {
     background: #ffffff !important;
     color: #000000 !important;
@@ -193,19 +149,13 @@ h1 {
     font-size: 0.9rem !important;
 }
 
-<<<<<<< HEAD
 /* Estado activo del botón de filtro */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .filter-btn.active {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-<<<<<<< HEAD
 /* Lista de juegos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .games-list {
     display: flex;
     flex-direction: column;
@@ -213,20 +163,14 @@ h1 {
     margin-bottom: 2rem;
 }
 
-<<<<<<< HEAD
 /* Enlace que envuelve cada item de juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-item-link {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
-<<<<<<< HEAD
 /* Item individual de juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-item {
     background: #181624;
     border: none;
@@ -241,18 +185,12 @@ h1 {
     overflow: hidden;
 }
 
-<<<<<<< HEAD
 /* Hover del item de juego: fondo más claro */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-item-link:hover .game-item {
     background: #252525;
 }
 
-<<<<<<< HEAD
 /* Línea decorativa inferior del item de juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-item::before {
     content: '';
     position: absolute;
@@ -263,10 +201,7 @@ h1 {
     background: #40366b;
 }
 
-<<<<<<< HEAD
 /* Icono del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-icon {
     width: 110px;
     height: 110px;
@@ -283,10 +218,7 @@ h1 {
     box-shadow: none;
 }
 
-<<<<<<< HEAD
 /* Imagen del icono del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-icon img {
     width: 100%;
     height: 100%;
@@ -294,10 +226,7 @@ h1 {
     border-radius: 0;
 }
 
-<<<<<<< HEAD
 /* Badge de plataforma (PS4/PS5) en el icono del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .platform-badge {
     position: absolute;
     top: 2px;
@@ -310,10 +239,7 @@ h1 {
     font-weight: 600;
 }
 
-<<<<<<< HEAD
 /* Información del juego (título y trofeos) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-info {
     flex: 1;
     display: flex;
@@ -321,10 +247,7 @@ h1 {
     gap: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Título del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-title {
     font-size: 1.4rem !important;
     font-weight: 200 !important;
@@ -337,29 +260,20 @@ h1 {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-<<<<<<< HEAD
 /* Información de trofeos del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophies-info {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* Contenedor de iconos de trofeos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-icons {
     display: flex;
     gap: 0.2rem;
 }
 
-<<<<<<< HEAD
 /* Icono individual de trofeo */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-icon {
     width: 40px;
     height: 50px;
@@ -369,20 +283,14 @@ h1 {
     margin-right: 0.2rem;
 }
 
-<<<<<<< HEAD
 /* Imagen del trofeo */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-img {
     width: 30px;
     height: 30px;
     margin-bottom: 0.3rem;
 }
 
-<<<<<<< HEAD
 /* Contador de trofeos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-count {
     font-size: 0.6rem;
     font-weight: 600;
@@ -391,29 +299,20 @@ h1 {
     line-height: 1;
 }
 
-<<<<<<< HEAD
 /* Texto del total de trofeos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-total {
     color: #999999;
     font-size: 0.8rem;
     font-weight: 500;
 }
 
-<<<<<<< HEAD
 /* Texto descriptivo de trofeos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-text {
     color: #cccccc;
     font-weight: 600;
 }
 
-<<<<<<< HEAD
 /* Porcentaje de progreso del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-percentage {
     display: flex;
     align-items: center;
@@ -421,10 +320,7 @@ h1 {
     min-width: 60px;
 }
 
-<<<<<<< HEAD
 /* Texto del porcentaje */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .percentage-text {
     font-size: 1.8rem;
     font-weight: 300;
@@ -433,10 +329,7 @@ h1 {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-<<<<<<< HEAD
 /* Detalles adicionales del juego */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .game-details {
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
@@ -469,6 +362,7 @@ h1 {
     color: white;
 }
 
+/* Animación de entrada desde la derecha */
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -480,6 +374,7 @@ h1 {
     }
 }
 
+/* Estilos responsive para pantallas menores a 768px */
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;
@@ -508,5 +403,209 @@ h1 {
     .trophies-info {
         flex-direction: column;
         gap: 0.5rem;
+    }
+}
+
+/* Contenedor de botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+/* Estilo para botones primarios */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Efecto hover para botones primarios */
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
+}
+
+/* Estilo para el modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Botón de cerrar modal */
+.close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+/* Efecto hover para botón de cerrar */
+.close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Etiquetas del formulario */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Inputs y selects del formulario */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+/* Efecto focus para inputs y selects */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0071e3;
+}
+
+/* Botón de agregar */
+.add-btn {
+    width: 50px;
+    height: 50px;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+/* Efecto hover para botón de agregar */
+.add-btn:hover {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+/* Contenedor de dropdowns de filtro */
+.filter-dropdowns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+/* Grupo de dropdown */
+.dropdown-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Etiqueta del dropdown */
+.dropdown-group label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Select del dropdown */
+.dropdown-group select {
+    padding: 0.5rem 1rem;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Zrnic', sans-serif;
+    min-width: 150px;
+}
+
+/* Efecto hover para select */
+.dropdown-group select:hover {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+/* Efecto focus para select */
+.dropdown-group select:focus {
+    outline: none;
+    border-color: #0071e3;
+}
+
+/* Banner de login exitoso */
+.login-success-banner {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    animation: slideDown 0.5s ease-out;
+}
+
+/* Animación de deslizamiento hacia abajo */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

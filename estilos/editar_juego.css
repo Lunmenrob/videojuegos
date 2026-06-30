@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Estilos para la página de editar juego (editar_juego.php)
  * Contiene estilos para:
@@ -10,58 +9,58 @@
  * - Sección de DLCs
  * - Líneas divisorias entre secciones
  */
+/* Importa las fuentes Roboto y Zrnic de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
 
 /* Línea divisoria entre secciones del formulario */
 .section-divider {
+    /* Ancho del 100% */
     width: 100%;
+    /* Alto de 1px */
     height: 1px;
+    /* Gradiente horizontal transparente a blanco semitransparente */
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    /* Margen vertical de 2rem */
     margin: 2rem 0;
 }
 
 /* Barra de herramientas del editor Quill - Tema oscuro */
-=======
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Zrnic&display=swap');
-
-/* Estilos para el editor Quill - Tema oscuro */
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar {
+    /* Fondo gris (sobrescribe cualquier otro estilo) */
     background: #2a2a2a !important;
+    /* Borde de 1px gris (sobrescribe cualquier otro estilo) */
     border: 1px solid #3a3a3a !important;
+    /* Bordes redondeados solo en la parte superior (sobrescribe cualquier otro estilo) */
     border-radius: 8px 8px 0 0 !important;
 }
 
-<<<<<<< HEAD
 /* Botones de la barra de herramientas del editor Quill */
-=======
-/* Botones de la barra de herramientas */
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar button {
+    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
+    /* Trazo blanco para SVG (sobrescribe cualquier otro estilo) */
     stroke: #ffffff !important;
+    /* Relleno blanco para SVG (sobrescribe cualquier otro estilo) */
     fill: #ffffff !important;
 }
 
-<<<<<<< HEAD
 /* Iconos SVG dentro de los botones de Quill */
-=======
-/* SVGs dentro de botones */
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar button svg {
+    /* Color blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
+    /* Trazo blanco (sobrescribe cualquier otro estilo) */
     stroke: #ffffff !important;
+    /* Relleno blanco (sobrescribe cualquier otro estilo) */
     fill: #ffffff !important;
 }
 
-<<<<<<< HEAD
 /* Hover de botones de Quill: color azul PlayStation */
-=======
-/* Hover de botones DE TODOS*/
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar button:hover {
+    /* Texto azul (sobrescribe cualquier otro estilo) */
     color: #0071e3 !important;
+    /* Trazo azul (sobrescribe cualquier otro estilo) */
     stroke: #0071e3 !important;
+    /* Relleno azul (sobrescribe cualquier otro estilo) */
     fill: #0071e3 !important;
 }
 
@@ -71,11 +70,9 @@
     fill: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Etiqueta del selector desplegable en Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar .ql-picker-label {
+    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
 }
 
@@ -84,11 +81,9 @@
     border: 1px solid #3a3a3a !important;
 }
 
-<<<<<<< HEAD
 /* Item individual del selector desplegable en Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar .ql-picker-item {
+    /* Texto blanco (sobrescribe cualquier otro estilo) */
     color: #ffffff !important;
 }
 
@@ -96,26 +91,29 @@
     color: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Item seleccionado del selector en Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar .ql-picker-item.ql-selected {
+    /* Texto azul (sobrescribe cualquier otro estilo) */
     color: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Contenedor principal del editor Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-container {
+    /* Fondo gris muy oscuro (sobrescribe cualquier otro estilo) */
     background: #1a1a1a !important;
+    /* Borde de 1px gris (sobrescribe cualquier otro estilo) */
     border: 1px solid #3a3a3a !important;
+    /* Bordes redondeados solo en la parte inferior (sobrescribe cualquier otro estilo) */
     border-radius: 0 0 8px 8px !important;
+    /* Sin borde superior (sobrescribe cualquier otro estilo) */
     border-top: none !important;
+    /* Tamaño de fuente de 0.9rem (sobrescribe cualquier otro estilo) */
     font-size: 0.9rem !important;
+    /* Permite redimensionar en ambas direcciones (sobrescribe cualquier otro estilo) */
     resize: both !important;
+    /* Scroll automático si hay desbordamiento (sobrescribe cualquier otro estilo) */
     overflow: auto !important;
+    /* Altura mínima de 200px (sobrescribe cualquier otro estilo) */
     min-height: 200px !important;
 }
 
@@ -126,11 +124,9 @@
     overflow: auto !important;
 }
 
-<<<<<<< HEAD
 /* Área de edición del editor Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-editor p {
+    /* Sin margen (sobrescribe cualquier otro estilo) */
     margin: 0 !important;
 }
 
@@ -138,11 +134,9 @@
     color: #666666 !important;
 }
 
-<<<<<<< HEAD
 /* Enlaces dentro del editor Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-editor a {
+    /* Texto azul (sobrescribe cualquier otro estilo) */
     color: #0071e3 !important;
 }
 
@@ -153,12 +147,10 @@
     margin: 10px 0 !important;
 }
 
-<<<<<<< HEAD
 /* Listas dentro del editor Quill */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-editor ul,
 .ql-editor ol {
+    /* Relleno izquierdo de 20px (sobrescribe cualquier otro estilo) */
     padding-left: 20px !important;
 }
 
@@ -166,33 +158,23 @@
     margin: 5px 0 !important;
 }
 
-<<<<<<< HEAD
 /* Estilos específicos para el editor de comentarios */
-=======
-/* Estilos específicos para #comentario-editor */
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar {
     background: #2a2a2a !important;
     border: 1px solid #3a3a3a !important;
     border-radius: 8px 8px 0 0 !important;
 }
 
-<<<<<<< HEAD
 /* Botones de la barra de herramientas del editor de comentarios */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar button {
     color: #ffffff !important;
     stroke: #ffffff !important;
     fill: #ffffff !important;
 }
 
-<<<<<<< HEAD
 /* SVGs dentro de botones del editor de comentarios */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar button svg {
     color: #ffffff !important;
     stroke: #ffffff !important;
@@ -211,10 +193,7 @@
     fill: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Selector desplegable en editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar .ql-picker-label {
     color: #ffffff !important;
 }
@@ -224,10 +203,7 @@
     border: 1px solid #3a3a3a !important;
 }
 
-<<<<<<< HEAD
 /* Items del selector en editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar .ql-picker-item {
     color: #ffffff !important;
 }
@@ -236,18 +212,12 @@
     color: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Item seleccionado en editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-toolbar .ql-picker-item.ql-selected {
     color: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Contenedor del editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-container {
     background: #1a1a1a !important;
     border: 1px solid #3a3a3a !important;
@@ -266,10 +236,7 @@
     overflow: auto !important;
 }
 
-<<<<<<< HEAD
 /* Placeholder del editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-editor.ql-blank::before {
     color: #666666 !important;
 }
@@ -278,10 +245,7 @@
     color: #0071e3 !important;
 }
 
-<<<<<<< HEAD
 /* Imágenes en editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-editor img {
     max-width: 100% !important;
     height: auto !important;
@@ -294,272 +258,303 @@
     padding-left: 20px !important;
 }
 
-<<<<<<< HEAD
 /* Items de lista en editor de comentarios */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 #comentario-editor .ql-editor li {
     margin: 5px 0 !important;
 }
 
-<<<<<<< HEAD
 /* Estilos base del body */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 body {
+    /* Fondo morado oscuro */
     background: #181624;
+    /* Texto blanco */
     color: #ffffff;
+    /* Fuente Roboto con fuentes de sistema como fallback */
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Sin margen */
     margin: 0;
+    /* Sin relleno */
     padding: 0;
+    /* Tamaño de fuente de 12px */
     font-size: 12px;
+    /* Altura de línea de 1.3 */
     line-height: 1.3;
 }
 
 .page-content {
+    /* Relleno superior de 60px */
     padding-top: 60px;
 }
 
-<<<<<<< HEAD
 /* Cabecera de la página de edición */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .edit-header {
+    /* Relleno de 2rem */
     padding: 2rem;
+    /* Margen horizontal de 2rem */
     margin: 0 2rem;
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Distribuye el espacio entre elementos */
     justify-content: space-between;
+    /* Alinea los elementos verticalmente al centro */
     align-items: center;
+    /* Fondo morado */
     background: #231f36;
+    /* Borde inferior morado */
     border-bottom: 1px solid #231f36;
 }
 
 .edit-title {
+    /* Tamaño de fuente de 2rem */
     font-size: 2rem;
+    /* Grosor de fuente ligero de 300 */
     font-weight: 300;
+    /* Texto blanco */
     color: #ffffff;
+    /* Sin margen */
     margin: 0;
 }
 
-<<<<<<< HEAD
 /* Contenedor de botones de acción flotante */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .edit-actions {
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Espacio entre elementos de 1rem */
     gap: 1rem;
+    /* Posición fija */
     position: fixed;
+    /* A 5rem del borde superior */
     top: 5rem;
+    /* A 2rem del borde derecho */
     right: 2rem;
+    /* Índice z muy alto para estar encima */
     z-index: 9999;
+    /* Dirección de fila */
     flex-direction: row;
+    /* Fondo semitransparente */
     background: rgba(30, 30, 40, 0.504);
+    /* Relleno de 1rem */
     padding: 1rem;
+    /* Bordes redondeados de 12px */
     border-radius: 12px;
+    /* Borde blanco semitransparente */
     border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Efecto de desenfoque de fondo */
     backdrop-filter: blur(10px);
+    /* Sombra con desplazamiento y transparencia */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-<<<<<<< HEAD
 /* Botones de acción (cancelar, guardar, volver, scroll) */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .cancel-btn, .save-btn, .back-btn, .scroll-btn {
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea el contenido verticalmente al centro */
     align-items: center;
+    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
+    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
+    /* Sin relleno */
     padding: 0;
+    /* Ancho de 50px */
     width: 50px;
+    /* Alto de 50px */
     height: 50px;
+    /* Bordes completamente redondeados (círculo) */
     border-radius: 50%;
+    /* Tamaño de fuente de 1.3rem */
     font-size: 1.3rem;
+    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
+    /* Transición suave de todos los cambios */
     transition: all 0.2s;
+    /* Sin decoración de texto */
     text-decoration: none;
+    /* Sin borde */
     border: none;
+    /* Texto blanco */
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Botón de volver atrás */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .back-btn {
+    /* Fondo gris oscuro */
     background: #252525;
+    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de volver */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .back-btn:hover {
+    /* Fondo azul */
     background: #0071e3;
+    /* Borde azul */
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón de scroll */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .scroll-btn {
+    /* Fondo gris oscuro */
     background: #252525;
+    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de scroll */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .scroll-btn:hover {
+    /* Fondo azul */
     background: #0071e3;
+    /* Borde azul */
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón de cancelar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .cancel-btn {
+    /* Fondo gris oscuro */
     background: #252525;
+    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
+    /* Texto blanco */
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de cancelar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .cancel-btn:hover {
+    /* Fondo azul */
     background: #0071e3;
+    /* Borde azul */
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón de guardar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .save-btn {
+    /* Fondo gris oscuro */
     background: #252525;
+    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
+    /* Texto blanco */
     color: #ffffff;
+    /* Bordes completamente redondeados (círculo) */
     border-radius: 50%;
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea el contenido verticalmente al centro */
     align-items: center;
+    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
+    /* Ancho de 50px */
     width: 50px;
+    /* Alto de 50px */
     height: 50px;
+    /* Sin relleno */
     padding: 0;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de guardar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .save-btn:hover {
+    /* Fondo azul */
     background: #0071e3;
+    /* Borde azul */
     border-color: #0071e3;
 }
 
 .edit-content {
+    /* Relleno de 2rem */
     padding: 2rem;
+    /* Margen horizontal de 2rem */
     margin: 0 2rem;
 }
 
-<<<<<<< HEAD
 /* Sección del formulario de edición */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .edit-section {
+    /* Fondo morado */
     background: #231f36;
+    /* Borde morado */
     border: 1px solid #231f36;
+    /* Bordes redondeados de 12px */
     border-radius: 12px;
+    /* Relleno de 2rem */
     padding: 2rem;
+    /* Margen inferior de 2rem */
     margin-bottom: 2rem;
 }
 
-<<<<<<< HEAD
 /* Título de sección del formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .section-title {
+    /* Tamaño de fuente de 1.5rem */
     font-size: 1.5rem;
+    /* Grosor de fuente ligero de 300 */
     font-weight: 300;
+    /* Texto blanco */
     color: #ffffff;
+    /* Margen inferior de 1.5rem */
     margin: 0 0 1.5rem 0;
+    /* Borde inferior gris */
     border-bottom: 1px solid #3a3a3a;
+    /* Relleno inferior de 1rem */
     padding-bottom: 1rem;
 }
 
-<<<<<<< HEAD
 /* Grupo de campos del formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group {
+    /* Margen inferior de 0.75rem */
     margin-bottom: 0.75rem;
 }
 
-<<<<<<< HEAD
 /* Fila de campos del formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row {
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Espacio entre elementos de 1.5rem */
     gap: 1.5rem;
+    /* Margen inferior de 1.5rem */
     margin-bottom: 1.5rem;
+    /* Estira los elementos al alto completo */
     align-items: stretch;
 }
 
-<<<<<<< HEAD
 /* Grupo dentro de fila de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row .form-group {
+    /* Ocupa el espacio disponible */
     flex: 1;
 }
 
-<<<<<<< HEAD
 /* Input con icono */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .input-with-icon {
+    /* Posición relativa para elementos hijos */
     position: relative;
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea los elementos verticalmente al centro */
     align-items: center;
 }
 
-<<<<<<< HEAD
 /* Input dentro de contenedor con icono */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .input-with-icon input {
+    /* Relleno izquierdo de 2.5rem */
     padding-left: 2.5rem;
 }
 
-<<<<<<< HEAD
 /* Icono dentro de input */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 /* Forzar formato dd/mm/aaaa y estilo consistente en input de fecha */
 input[type="date"] {
     color-scheme: dark;
@@ -596,11 +591,8 @@ input[type="date"]::-webkit-outer-spin-button {
     font-size: 0.9rem;
 }
 
-<<<<<<< HEAD
 /* Etiqueta en fila de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row label {
     min-width: 140px;
     font-weight: 500;
@@ -609,11 +601,8 @@ input[type="date"]::-webkit-outer-spin-button {
     flex-shrink: 0;
 }
 
-<<<<<<< HEAD
 /* Inputs y selects en fila de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row input,
 .form-row select {
     flex: 1;
@@ -633,20 +622,14 @@ input[type="date"]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
 /* Elementos en fila media de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row-half > div {
     flex: 1;
 }
 
-<<<<<<< HEAD
 /* Etiqueta en fila media de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-row-half label {
     display: block;
     font-weight: 500;
@@ -655,31 +638,22 @@ input[type="date"]::-webkit-outer-spin-button {
     font-size: 0.9rem;
 }
 
-<<<<<<< HEAD
 /* Grupo de formulario de ancho completo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group.full-width {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Textarea de ancho completo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group.full-width textarea {
     width: 100%;
     min-height: 80px;
     resize: vertical;
 }
 
-<<<<<<< HEAD
 /* Formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline {
     background: transparent;
     border: none;
@@ -689,11 +663,8 @@ input[type="date"]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Título del formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline h4 {
     font-size: 1.2rem;
     font-weight: 300;
@@ -703,20 +674,14 @@ input[type="date"]::-webkit-outer-spin-button {
     padding-bottom: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Grupo en formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline .form-group {
     margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
 /* Etiqueta en formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline .form-group label {
     display: block;
     font-size: 0.9rem;
@@ -725,11 +690,8 @@ input[type="date"]::-webkit-outer-spin-button {
     margin-bottom: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Inputs y selects en formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline .form-group input,
 .trophy-form-inline .form-group select {
     width: 100%;
@@ -742,22 +704,16 @@ input[type="date"]::-webkit-outer-spin-button {
     font-weight: 300;
 }
 
-<<<<<<< HEAD
 /* Focus de inputs/selects en formulario inline de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-form-inline .form-group input:focus,
 .trophy-form-inline .form-group select:focus {
     outline: none;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Selector de tipo de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-selector {
     display: flex;
     gap: 0.5rem;
@@ -765,11 +721,8 @@ input[type="date"]::-webkit-outer-spin-button {
     align-items: flex-start;
 }
 
-<<<<<<< HEAD
 /* Opción de tipo de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-option {
     display: flex;
     flex-direction: column;
@@ -788,31 +741,22 @@ input[type="date"]::-webkit-outer-spin-button {
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Opción de tipo de trofeo seleccionada */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-option.selected {
     border-color: #ffffff;
     background: #2d2845;
 }
 
-<<<<<<< HEAD
 /* Texto de opción de tipo de trofeo seleccionada */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-option.selected span {
     color: #ffffff;
     font-weight: 500;
 }
 
-<<<<<<< HEAD
 /* Imagen de tipo de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-img {
     width: 50px;
     height: 90px;
@@ -820,20 +764,14 @@ input[type="date"]::-webkit-outer-spin-button {
     border-radius: 8px;
 }
 
-<<<<<<< HEAD
 /* Texto de opción de tipo de trofeo (oculto por defecto) */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-type-option span {
     display: none;
 }
 
-<<<<<<< HEAD
 /* Etiqueta de grupo de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group label {
     display: block;
     font-size: 0.85rem;
@@ -842,11 +780,8 @@ input[type="date"]::-webkit-outer-spin-button {
     margin-bottom: 0.4rem;
 }
 
-<<<<<<< HEAD
 /* Inputs, selects y textareas de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group input[type="file"],
@@ -864,11 +799,8 @@ input[type="date"]::-webkit-outer-spin-button {
     transition: all 0.2s;
 }
 
-<<<<<<< HEAD
 /* Focus de inputs, selects y textareas */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -876,21 +808,15 @@ input[type="date"]::-webkit-outer-spin-button {
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Textarea de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group textarea {
     resize: vertical;
     min-height: 80px;
 }
 
-<<<<<<< HEAD
 /* Editor inline de imágenes */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .image-inline-editor {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -904,21 +830,15 @@ input[type="date"]::-webkit-outer-spin-button {
     max-width: 100%;
 }
 
-<<<<<<< HEAD
 /* Editor inline de imágenes ancho (para banner) */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .image-inline-editor--wide {
     grid-template-columns: 260px minmax(0, 1fr);
     align-items: center;
 }
 
-<<<<<<< HEAD
 /* Preview de imagen inline */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .image-inline-preview {
     width: 64px;
     height: 64px;
@@ -932,11 +852,8 @@ input[type="date"]::-webkit-outer-spin-button {
     overflow: hidden;
 }
 
-<<<<<<< HEAD
 /* Preview de imagen inline para banner */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .image-inline-preview--banner {
     width: 260px;
     height: 90px;
@@ -956,16 +873,10 @@ input[type="date"]::-webkit-outer-spin-button {
     object-fit: cover;
 }
 
-<<<<<<< HEAD
 /* Controles del editor inline de imágenes */
 
 .image-inline-controls {
     display: flex;
-=======
-.image-inline-controls {
-    display: flex;
-    flex-wrap: wrap;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     align-items: center;
     gap: 0.5rem;
     flex: 1;
@@ -973,7 +884,6 @@ input[type="date"]::-webkit-outer-spin-button {
     max-width: 350px;
 }
 
-<<<<<<< HEAD
 /* Input de texto en controles de imagen */
 
 .image-inline-controls input[type="text"] {
@@ -1025,52 +935,20 @@ input[type="date"]::-webkit-outer-spin-button {
 
 /* Input de archivo oculto */
 
-=======
-.image-inline-controls input[type="text"] {
-    width: 100%;
-    min-width: 0;
-    max-width: 350px;
-}
-
-.image-file-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    width: auto;
-    padding: 0.5rem 0.8rem;
-    background: #252525;
-    border: 1px solid #3a3a3a;
-    border-radius: 6px;
-    color: #ffffff;
-    font-size: 0.85rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-}
-
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .image-file-btn input[type="file"] {
     display: none;
     position: absolute;
     z-index: -1;
 }
 
-<<<<<<< HEAD
 /* Acciones de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-actions {
     margin-bottom: 1.5rem;
 }
 
-<<<<<<< HEAD
 /* Botón de añadir trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .add-trophy-btn {
     display: flex;
     align-items: center;
@@ -1087,17 +965,13 @@ input[type="date"]::-webkit-outer-spin-button {
     transition: all 0.2s;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de añadir trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .add-trophy-btn:hover {
     background: #0071e3;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón de añadir trofeo con input de archivo */
 
 .add-trophy-btn:has(input[type="file"]) {
@@ -1114,8 +988,6 @@ input[type="date"]::-webkit-outer-spin-button {
     max-width: none !important;
 }
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophies-list {
     display: flex;
     flex-direction: column;
@@ -1123,11 +995,8 @@ input[type="date"]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Item de DLC en edición */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-edit {
     background: #231f36;
     border: 1px solid #231f36;
@@ -1136,11 +1005,8 @@ input[type="date"]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Parte principal del item de DLC */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-main {
     display: flex;
     align-items: flex-start;
@@ -1148,11 +1014,8 @@ input[type="date"]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Icono del item de DLC */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-icon {
     width: 76px;
     height: 76px;
@@ -1166,11 +1029,8 @@ input[type="date"]::-webkit-outer-spin-button {
     border: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Imagen del icono de DLC */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-icon img {
     width: 100%;
     height: 100%;
@@ -1178,21 +1038,15 @@ input[type="date"]::-webkit-outer-spin-button {
     display: block;
 }
 
-<<<<<<< HEAD
 /* Información del item de DLC */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-info {
     flex: 1 1 auto;
     min-width: 0;
 }
 
-<<<<<<< HEAD
 /* Acciones del item de DLC */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dlc-item-actions {
     display: flex;
     gap: 0.4rem;
@@ -1201,11 +1055,8 @@ input[type="date"]::-webkit-outer-spin-button {
     align-self: flex-start;
 }
 
-<<<<<<< HEAD
 /* Item de trofeo en edición */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-edit {
     background: #231f36;
     border: 1px solid #231f36;
@@ -1218,52 +1069,37 @@ input[type="date"]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-<<<<<<< HEAD
 /* Hover del item de trofeo en edición */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-edit:hover {
     background: #2d2845;
     border-color: #4a4a4a;
 }
 
-<<<<<<< HEAD
 /* Icono del item de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-icon {
     width: 50px;
     height: 50px;
     flex-shrink: 0;
 }
 
-<<<<<<< HEAD
 /* Imagen del icono de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-icon img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
 }
 
-<<<<<<< HEAD
 /* Información del item de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-info {
     flex: 1;
 }
 
-<<<<<<< HEAD
 /* Nombre del item de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-name {
     font-size: 1rem;
     font-weight: 300;
@@ -1271,11 +1107,8 @@ input[type="date"]::-webkit-outer-spin-button {
     margin: 0 0 0.25rem 0;
 }
 
-<<<<<<< HEAD
 /* Tipo del item de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-item-type {
     font-size: 0.8rem;
     font-weight: 500;
@@ -1290,11 +1123,8 @@ input[type="date"]::-webkit-outer-spin-button {
     flex-shrink: 0;
 }
 
-<<<<<<< HEAD
 /* Botón de acción genérico */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .action-btn {
     width: 44px;
     height: 44px;
@@ -1310,42 +1140,30 @@ input[type="date"]::-webkit-outer-spin-button {
     justify-content: center;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de acción */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .action-btn:hover {
     background: #0071e3;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de editar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .action-btn.edit:hover {
     background: #0071e3;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de eliminar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .action-btn.delete:hover {
     background: #0071e3;
     border-color: #0071e3;
 }
 
 /* Modal */
-<<<<<<< HEAD
 
 /* Modal */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal {
     display: none;
     position: fixed;
@@ -1359,11 +1177,8 @@ input[type="date"]::-webkit-outer-spin-button {
     justify-content: center;
 }
 
-<<<<<<< HEAD
 /* Contenido del modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-content {
     background: #231f36;
     border: 1px solid #231f36;
@@ -1374,11 +1189,8 @@ input[type="date"]::-webkit-outer-spin-button {
     overflow-y: auto;
 }
 
-<<<<<<< HEAD
 /* Cabecera del modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -1387,11 +1199,8 @@ input[type="date"]::-webkit-outer-spin-button {
     border-bottom: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Título del modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-header h3 {
     font-size: 1.5rem;
     font-weight: 300;
@@ -1399,11 +1208,8 @@ input[type="date"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-<<<<<<< HEAD
 /* Botón de cerrar modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-close {
     background: none;
     border: none;
@@ -1420,29 +1226,20 @@ input[type="date"]::-webkit-outer-spin-button {
     transition: all 0.2s;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de cerrar modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-close:hover {
     background: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Cuerpo del modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-body {
     padding: 1.5rem;
 }
 
-<<<<<<< HEAD
 /* Pie del modal */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .modal-footer {
     display: flex;
     justify-content: flex-end;
@@ -1461,83 +1258,59 @@ input[type="date"]::-webkit-outer-spin-button {
     border: none;
 }
 
-<<<<<<< HEAD
 /* Botón primario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .btn-primary {
     background: #0071e3;
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Hover del botón primario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .btn-primary:hover {
     background: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Botón secundario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .btn-secondary {
     background: #252525;
     border: 1px solid #3a3a3a;
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Hover del botón secundario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .btn-secondary:hover {
     background: #0071e3;
     border-color: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Checkbox de formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group input[type="checkbox"] {
     width: auto;
     margin-right: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Opciones de subida de icono */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .icon-upload-options {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* Opción individual de subida */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .upload-option {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Etiqueta de opción de subida */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .upload-option label {
     display: flex;
     align-items: center;
@@ -1547,63 +1320,45 @@ input[type="date"]::-webkit-outer-spin-button {
     color: #cccccc;
 }
 
-<<<<<<< HEAD
 /* Radio button de opción de subida */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .upload-option input[type="radio"] {
     width: auto;
 }
 
-<<<<<<< HEAD
 /* Input de dificultad */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dificultad-input {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Input numérico de dificultad */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dificultad-input input {
     width: 80px;
     padding: 0.5rem;
     font-size: 1rem;
 }
 
-<<<<<<< HEAD
 /* Texto de dificultad */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .dificultad-input span {
     color: #cccccc;
     font-size: 0.9rem;
 }
 
-<<<<<<< HEAD
 /* Inputs de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-inputs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* Elementos de inputs de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-inputs > div {
     display: flex;
     flex-direction: column;
@@ -1611,11 +1366,8 @@ input[type="date"]::-webkit-outer-spin-button {
     gap: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Icono pequeño de trofeo */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-icon-small {
     width: 30px;
     height: 30px;
@@ -1623,11 +1375,8 @@ input[type="date"]::-webkit-outer-spin-button {
     margin-bottom: 0.25rem;
 }
 
-<<<<<<< HEAD
 /* Inputs numéricos de trofeos */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .trophy-inputs input {
     width: 50px;
     min-height: 35px;
@@ -1647,11 +1396,8 @@ input[type="date"]::-webkit-outer-spin-button {
     color: #cccccc;
 }
 
-<<<<<<< HEAD
 /* Checkbox con texto en formulario */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .form-group label input[type="checkbox"] + span {
     color: #cccccc;
     font-size: 0.9rem;
@@ -1659,11 +1405,8 @@ input[type="date"]::-webkit-outer-spin-button {
 }
 
 /* Estilo para spoiler en el editor */
-<<<<<<< HEAD
 
 /* Estilo para spoiler en el editor */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-spoiler {
     background: #3a3a3a;
     color: #3a3a3a;
@@ -1673,51 +1416,36 @@ input[type="date"]::-webkit-outer-spin-button {
     user-select: none;
 }
 
-<<<<<<< HEAD
 /* Hover del spoiler */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-spoiler:hover {
     background: #0071e3;
 }
 
-<<<<<<< HEAD
 /* Spoiler revelado */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-spoiler.revealed {
     background: transparent;
     color: #ffffff;
 }
 
-<<<<<<< HEAD
 /* Botón de spoiler en toolbar */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 /* Estilo para botón de spoiler en toolbar */
 .ql-toolbar button.ql-spoiler {
     width: 32px;
     height: 32px;
 }
 
-<<<<<<< HEAD
 /* Icono del botón de spoiler */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .ql-toolbar button.ql-spoiler::before {
     content: '🔒';
     font-size: 16px;
 }
 
-<<<<<<< HEAD
 /* Modal de recorte de banner */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 /* Estilos para el modal de recorte de banner */
 .crop-modal {
     display: none;
@@ -1732,11 +1460,8 @@ input[type="date"]::-webkit-outer-spin-button {
     justify-content: center;
 }
 
-<<<<<<< HEAD
 /* Contenido del modal de recorte */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .crop-modal-content {
     background: #2a2a2a;
     border-radius: 12px;
@@ -1749,11 +1474,8 @@ input[type="date"]::-webkit-outer-spin-button {
     border: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Cabecera del modal de recorte */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .crop-modal-header {
     display: flex;
     justify-content: space-between;
@@ -1762,11 +1484,8 @@ input[type="date"]::-webkit-outer-spin-button {
     border-bottom: 1px solid #3a3a3a;
 }
 
-<<<<<<< HEAD
 /* Título del modal de recorte */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .crop-modal-header h3 {
     margin: 0;
     color: #ffffff;
@@ -1774,11 +1493,8 @@ input[type="date"]::-webkit-outer-spin-button {
     font-weight: 500;
 }
 
-<<<<<<< HEAD
 /* Botón de cerrar modal de recorte */
 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .crop-modal-close {
     background: none;
     border: none;

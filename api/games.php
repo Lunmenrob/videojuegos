@@ -1,8 +1,11 @@
 <?php
+// Incluye el archivo de configuración
 require_once '../config.php';
 
 try {
+    // Obtiene la conexión a la base de datos
     $conn = getConnection();
+    // Obtiene el método HTTP de la solicitud
     $method = $_SERVER['REQUEST_METHOD'];
 
     switch ($method) {
@@ -11,7 +14,7 @@ try {
             $search = isset($_GET['search']) ? $_GET['search'] : '';
             $platform = isset($_GET['platform']) ? $_GET['platform'] : '';
 
-            // Construir consulta
+            // Construir consulta SQL
             $sql = "
                 SELECT v.*,
                     p.total_trofeos,
@@ -24,27 +27,35 @@ try {
                 LEFT JOIN progreso_trofeos p ON v.id = p.videojuego_id
             ";
 
+            // Array de parámetros para la consulta
             $params = [];
+            // Array de condiciones WHERE
             $conditions = [];
 
+            // Si hay término de búsqueda, agrega condición
             if (!empty($search)) {
                 $conditions[] = "(v.titulo LIKE :search OR v.desarrollador LIKE :search OR v.genero LIKE :search)";
                 $params[':search'] = '%' . $search . '%';
             }
 
+            // Si hay filtro de plataforma, agrega condición
             if (!empty($platform)) {
                 $conditions[] = "v.plataforma = :platform";
                 $params[':platform'] = $platform;
             }
 
+            // Si hay condiciones, las agrega a la consulta
             if (!empty($conditions)) {
                 $sql .= " WHERE " . implode(' AND ', $conditions);
             }
 
+            // Ordena por fecha de adición descendente
             $sql .= " ORDER BY v.fecha_adicionado DESC";
 
+            // Prepara y ejecuta la consulta
             $stmt = $conn->prepare($sql);
             $stmt->execute($params);
+            // Obtiene todos los resultados
             $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             // Formatear fechas y asegurar que los campos numéricos sean del tipo correcto
@@ -58,6 +69,7 @@ try {
                 $game['porcentaje_completado'] = (float)($game['porcentaje_completado'] ?? 0);
             }
 
+            // Retorna los juegos en formato JSON
             echo json_encode($games);
             break;
 
@@ -69,10 +81,13 @@ try {
                 break;
             }
 
+            // Convierte el ID a entero
             $gameId = (int)$_GET['id'];
+            // Log para depuración
             error_log("DELETE request for game ID: " . $gameId);
 
             try {
+                // Inicia una transacción
                 $conn->beginTransaction();
 
                 // Primero obtener los DLCs para poder borrar sus dependencias
@@ -121,12 +136,15 @@ try {
                 $stmt = $conn->prepare("DELETE FROM juegos WHERE id = :game_id");
                 $stmt->execute([':game_id' => $gameId]);
 
+                // Confirma la transacción
                 $conn->commit();
                 error_log("Game deleted successfully: " . $gameId);
 
+                // Retorna éxito
                 http_response_code(200);
                 echo json_encode(['success' => true, 'message' => 'Juego borrado correctamente']);
             } catch (PDOException $e) {
+                // Revierte la transacción en caso de error
                 $conn->rollBack();
                 error_log("DELETE error: " . $e->getMessage());
                 error_log("DELETE error trace: " . $e->getTraceAsString());
@@ -136,12 +154,14 @@ try {
             break;
 
         default:
+            // Método no permitido
             http_response_code(405);
             echo json_encode(['error' => 'Método no permitido']);
             break;
     }
 
 } catch(PDOException $e) {
+    // Captura errores de base de datos
     http_response_code(500);
     echo json_encode(['error' => 'Error en la base de datos: ' . $e->getMessage()]);
 }

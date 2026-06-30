@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Estilos para la página de inicio/home (home.php)
  * Contiene estilos para:
@@ -9,8 +8,6 @@
  * - Diseño responsive
  */
 /* Estilos base del body */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 body {
     margin: 0;
     background: linear-gradient(135deg, #060606 0%, #363636 100%);
@@ -18,10 +15,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-<<<<<<< HEAD
 /* Contenedor principal que centra el contenido vertical y horizontalmente */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-shell {
     min-height: 100vh;
     display: grid;
@@ -29,19 +23,13 @@ body {
     padding: 2rem 1rem;
 }
 
-<<<<<<< HEAD
 /* Tarjeta central que contiene el contenido principal */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-card {
     width: min(100%, 860px);
     text-align: center;
 }
 
-<<<<<<< HEAD
 /* Título principal de la tarjeta */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-card h1 {
     margin-top: 0;
     margin-bottom: 0.7rem;
@@ -49,20 +37,14 @@ body {
     font-weight: 700;
 }
 
-<<<<<<< HEAD
 /* Subtítulo/descripción de la tarjeta */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-card p {
     margin: 0 0 2rem;
     color: #c4c4c4;
     font-size: 1rem;
 }
 
-<<<<<<< HEAD
 /* Contenedor de opciones de perfil (visitante y administrador) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-options {
     display: flex;
     justify-content: center;
@@ -71,10 +53,7 @@ body {
     flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
 /* Estilo individual de cada opción de perfil */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-option {
     display: flex;
     flex-direction: column;
@@ -85,19 +64,13 @@ body {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 /* Efecto hover: escala y brillo aumentado */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-option:hover {
     transform: scale(1.17);
     filter: brightness(1.15);
 }
 
-<<<<<<< HEAD
 /* Contenedor del formulario de login */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form-container {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -110,40 +83,28 @@ body {
     margin-right: auto;
 }
 
-<<<<<<< HEAD
 /* Formulario de login con disposición vertical */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* Grupo de campos del formulario */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-<<<<<<< HEAD
 /* Etiquetas de los campos del formulario */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form label {
     font-weight: 600;
     font-size: 0.9rem;
     color: #c4c4c4;
 }
 
-<<<<<<< HEAD
 /* Campos de input del formulario */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form input {
     padding: 0.75rem 0.9rem;
     border-radius: 8px;
@@ -153,20 +114,14 @@ body {
     font-size: 0.95rem;
 }
 
-<<<<<<< HEAD
 /* Estado focus de los inputs: borde azul y sombra */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-form input:focus {
     outline: none;
     border-color: #0070d1;
     box-shadow: 0 0 0 3px rgba(0, 112, 209, 0.2);
 }
 
-<<<<<<< HEAD
 /* Botón de envío del formulario de login */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-submit {
     padding: 0.85rem 1rem;
     border: none;
@@ -179,20 +134,14 @@ body {
     transition: all 0.3s ease;
 }
 
-<<<<<<< HEAD
 /* Hover del botón de envío: gradiente más oscuro y elevación */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-submit:hover {
     background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 112, 209, 0.4);
 }
 
-<<<<<<< HEAD
 /* Botón de cancelar del formulario de login */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-cancel {
     padding: 0.85rem 1rem;
     border: 1px solid #3a3a3a;
@@ -205,19 +154,13 @@ body {
     transition: all 0.3s ease;
 }
 
-<<<<<<< HEAD
 /* Hover del botón cancelar: fondo gris y texto blanco */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .login-cancel:hover {
     background: #2a2a2a;
     color: #fff;
 }
 
-<<<<<<< HEAD
 /* Imágenes de perfil de las opciones (visitante y admin) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-option img {
     width: 240px;
     height: 240px;
@@ -227,20 +170,14 @@ body {
     box-shadow: 0 0 0 6px rgba(255,255,255,0.08), 0 16px 45px rgba(0, 0, 0, 0.45);
 }
 
-<<<<<<< HEAD
 /* Títulos de las opciones de perfil */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .home-option h2 {
     margin: 1rem 0 0;
     font-size: 1.4rem;
     font-weight: 700;
 }
 
-<<<<<<< HEAD
 /* Sección de configuración de base de datos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-section {
     margin-top: 3rem;
     padding: 2rem;
@@ -250,10 +187,7 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-<<<<<<< HEAD
 /* Pregunta de la sección de base de datos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-question {
     margin: 0 0 1.5rem;
     font-size: 1.2rem;
@@ -261,10 +195,7 @@ body {
     color: #c4c4c4;
 }
 
-<<<<<<< HEAD
 /* Mensajes de éxito/error de la base de datos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-message {
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
@@ -273,30 +204,21 @@ body {
     font-weight: 500;
 }
 
-<<<<<<< HEAD
 /* Estilo de mensaje de éxito (verde) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-success {
     background: rgba(34, 197, 94, 0.2);
     border: 1px solid #22c55e;
     color: #22c55e;
 }
 
-<<<<<<< HEAD
 /* Estilo de mensaje de error (rojo) */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-error {
     background: rgba(239, 68, 68, 0.2);
     border: 1px solid #ef4444;
     color: #ef4444;
 }
 
-<<<<<<< HEAD
 /* Contenedor de botones de base de datos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-buttons {
     display: flex;
     justify-content: center;
@@ -304,10 +226,7 @@ body {
     flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
 /* Botones de acciones de base de datos */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-btn {
     padding: 0.85rem 1.5rem;
     border: none;
@@ -320,20 +239,14 @@ body {
     transition: all 0.3s ease;
 }
 
-<<<<<<< HEAD
 /* Hover de botones de base de datos: gradiente más oscuro y elevación */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 .database-btn:hover {
     background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 112, 209, 0.4);
 }
 
-<<<<<<< HEAD
 /* Estilos responsive para pantallas pequeñas */
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 @media (max-width: 768px) {
     .home-options {
         gap: 1.5rem;

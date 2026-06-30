@@ -1,9 +1,11 @@
 // Función para procesar imágenes en editores Quill
 function setupImageSizing() {
+    // Log para depuración
     console.log('setupImageSizing called');
     
     // Función para procesar una imagen individual
     function processImage(img) {
+        // Log para depuración
         console.log('Processing image:', img);
         
         // No procesar imágenes que deben respetar su sizing propio
@@ -25,10 +27,7 @@ function setupImageSizing() {
             img.classList.contains('dlc-icon') ||
             img.closest('.dlc-item-icon') ||
             img.closest('.image-inline-preview') ||
-<<<<<<< HEAD
             img.closest('.media-gallery-editor') ||
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             img.id.startsWith('edit-dlc-preview') ||
             img.id.startsWith('edit-dlc-banner-preview') ||
             img.id.startsWith('new-dlc-preview') ||
@@ -36,7 +35,9 @@ function setupImageSizing() {
             img.closest('.game-header') ||
             img.closest('.game-banner')
         ) {
+            // Log para depuración
             console.log('Skipping controlled image');
+            // Retorna sin procesar la imagen
             return;
         }
         
@@ -57,13 +58,17 @@ function setupImageSizing() {
         '[id^="edit-instrucciones-editor"] img', // Editor de instrucciones de trofeo existente
         '[id^="new-dlc-desc-editor"] img', // Editor de descripción de nuevo DLC
         '[id^="edit-dlc-desc-editor"] img', // Editor de descripción de DLC existente
-        '[id^="new-dlc-trophy-instrucciones-editor"] img',
-        '[id^="edit-dlc-trophy-instrucciones-editor"] img'
+        '[id^="new-dlc-trophy-instrucciones-editor"] img', // Editor de instrucciones de trofeo de nuevo DLC
+        '[id^="edit-dlc-trophy-instrucciones-editor"] img' // Editor de instrucciones de trofeo de DLC existente
     ];
     
+    // Itera sobre cada selector
     selectors.forEach(selector => {
+        // Obtiene todas las imágenes que coinciden con el selector
         const images = document.querySelectorAll(selector);
+        // Log para depuración
         console.log(`Images found for ${selector}:`, images.length);
+        // Procesa cada imagen
         images.forEach(processImage);
     });
     
@@ -71,13 +76,16 @@ function setupImageSizing() {
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
+                // Si el nodo es un elemento
                 if (node.nodeType === 1) { // Element node
                     // Buscar imágenes en el nodo agregado
                     const images = node.querySelectorAll ? node.querySelectorAll('img') : [];
+                    // Procesa cada imagen encontrada
                     images.forEach(processImage);
                     
                     // Si el nodo mismo es una imagen
                     if (node.tagName === 'IMG') {
+                        // Procesa la imagen
                         processImage(node);
                     }
                 }
@@ -93,9 +101,13 @@ function setupImageSizing() {
     
     // Verificar periódicamente las imágenes para asegurar tamaño correcto
     setInterval(() => {
+        // Itera sobre cada selector
         selectors.forEach(selector => {
+            // Obtiene todas las imágenes que coinciden con el selector
             const images = document.querySelectorAll(selector);
+            // Log para depuración
             console.log(`Periodic check for ${selector}:`, images.length);
+            // Procesa cada imagen
             images.forEach(img => {
                 // No procesar imágenes que deben respetar su sizing propio
                 if (
@@ -123,10 +135,13 @@ function setupImageSizing() {
                     img.closest('.game-header') ||
                     img.closest('.game-banner')
                 ) {
+                    // Log para depuración
                     console.log('Skipping controlled image in periodic check');
+                    // Retorna sin procesar la imagen
                     return;
                 }
                 
+                // Elimina atributos y establece estilos
                 img.removeAttribute('width');
                 img.removeAttribute('height');
                 img.style.setProperty('width', 'auto', 'important');
@@ -135,22 +150,29 @@ function setupImageSizing() {
                 img.style.setProperty('display', 'inline-block', 'important');
             });
         });
-    }, 500);
+    }, 500); // Ejecuta cada 500ms
 }
 
 // Ejecutar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+    // Log para depuración
     console.log('editar_juego.js loaded');
+    // Configura el sizing de imágenes
     setupImageSizing();
+    // Configura el recorte de banner
     setupBannerCropper();
+    // Configura los spoilers
     setupSpoilers();
 });
 
 // Configurar spoilers para colapsar/expandir al hacer clic
 function setupSpoilers() {
+    // Obtiene todos los spoilers existentes
     const spoilers = document.querySelectorAll('.ql-spoiler');
+    // Agrega event listener a cada spoiler
     spoilers.forEach(spoiler => {
         spoiler.addEventListener('click', function() {
+            // Alterna la clase revealed al hacer clic
             this.classList.toggle('revealed');
         });
     });
@@ -159,10 +181,14 @@ function setupSpoilers() {
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
+                // Si el nodo es un elemento
                 if (node.nodeType === 1) { // Element node
+                    // Busca spoilers dentro del nodo
                     const newSpoilers = node.querySelectorAll ? node.querySelectorAll('.ql-spoiler') : [];
+                    // Agrega event listeners a los nuevos spoilers
                     newSpoilers.forEach(spoiler => {
                         spoiler.addEventListener('click', function() {
+                            // Alterna la clase revealed al hacer clic
                             this.classList.toggle('revealed');
                         });
                     });
@@ -170,6 +196,7 @@ function setupSpoilers() {
                     // Si el nodo mismo es un spoiler
                     if (node.classList && node.classList.contains('ql-spoiler')) {
                         node.addEventListener('click', function() {
+                            // Alterna la clase revealed al hacer clic
                             this.classList.toggle('revealed');
                         });
                     }
@@ -180,13 +207,16 @@ function setupSpoilers() {
 
     // Observar cambios en todo el documento
     observer.observe(document.body, {
+        // Observa cambios en la lista de hijos
         childList: true,
+        // Observa cambios en todos los descendientes
         subtree: true
     });
 }
 
 // Función para configurar el recorte de banner
 function setupBannerCropper() {
+    // Obtiene los elementos del DOM
     const cropBtn = document.getElementById('crop-banner-btn');
     const cropModal = document.getElementById('banner-crop-modal');
     const closeCropModal = document.getElementById('close-crop-modal');
@@ -196,35 +226,53 @@ function setupBannerCropper() {
     const currentBanner = document.getElementById('current-banner');
     const bannerUrlInput = document.getElementById('banner-url');
     
+    // Variable para almacenar la instancia de Cropper.js
     let cropper = null;
     
     // Abrir modal de recorte
     cropBtn.addEventListener('click', function() {
+        // Obtiene la fuente del banner actual
         const bannerSrc = currentBanner.src || bannerUrlInput.value;
+        // Valida que haya una imagen seleccionada
         if (!bannerSrc || bannerSrc === window.location.href) {
             alert('Por favor, selecciona una imagen de banner primero.');
             return;
         }
         
+        // Establece la imagen en el modal
         bannerCropImage.src = bannerSrc;
+        // Muestra el modal
         cropModal.style.display = 'flex';
         
         // Inicializar Cropper.js
         if (cropper) {
+            // Destruye la instancia anterior si existe
             cropper.destroy();
         }
         
+        // Crea una nueva instancia de Cropper.js
         cropper = new Cropper(bannerCropImage, {
+            // Sin relación de aspecto fija
             aspectRatio: NaN,
+            // Modo de vista restringido
             viewMode: 1,
+            // Área de recorte automática al 80%
             autoCropArea: 0.8,
+            // Responsive
             responsive: true,
+            // No restaurar datos anteriores
             restore: false,
+            // Mostrar guías
             guides: true,
+            // Centrar la imagen
             center: true,
+            // Resaltar el área de recorte
             highlight: true,
+            // Permitir mover el área de recorte
             cropBoxMovable: true,
+            // Permitir redimensionar el área de recorte
             cropBoxResizable: true,
+            // No alternar modo de arrastre al doble clic
             toggleDragModeOnDblclick: false,
         });
         
@@ -234,8 +282,10 @@ function setupBannerCropper() {
         const cropWidth = document.getElementById('banner-crop-width').value;
         const cropHeight = document.getElementById('banner-crop-height').value;
         
+        // Si hay coordenadas guardadas, las carga en el cropper
         if (cropX && cropY && cropWidth && cropHeight) {
             cropper.setData({
+                // Convierte de porcentaje a píxeles
                 x: (parseFloat(cropX) / 100) * bannerCropImage.naturalWidth,
                 y: (parseFloat(cropY) / 100) * bannerCropImage.naturalHeight,
                 width: (parseFloat(cropWidth) / 100) * bannerCropImage.naturalWidth,
@@ -244,17 +294,22 @@ function setupBannerCropper() {
         }
     });
     
-    // Cerrar modal
+    // Cerrar modal con el botón de cerrar
     closeCropModal.addEventListener('click', function() {
+        // Oculta el modal
         cropModal.style.display = 'none';
+        // Destruye la instancia de cropper
         if (cropper) {
             cropper.destroy();
             cropper = null;
         }
     });
     
+    // Cancelar recorte
     cancelCrop.addEventListener('click', function() {
+        // Oculta el modal
         cropModal.style.display = 'none';
+        // Destruye la instancia de cropper
         if (cropper) {
             cropper.destroy();
             cropper = null;
@@ -263,9 +318,12 @@ function setupBannerCropper() {
     
     // Aplicar recorte
     applyCrop.addEventListener('click', function() {
+        // Valida que exista la instancia de cropper
         if (!cropper) return;
         
+        // Obtiene los datos del recorte
         const cropData = cropper.getData(true);
+        // Obtiene los datos de la imagen
         const imageData = cropper.getImageData();
         
         // Convertir a porcentajes
@@ -282,11 +340,13 @@ function setupBannerCropper() {
         
         // Cerrar modal
         cropModal.style.display = 'none';
+        // Destruye la instancia de cropper
         if (cropper) {
             cropper.destroy();
             cropper = null;
         }
         
+        // Log para depuración
         console.log('Coordenadas de recorte guardadas:', {
             x: cropXPercent.toFixed(2),
             y: cropYPercent.toFixed(2),
@@ -297,8 +357,11 @@ function setupBannerCropper() {
     
     // Cerrar modal al hacer clic fuera
     cropModal.addEventListener('click', function(e) {
+        // Si el clic es en el modal (no en su contenido)
         if (e.target === cropModal) {
+            // Oculta el modal
             cropModal.style.display = 'none';
+            // Destruye la instancia de cropper
             if (cropper) {
                 cropper.destroy();
                 cropper = null;

@@ -1,21 +1,24 @@
 <?php
+// Incluye el archivo de configuración
 require_once '../config.php';
 
 try {
+    // Obtiene la conexión a la base de datos
     $conn = getConnection();
+    // Obtiene el método HTTP de la solicitud
     $method = $_SERVER['REQUEST_METHOD'];
     
     switch ($method) {
         case 'GET':
             // Obtener trofeos de un videojuego
             if (isset($_GET['game_id'])) {
+                // Convierte el ID a entero
                 $gameId = (int)$_GET['game_id'];
                 
-<<<<<<< HEAD
+                // Log para depuración
                 error_log("GET trophies.php - game_id: $gameId");
                 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
+                // Prepara la consulta para obtener los trofeos del juego
                 $stmt = $conn->prepare("
                     SELECT t.*, 
                         CASE WHEN t.conseguido = 1 THEN 'conseguido' ELSE 'no-conseguido' END as estado
@@ -24,24 +27,19 @@ try {
                     ORDER BY t.id ASC
                 ");
                 $stmt->execute([':game_id' => $gameId]);
+                // Obtiene todos los trofeos
                 $trophies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
-<<<<<<< HEAD
+                // Log para depuración
                 error_log("GET trophies.php - Trofeos encontrados: " . count($trophies));
                 
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 // Formatear datos
                 foreach ($trophies as &$trophy) {
                     $trophy['id'] = (int)$trophy['id'];
                     $trophy['videojuego_id'] = (int)$trophy['videojuego_id'];
                     $trophy['conseguido'] = (bool)$trophy['conseguido'];
                     $trophy['perdible'] = (bool)$trophy['perdible'];
-<<<<<<< HEAD
                     $trophy['online'] = (bool)($trophy['es_online'] ?? $trophy['online'] ?? 0);
-=======
-                    $trophy['online'] = (bool)$trophy['online'];
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                     
                     // Decodificar entidades HTML en instrucciones
                     if (isset($trophy['instrucciones'])) {
@@ -49,36 +47,39 @@ try {
                     }
                 }
                 
-<<<<<<< HEAD
+                // Log para depuración
                 error_log("GET trophies.php - JSON response: " . json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
                 
+                // Retorna los trofeos en formato JSON
                 echo json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             } else {
+                // Si no se proporciona game_id, retorna error
                 error_log("GET trophies.php - ERROR: game_id no proporcionado");
-=======
-                echo json_encode($trophies, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-            } else {
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 http_response_code(400);
                 echo json_encode(['error' => 'ID de videojuego requerido']);
             }
             break;
             
         case 'POST':
+            // Decodifica el JSON del cuerpo de la solicitud
             $data = json_decode(file_get_contents('php://input'), true);
             
+            // Log para depuración
             error_log('POST trophies.php - Datos recibidos: ' . print_r($data, true));
             
             // Si hay ID, actualizar trofeo existente
             if (isset($data['id']) && !empty($data['id'])) {
+                // Log para depuración
                 error_log('POST trophies.php - Actualizando trofeo ID: ' . $data['id']);
                 
+                // Convierte el ID a entero
                 $trophyId = (int)$data['id'];
                 
                 // Construir consulta dinámica
                 $fields = [];
                 $params = [':id' => $trophyId];
                 
+                // Agrega campos a actualizar si están presentes
                 if (isset($data['nombre_trofeo'])) {
                     $fields[] = 'nombre_trofeo = :nombre_trofeo';
                     $params[':nombre_trofeo'] = $data['nombre_trofeo'];
@@ -88,6 +89,7 @@ try {
                     $params[':descripcion'] = $data['descripcion'];
                 }
                 if (isset($data['tipo'])) {
+                    // Valida que el tipo esté en la lista permitida
                     $tiposPermitidos = ['BRONCE', 'PLATA', 'ORO', 'PLATINO'];
                     $tipoUpper = strtoupper($data['tipo']);
                     if (in_array($tipoUpper, $tiposPermitidos)) {
@@ -116,21 +118,18 @@ try {
                     $params[':perdible'] = $data['perdible'] ? 1 : 0;
                 }
                 if (isset($data['online'])) {
-<<<<<<< HEAD
                     $fields[] = 'es_online = :es_online';
                     $params[':es_online'] = $data['online'] ? 1 : 0;
-=======
-                    $fields[] = 'online = :online';
-                    $params[':online'] = $data['online'] ? 1 : 0;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 }
                 
+                // Si no hay campos para actualizar, retorna error
                 if (empty($fields)) {
                     http_response_code(400);
                     echo json_encode(['error' => 'No hay campos para actualizar']);
                     break;
                 }
                 
+                // Construye la consulta SQL de actualización
                 $sql = "UPDATE trofeos SET " . implode(', ', $fields) . " WHERE id = :id";
                 error_log('POST trophies.php - SQL UPDATE: ' . $sql);
                 error_log('POST trophies.php - Params: ' . print_r($params, true));
@@ -151,6 +150,7 @@ try {
                 $stmt->execute([':id' => $trophyId]);
                 $updatedTrophy = $stmt->fetch(PDO::FETCH_ASSOC);
                 
+                // Si no se pudo recuperar el trofeo, retorna error
                 if (!$updatedTrophy) {
                     http_response_code(500);
                     echo json_encode(['error' => 'No se pudo recuperar el trofeo actualizado']);
@@ -162,13 +162,9 @@ try {
                 $updatedTrophy['videojuego_id'] = (int)$updatedTrophy['videojuego_id'];
                 $updatedTrophy['conseguido'] = (bool)$updatedTrophy['conseguido'];
                 $updatedTrophy['perdible'] = (bool)$updatedTrophy['perdible'];
-<<<<<<< HEAD
                 $updatedTrophy['online'] = (bool)($updatedTrophy['es_online'] ?? $updatedTrophy['online'] ?? 0);
-=======
-                $updatedTrophy['online'] = (bool)$updatedTrophy['online'];
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 
-                // Actualizar progreso
+                // Actualizar progreso del juego
                 try {
                     updateProgress($conn, $updatedTrophy['videojuego_id']);
                 } catch (Exception $e) {
@@ -188,10 +184,10 @@ try {
                 // Crear nuevo trofeo
                 error_log('POST trophies.php - Creando nuevo trofeo');
                 
-                // Aceptar tanto videojuegos_id como videojuegos_id
+                // Aceptar tanto videojuegos_id como videojuego_id (compatibilidad)
                 $videojuegoId = isset($data['videojuego_id']) ? $data['videojuego_id'] : (isset($data['videojuegos_id']) ? $data['videojuegos_id'] : null);
                 
-                // Solo el nombre es requerido
+                // Valida que los datos requeridos estén presentes
                 if (!$data || !isset($data['nombre_trofeo']) || !$videojuegoId) {
                     error_log('Faltan datos requeridos');
                     http_response_code(400);
@@ -199,16 +195,13 @@ try {
                     break;
                 }
                 
+                // Prepara la consulta para insertar el nuevo trofeo
                 $stmt = $conn->prepare("
-<<<<<<< HEAD
                     INSERT INTO trofeos (videojuego_id, nombre_trofeo, descripcion, tipo, icono_url, instrucciones, video_url, conseguido, perdible, es_online)
                     VALUES (:videojuego_id, :nombre_trofeo, :descripcion, :tipo, :icono_url, :instrucciones, :video_url, :conseguido, :perdible, :es_online)
-=======
-                    INSERT INTO trofeos (videojuego_id, nombre_trofeo, descripcion, tipo, icono_url, instrucciones, video_url, conseguido, perdible, online)
-                    VALUES (:videojuego_id, :nombre_trofeo, :descripcion, :tipo, :icono_url, :instrucciones, :video_url, :conseguido, :perdible, :online)
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ");
                 
+                // Ejecuta la inserción con los parámetros
                 $stmt->execute([
                     ':videojuego_id' => $videojuegoId,
                     ':nombre_trofeo' => $data['nombre_trofeo'],
@@ -219,13 +212,10 @@ try {
                     ':video_url' => $data['video_url'] ?? null,
                     ':conseguido' => $data['conseguido'] ? 1 : 0,
                     ':perdible' => $data['perdible'] ? 1 : 0,
-<<<<<<< HEAD
                     ':es_online' => $data['online'] ? 1 : 0
-=======
-                    ':online' => $data['online'] ? 1 : 0
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 ]);
                 
+                // Obtiene el ID del trofeo insertado
                 $newId = $conn->lastInsertId();
                 
                 // Obtener el trofeo creado
@@ -238,15 +228,12 @@ try {
                 $newTrophy['videojuego_id'] = (int)$newTrophy['videojuego_id'];
                 $newTrophy['conseguido'] = (bool)$newTrophy['conseguido'];
                 $newTrophy['perdible'] = (bool)$newTrophy['perdible'];
-<<<<<<< HEAD
                 $newTrophy['online'] = (bool)($newTrophy['es_online'] ?? $newTrophy['online'] ?? 0);
-=======
-                $newTrophy['online'] = (bool)$newTrophy['online'];
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
                 
-                // Actualizar progreso
+                // Actualizar progreso del juego
                 updateProgress($conn, $videojuegoId);
                 
+                // Retorna el trofeo creado
                 echo json_encode($newTrophy);
             }
             break;
@@ -256,6 +243,7 @@ try {
             $rawInput = file_get_contents('php://input');
             $data = json_decode($rawInput, true);
             
+            // Logs para depuración
             error_log('PUT trophies.php - Raw input: ' . $rawInput);
             error_log('PUT trophies.php - Decoded data: ' . print_r($data, true));
             error_log('PUT trophies.php - GET params: ' . print_r($_GET, true));
@@ -266,6 +254,7 @@ try {
                 $trophyId = (int)$data['id'];
             }
             
+            // Valida que se proporcione el ID
             if (!$trophyId) {
                 http_response_code(400);
                 echo json_encode(['error' => 'ID de trofeo requerido']);
@@ -279,6 +268,7 @@ try {
             $fields = [];
             $params = [':id' => $data['id']];
             
+            // Agrega campos a actualizar si están presentes
             if (isset($data['nombre_trofeo'])) {
                 $fields[] = 'nombre_trofeo = :nombre_trofeo';
                 $params[':nombre_trofeo'] = $data['nombre_trofeo'];
@@ -322,21 +312,18 @@ try {
                 $params[':perdible'] = $data['perdible'] ? 1 : 0;
             }
             if (isset($data['online'])) {
-<<<<<<< HEAD
                 $fields[] = 'es_online = :es_online';
                 $params[':es_online'] = $data['online'] ? 1 : 0;
-=======
-                $fields[] = 'online = :online';
-                $params[':online'] = $data['online'] ? 1 : 0;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             }
             
+            // Si no hay campos para actualizar, retorna error
             if (empty($fields)) {
                 http_response_code(400);
                 echo json_encode(['error' => 'No hay campos para actualizar']);
                 break;
             }
             
+            // Construye la consulta SQL de actualización
             $sql = "UPDATE trofeos SET " . implode(', ', $fields) . " WHERE id = :id";
             error_log('PUT trophies.php - SQL: ' . $sql);
             error_log('PUT trophies.php - Params: ' . print_r($params, true));
@@ -357,6 +344,7 @@ try {
             $stmt->execute([':id' => $data['id']]);
             $updatedTrophy = $stmt->fetch(PDO::FETCH_ASSOC);
             
+            // Si no se pudo recuperar el trofeo, retorna error
             if (!$updatedTrophy) {
                 error_log('PUT trophies.php - ERROR: No se pudo recuperar el trofeo actualizado con id=' . $data['id']);
                 http_response_code(500);
@@ -369,11 +357,7 @@ try {
             $updatedTrophy['videojuego_id'] = (int)$updatedTrophy['videojuego_id'];
             $updatedTrophy['conseguido'] = (bool)$updatedTrophy['conseguido'];
             $updatedTrophy['perdible'] = (bool)$updatedTrophy['perdible'];
-<<<<<<< HEAD
             $updatedTrophy['online'] = (bool)($updatedTrophy['es_online'] ?? $updatedTrophy['online'] ?? 0);
-=======
-            $updatedTrophy['online'] = (bool)$updatedTrophy['online'];
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
             
             // Obtener game_id para actualizar progreso
             $gameId = $updatedTrophy['videojuego_id'];
@@ -399,6 +383,7 @@ try {
             // Eliminar trofeo
             $data = json_decode(file_get_contents('php://input'), true);
             
+            // Valida que se proporcione el ID
             if (!$data || !isset($data['id'])) {
                 http_response_code(400);
                 echo json_encode(['error' => 'ID de trofeo requerido']);
@@ -410,32 +395,38 @@ try {
             $stmt->execute([':id' => $data['id']]);
             $trophy = $stmt->fetch(PDO::FETCH_ASSOC);
             
+            // Si no se encuentra el trofeo, retorna error 404
             if (!$trophy) {
                 http_response_code(404);
                 echo json_encode(['error' => 'Trofeo no encontrado']);
                 break;
             }
             
+            // Elimina el trofeo
             $stmt = $conn->prepare("DELETE FROM trofeos WHERE id = :id");
             $stmt->execute([':id' => $data['id']]);
             
-            // Actualizar progreso
+            // Actualizar progreso del juego
             updateProgress($conn, $trophy['videojuego_id']);
             
+            // Retorna mensaje de éxito
             echo json_encode(['message' => 'Trofeo eliminado correctamente']);
             break;
             
         default:
+            // Método no permitido
             http_response_code(405);
             echo json_encode(['error' => 'Método no permitido']);
             break;
     }
     
 } catch(PDOException $e) {
+    // Captura errores de base de datos
     http_response_code(500);
     echo json_encode(['error' => 'Error en la base de datos: ' . $e->getMessage()]);
 }
 
+// Función para actualizar el progreso de trofeos de un juego
 function updateProgress($conn, $gameId) {
     // Obtener conteo de trofeos por tipo
     $stmt = $conn->prepare("
@@ -450,10 +441,12 @@ function updateProgress($conn, $gameId) {
     $stmt->execute([':game_id' => $gameId]);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
+    // Inicializa contadores
     $bronce = $plata = $oro = $platino = 0;
     $bronce_conseguidos = $plata_conseguidos = $oro_conseguidos = 0;
     $platino_conseguido = false;
     
+    // Itera sobre los resultados para asignar contadores
     foreach ($results as $row) {
         switch ($row['tipo']) {
             case 'BRONCE':
@@ -475,11 +468,13 @@ function updateProgress($conn, $gameId) {
         }
     }
     
+    // Calcula el total de trofeos y conseguidos
     $total_trofeos = $bronce + $plata + $oro + $platino;
     $total_conseguidos = $bronce_conseguidos + $plata_conseguidos + $oro_conseguidos + ($platino_conseguido ? 1 : 0);
+    // Calcula el porcentaje de completado
     $porcentaje = $total_trofeos > 0 ? round(($total_conseguidos / $total_trofeos) * 100, 2) : 0;
     
-    // Actualizar o insertar progreso
+    // Actualizar o insertar progreso en la base de datos
     $stmt = $conn->prepare("
         INSERT INTO progreso_trofeos 
         (videojuego_id, total_trofeos, bronce_conseguidos, plata_conseguidos, oro_conseguidos, platino_conseguido, porcentaje_completado)
@@ -494,6 +489,7 @@ function updateProgress($conn, $gameId) {
         ultima_actualizacion = CURRENT_TIMESTAMP
     ");
     
+    // Ejecuta la consulta con los parámetros
     $stmt->execute([
         ':game_id' => $gameId,
         ':total_trofeos' => $total_trofeos,

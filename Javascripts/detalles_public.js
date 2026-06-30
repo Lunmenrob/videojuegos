@@ -1,10 +1,7 @@
 // Variables globales para almacenar todos los trofeos
 let allTrophies = [];
 let dlcTrophies = [];
-<<<<<<< HEAD
 let gameData = null;
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
 
 const isPublicPage = true;
 const apiBasePath = '../api/';
@@ -229,7 +226,6 @@ function initializeDetailsPage() {
         document.getElementById('banner-3-container').style.display = 'none';
       }
 
-<<<<<<< HEAD
       // Mostrar mapas interactivos
       if (data.mapas_interactivos && Array.isArray(data.mapas_interactivos) && data.mapas_interactivos.length > 0) {
         const mapasContainer = document.getElementById('mapas-interactivos-container');
@@ -246,20 +242,6 @@ function initializeDetailsPage() {
             btn.textContent = mapa.nombre;
             mapasContainer.appendChild(btn);
           });
-=======
-      const mapButton = document.getElementById('mapa-interactivo-link');
-      if (mapButton) {
-        const mapUrl = (data.mapa_interactivo_url || '').trim();
-        if (mapUrl && /^https?:\/\//i.test(mapUrl)) {
-          mapButton.href = mapUrl;
-          mapButton.style.display = 'inline-flex';
-          mapButton.style.visibility = 'visible';
-          mapButton.hidden = false;
-        } else {
-          mapButton.style.display = 'none';
-          mapButton.style.visibility = 'hidden';
-          mapButton.hidden = true;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
         }
       }
 
@@ -296,11 +278,7 @@ function initializeDetailsPage() {
         document.getElementById('necesario-platino').textContent = data.necesario_platino;
       }
       if (data.trofeos_ocultos) {
-<<<<<<< HEAD
         document.getElementById('trofeos-ocultos').innerHTML = data.trofeos_ocultos;
-=======
-        document.getElementById('trofeos-ocultos').textContent = data.trofeos_ocultos;
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
       }
       if (data.min_partidas) {
         document.getElementById('min-partidas').textContent = data.min_partidas;
@@ -338,10 +316,7 @@ function initializeDetailsPage() {
       document.getElementById('plata-count').textContent = data.plata_conseguidos || 0;
       document.getElementById('bronce-count').textContent = data.bronce_conseguidos || 0;
 
-<<<<<<< HEAD
       gameData = data;
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
       loadGameMedia(gameId, 'media-carousel-container');
       loadTrophies(gameId);
       loadDLCs(gameId);
@@ -460,11 +435,7 @@ function renderTrophies(trophies) {
     const trophyImage = getTrophyImage(trophy.tipo);
     const videoEmbed = trophy.video_url ? getYouTubeEmbed(trophy.video_url) : '';
     const perdibleBadge = trophy.perdible ? '<span class="trophy-perdible-badge">PERDIBLE</span>' : '';
-<<<<<<< HEAD
     const onlineBadge = trophy.online ? '<i class="fas fa-globe trophy-online-icon" title="Online"></i>' : '';
-=======
-    const onlineBadge = trophy.online ? '<span class="trophy-online-badge">ONLINE</span>' : '';
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     console.log('Trofeo:', trophy.nombre_trofeo, 'conseguido:', trophy.conseguido);
     return `
     <div class="trophy-card" data-conseguido="${trophy.conseguido ? 'true' : 'false'}">
@@ -559,13 +530,8 @@ function renderDLCs(dlcs) {
   // Añadir iconos de DLCs al contenedor del título
   if (iconsContainer) {
     iconsContainer.innerHTML = dlcs.map(dlc => `
-<<<<<<< HEAD
       <button type="button" onclick="scrollToDLC('${dlc.id}')" class="dlc-icon-btn" title="${dlc.nombre}">
         <img src="${dlc.imagen_url || getAssetUrl('interfaz/trofeos/default.png')}" alt="${dlc.nombre}">
-=======
-      <button type="button" onclick="scrollToDLC('${dlc.id}')" style="background: #1f1b35; border: 2px solid #2d2847; border-radius: 8px; width: 100px; height: 100px; padding: 0; cursor: pointer; transition: all 0.3s ease; overflow: hidden; display: flex; align-items: center; justify-content: center;" title="${dlc.nombre}">
-        <img src="${dlc.imagen_url || getAssetUrl('interfaz/trofeos/default.png')}" alt="${dlc.nombre}" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;">
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
       </button>
     `).join('');
   }
@@ -579,7 +545,6 @@ function renderDLCs(dlcs) {
   container.innerHTML = dlcs.map(dlc => {
     const bannerUrl = getDlcBannerUrl(dlc);
     const iconUrl = (dlc.imagen_url || '').toString().trim();
-<<<<<<< HEAD
     
     // Usar datos del juego principal para clasificaciones, editor y género
     const editor = gameData?.desarrollador || '--';
@@ -592,8 +557,6 @@ function renderDLCs(dlcs) {
     const showClas2 = gameData?.show_clas2 === true;
     const showClas3 = gameData?.show_clas3 === true;
     
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     const bannerMarkup = bannerUrl ? `
       <div class="game-banner dlc-banner">
         <img src="${bannerUrl}" alt="Banner de ${dlc.nombre}" onerror="this.style.display='none'; this.closest('.game-banner').classList.add('dlc-banner--missing');">
@@ -604,7 +567,6 @@ function renderDLCs(dlcs) {
               <span>Lanzamiento: ${dlc.fecha_lanzamiento ? new Date(dlc.fecha_lanzamiento).toLocaleDateString('es-ES') : '--'}</span>
               <span>DLC</span>
             </div>
-<<<<<<< HEAD
             <div class="banner-info-details">
               <div class="banner-info-item">
                 <span class="banner-info-label">Editor:</span>
@@ -629,8 +591,6 @@ function renderDLCs(dlcs) {
                 <img src="${clas3Url}" alt="Clas3" class="classification-img">
               </div>
             </div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
           </div>
         </div>
       </div>
@@ -644,7 +604,6 @@ function renderDLCs(dlcs) {
               <span>Lanzamiento: ${dlc.fecha_lanzamiento ? new Date(dlc.fecha_lanzamiento).toLocaleDateString('es-ES') : '--'}</span>
               <span>DLC</span>
             </div>
-<<<<<<< HEAD
             <div class="banner-info-details">
               <div class="banner-info-item">
                 <span class="banner-info-label">Editor:</span>
@@ -669,8 +628,6 @@ function renderDLCs(dlcs) {
                 <img src="${clas3Url}" alt="Clas3" class="classification-img">
               </div>
             </div>
-=======
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
           </div>
         </div>
       </div>
@@ -693,16 +650,8 @@ function renderDLCs(dlcs) {
 
 <!-- Galería del DLC -->
         <div class="content-card dlc-content-card extra-card dlc-gallery-card" 
-<<<<<<< HEAD
           style="background: #000; border-radius: 8px; overflow: hidden; padding: 0; height: 420px; display: block; margin-top: 2rem;">
         <div class="media-carousel" id="media-carousel-${dlc.id}" style="height: 420px;"></div>
-=======
-          style="background: #000; border-radius: 8px; overflow: hidden; padding: 0; height: 450px; display: block; margin-top: 2rem;">
-        <div class="media-gallery-header" style="padding: 1rem;">
-          <h2 class="trophies-title">Galería del DLC</h2>
-        </div>
-        <div class="media-carousel" id="media-carousel-${dlc.id}" style="height: 400px;"></div>
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
       </div>
 
       <div class="content-card dlc-content-card extra-card">
@@ -834,11 +783,7 @@ function renderDLCTrophies(dlcId, trophies) {
     const trophyImage = getTrophyImage(trophy.tipo);
     const videoEmbed = trophy.video_url ? getYouTubeEmbed(trophy.video_url) : '';
     const perdibleBadge = trophy.perdible ? '<span class="trophy-perdible-badge">PERDIBLE</span>' : '';
-<<<<<<< HEAD
     const onlineBadge = trophy.online ? '<i class="fas fa-globe trophy-online-icon" title="Online"></i>' : '';
-=======
-    const onlineBadge = trophy.online ? '<span class="trophy-online-badge">ONLINE</span>' : '';
->>>>>>> 31e3254f6c608c81655c7380abbf9d2b1baf435a
     console.log('Trofeo DLC:', trophy.nombre_trofeo, 'conseguido:', trophy.conseguido);
     return `
     <div class="trophy-card" data-conseguido="${trophy.conseguido ? 'true' : 'false'}">

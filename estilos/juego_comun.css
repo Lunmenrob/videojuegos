@@ -1,137 +1,222 @@
 /* Estilos compartidos para agregar_juego.php y editar_juego.php */
 
 /* Estilos para imágenes de trofeos */
-.trophy-item-info img, .dlc-trophy-form img, .trophy-form-inline img, .trophy-item-edit img, #trophies-list img, #dlc-trophies-list img {
+.trophy-item-info img, .dlc-trophy-form img, .trophy-form-inline img, .trophy-item-edit img, #trophies-list img, #dlc-trophies-list img { /* Selecciona todas las imágenes de trofeos en diferentes contenedores */
+    /* Ancho máximo de 50px (sobrescribe cualquier otro estilo) */
     max-width: 50px !important;
+    /* Alto máximo de 50px (sobrescribe cualquier otro estilo) */
     max-height: 50px !important;
+    /* Ancho fijo de 50px (sobrescribe cualquier otro estilo) */
     width: 50px !important;
+    /* Alto fijo de 50px (sobrescribe cualquier otro estilo) */
     height: 50px !important;
+    /* Ajusta la imagen para cubrir el área sin deformarse */
     object-fit: cover !important;
 }
 
-.dlc-item-edit {
+.dlc-item-edit { /* Estilos para el contenedor de edición de DLC */
+    /* Borde inferior de 2px de color morado oscuro */
     border-bottom: 2px solid #2d2847;
+    /* Espaciado inferior de 1rem */
     padding-bottom: 1rem;
+    /* Margen inferior de 1rem */
     margin-bottom: 1rem;
 }
 
-.dlc-item-edit:last-child {
+.dlc-item-edit:last-child { /* Estilos para el último elemento de DLC */
+    /* Elimina el borde inferior */
     border-bottom: none;
+    /* Elimina el margen inferior */
     margin-bottom: 0;
 }
 
-.dlc-form-inline > div:first-child > img {
+.dlc-form-inline > div:first-child > img { /* Selecciona la imagen dentro del primer div del formulario inline de DLC */
+    /* Ancho máximo de 50px (sobrescribe cualquier otro estilo) */
     max-width: 50px !important;
+    /* Alto máximo de 50px (sobrescribe cualquier otro estilo) */
     max-height: 50px !important;
+    /* Ancho fijo de 50px (sobrescribe cualquier otro estilo) */
     width: 50px !important;
+    /* Alto fijo de 50px (sobrescribe cualquier otro estilo) */
     height: 50px !important;
+    /* Ajusta la imagen para cubrir el área sin deformarse */
     object-fit: cover !important;
 }
 
 /* Estilos para lista de mapas interactivos */
-.mapas-list {
+.mapas-list { /* Contenedor de la lista de mapas */
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Permite que los elementos se envuelvan a la siguiente línea */
     flex-wrap: wrap;
+    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
+    /* Margen superior de 0.5rem */
     margin-top: 0.5rem;
 }
 
-.mapa-item {
+.mapa-item { /* Estilos para cada item de mapa individual */
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea los elementos verticalmente al centro */
     align-items: center;
+    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
+    /* Fondo gris oscuro */
     background: #252525;
+    /* Borde de 1px gris */
     border: 1px solid #3a3a3a;
+    /* Bordes redondeados de 8px */
     border-radius: 8px;
+    /* Relleno de 0.5rem vertical y 1rem horizontal */
     padding: 0.5rem 1rem;
+    /* Ancho mínimo de 200px */
     min-width: 200px;
 }
 
-.mapa-item-name {
+.mapa-item-name { /* Estilos para el nombre del mapa */
+    /* Ocupa el espacio disponible */
     flex: 1;
+    /* Texto blanco */
     color: #ffffff;
+    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
+    /* No permite saltos de línea */
     white-space: nowrap;
+    /* Oculta el texto que desborda */
     overflow: hidden;
+    /* Muestra puntos suspensivos si el texto desborda */
     text-overflow: ellipsis;
 }
 
-.mapa-item-url {
+.mapa-item-url { /* Estilos para la URL del mapa */
+    /* Ocupa el espacio disponible */
     flex: 1;
+    /* Texto gris claro */
     color: #888888;
+    /* Tamaño de fuente de 0.8rem */
     font-size: 0.8rem;
+    /* No permite saltos de línea */
     white-space: nowrap;
+    /* Oculta el texto que desborda */
     overflow: hidden;
+    /* Muestra puntos suspensivos si el texto desborda */
     text-overflow: ellipsis;
 }
 
-.mapa-item-delete {
+.mapa-item-delete { /* Estilos para el botón de eliminar mapa */
+    /* Fondo gris */
     background: #3a3a3a;
+    /* Sin borde */
     border: none;
+    /* Texto blanco */
     color: #ffffff;
+    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
+    /* Relleno de 0.4rem */
     padding: 0.4rem;
+    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
+    /* Bordes completamente redondeados (círculo) */
     border-radius: 50%;
+    /* Ancho de 32px */
     width: 32px;
+    /* Alto de 32px */
     height: 32px;
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea el contenido verticalmente al centro */
     align-items: center;
+    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
+    /* Transición suave de 0.2s para todos los cambios */
     transition: all 0.2s;
 }
 
-.mapa-item-delete:hover {
+.mapa-item-delete:hover { /* Estilos al pasar el mouse sobre el botón de eliminar */
+    /* Fondo azul */
     background: #0070d1;
+    /* Texto blanco */
     color: #ffffff;
 }
 
-.mapa-item-edit {
+.mapa-item-edit { /* Estilos para el botón de editar mapa */
+    /* Fondo gris */
     background: #3a3a3a;
+    /* Sin borde */
     border: none;
+    /* Texto blanco */
     color: #ffffff;
+    /* Cursor de puntero al pasar el mouse */
     cursor: pointer;
+    /* Relleno de 0.4rem */
     padding: 0.4rem;
+    /* Tamaño de fuente de 0.9rem */
     font-size: 0.9rem;
+    /* Bordes completamente redondeados (círculo) */
     border-radius: 50%;
+    /* Ancho de 32px */
     width: 32px;
+    /* Alto de 32px */
     height: 32px;
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea el contenido verticalmente al centro */
     align-items: center;
+    /* Alinea el contenido horizontalmente al centro */
     justify-content: center;
+    /* Transición suave de 0.2s para todos los cambios */
     transition: all 0.2s;
 }
 
-.mapa-item-edit:hover {
+.mapa-item-edit:hover { /* Estilos al pasar el mouse sobre el botón de editar */
+    /* Fondo azul */
     background: #0070d1;
+    /* Texto blanco */
     color: #ffffff;
 }
 
 /* Estilos para aviso de galería multimedia */
-.gallery-warning {
+.gallery-warning { /* Estilos para el contenedor de aviso de galería */
+    /* Usa flexbox para el layout */
     display: flex;
+    /* Alinea los elementos verticalmente al centro */
     align-items: center;
+    /* Espacio entre elementos de 0.5rem */
     gap: 0.5rem;
+    /* Fondo amarillo semitransparente */
     background: rgba(255, 193, 7, 0.1);
+    /* Borde amarillo semitransparente */
     border: 1px solid rgba(255, 193, 7, 0.3);
+    /* Bordes redondeados de 8px */
     border-radius: 8px;
+    /* Relleno de 0.75rem vertical y 1rem horizontal */
     padding: 0.75rem 1rem;
+    /* Margen inferior de 1rem */
     margin-bottom: 1rem;
+    /* Texto amarillo */
     color: #ffc107;
+    /* Tamaño de fuente de 0.85rem */
     font-size: 0.85rem;
 }
 
-.gallery-warning i {
+.gallery-warning i { /* Estilos para el icono dentro del aviso */
+    /* Tamaño de fuente de 1rem */
     font-size: 1rem;
+    /* No permite que el icono se encoja */
     flex-shrink: 0;
 }
 
-.gallery-warning span {
+.gallery-warning span { /* Estilos para el texto dentro del aviso */
+    /* Ocupa el espacio disponible */
     flex: 1;
+    /* Altura de línea de 1.4 */
     line-height: 1.4;
 }
 
-.gallery-warning i.fas.fa-save {
+.gallery-warning i.fas.fa-save { /* Estilos específicos para el icono de guardar */
+    /* Margen horizontal de 0.25rem */
     margin: 0 0.25rem;
+    /* Color amarillo */
     color: #ffc107;
 }
