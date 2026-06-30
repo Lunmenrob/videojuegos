@@ -1,0 +1,137 @@
+/* Estilos compartidos para agregar_juego.php y editar_juego.php */
+
+/* Estilos para imágenes de trofeos */
+.trophy-item-info img, .dlc-trophy-form img, .trophy-form-inline img, .trophy-item-edit img, #trophies-list img, #dlc-trophies-list img {
+    max-width: 50px !important;
+    max-height: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
+
+.dlc-item-edit {
+    border-bottom: 2px solid #2d2847;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dlc-item-edit:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.dlc-form-inline > div:first-child > img {
+    max-width: 50px !important;
+    max-height: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
+
+/* Estilos para lista de mapas interactivos */
+.mapas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.mapa-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    min-width: 200px;
+}
+
+.mapa-item-name {
+    flex: 1;
+    color: #ffffff;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mapa-item-url {
+    flex: 1;
+    color: #888888;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mapa-item-delete {
+    background: #3a3a3a;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.mapa-item-delete:hover {
+    background: #0070d1;
+    color: #ffffff;
+}
+
+.mapa-item-edit {
+    background: #3a3a3a;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.mapa-item-edit:hover {
+    background: #0070d1;
+    color: #ffffff;
+}
+
+/* Estilos para aviso de galería multimedia */
+.gallery-warning {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    color: #ffc107;
+    font-size: 0.85rem;
+}
+
+.gallery-warning i {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.gallery-warning span {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.gallery-warning i.fas.fa-save {
+    margin: 0 0.25rem;
+    color: #ffc107;
+}

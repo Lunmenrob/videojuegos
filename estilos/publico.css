@@ -1,0 +1,82 @@
+.game-title {
+    font-size: 1.4rem !important;
+    font-weight: 200 !important;
+    color: #ffffff !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.filter-btn.ps4 {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    font-family: 'Zrnic', sans-serif !important;
+    font-size: 1.3rem !important;
+}
+
+.filter-btn.ps5 {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    font-family: 'Zrnic', sans-serif !important;
+    font-size: 1.3rem !important;
+}
+
+.platform-badge {
+    background: #000000 !important;
+    color: white !important;
+}
+
+.search-box button {
+    background: #3a3a3a !important;
+}
+
+.search-box button:hover {
+    background: #4a4a4a !important;
+}
+
+.filter-dropdowns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.dropdown-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-group label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.dropdown-group select {
+    padding: 0.5rem 1rem;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Zrnic', sans-serif;
+    min-width: 150px;
+}
+
+.dropdown-group select:hover {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+.dropdown-group select:focus {
+    outline: none;
+    border-color: #0071e3;
+}
