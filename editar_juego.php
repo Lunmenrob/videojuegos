@@ -1,18 +1,6 @@
 <?php
-/**
- * Página de edición de juego existente
- * Permite modificar todos los datos de un juego:
- * - Datos básicos (nombre, plataforma, género, fecha, desarrollador, editor)
- * - Imágenes (icono, banner, PEGI, clasificaciones)
- * - Información de trofeos (offline, online, dificultad, duración)
- * - Galería multimedia
- * - Trofeos individuales (crear, editar, eliminar)
- * - DLCs con sus trofeos
- * - Mapas interactivos
- * Requiere autenticación (auth.php) y protección CSRF (csrf.php)
- */
-require_once 'auth.php'; // Incluye el archivo de autenticación
-require_once 'csrf.php'; // Incluye el archivo de protección CSRF
+require_once 'auth.php';
+require_once 'csrf.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -902,7 +890,6 @@ function renderTrophies(trophies) {
                     <small style="color: #666;">
                         ${trophy.conseguido ? '<i class="fas fa-trophy" style="color: #ffd700;"></i> Conseguido' : '<i class="fas fa-trophy" style="color: #999;"></i> No conseguido'}
                         ${trophy.perdible ? ' | <i class="fas fa-exclamation-triangle" style="color: #e53e3e;"></i> Perdible' : ''}
-                        ${trophy.online ? ' | <i class="fas fa-globe" style="color: #4a90d9;"></i> Online' : ''}
                     </small>
                 </div>
                 <div class="trophy-item-actions">
