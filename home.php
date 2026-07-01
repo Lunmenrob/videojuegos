@@ -11,7 +11,7 @@ require_once 'csrf.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
     <!-- Enlace a la hoja de estilos de home -->
-    <link rel="stylesheet" href="estilos/home.css">
+    <link rel="stylesheet" href="estilos/css/home.css">
     <!-- Enlace a Font Awesome para iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -26,12 +26,12 @@ require_once 'csrf.php';
             <div class="home-options">
                 <!-- Opción de visitante (acceso público sin login) -->
                 <a class="home-option" href="publico/public_index.php">
-                    <img src="estilos/usuarios/invitado.png" alt="Visitante">
+                    <img src="interfaz/trofeos/usuarios/invitado.png" alt="Visitante">
                     <h2>Visitante</h2>
                 </a>
                 <!-- Opción de administrador (requiere login) -->
                 <div class="home-option admin-option" id="admin-option">
-                    <img src="estilos/usuarios/admin.jpg" alt="Administrador">
+                    <img src="interfaz/trofeos/usuarios/admin.jpg" alt="Administrador">
                     <h2>Administrador</h2>
                 </div>
             </div>

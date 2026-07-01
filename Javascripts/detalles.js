@@ -536,12 +536,12 @@ function renderTrophies(trophies) {
 function getTrophyImage(tipo) {
   const tipoLower = tipo.toLowerCase();
   const images = {
-    'platino': getAssetUrl('interfaz/trofeos/platino.png'),
-    'oro': getAssetUrl('interfaz/trofeos/oro.png'),
-    'plata': getAssetUrl('interfaz/trofeos/plata.png'),
-    'bronce': getAssetUrl('interfaz/trofeos/bronce.png')
+    'platino': getAssetUrl('interfaz/trofeos/trofeos/platino.png'),
+    'oro': getAssetUrl('interfaz/trofeos/trofeos/oro.png'),
+    'plata': getAssetUrl('interfaz/trofeos/trofeos/plata.png'),
+    'bronce': getAssetUrl('interfaz/trofeos/trofeos/bronce.png')
   };
-  return images[tipoLower] || getAssetUrl('interfaz/trofeos/default.png');
+  return images[tipoLower] || getAssetUrl('interfaz/trofeos/trofeos/default.png');
 }
 
 function filterTrophies(trophies, filter) {
@@ -606,7 +606,7 @@ function renderDLCs(dlcs) {
   if (iconsContainer) {
     iconsContainer.innerHTML = dlcs.map(dlc => `
       <button type="button" onclick="scrollToDLC('${dlc.id}')" class="dlc-icon-btn" title="${dlc.nombre}">
-        <img src="${dlc.imagen_url || getAssetUrl('interfaz/trofeos/default.png')}" alt="${dlc.nombre}">
+        <img src="${dlc.imagen_url || getAssetUrl('interfaz/trofeos/trofeos/default.png')}" alt="${dlc.nombre}">
       </button>
     `).join('');
   }
@@ -712,7 +712,7 @@ function renderDLCs(dlcs) {
     <div class="dlc-container" data-dlc-id="${dlc.id}">
       <div class="game-header dlc-header">
         <div class="game-icon dlc-icon">
-          <img src="${iconUrl || getAssetUrl('interfaz/trofeos/default.png')}" alt="${dlc.nombre}">
+          <img src="${iconUrl || getAssetUrl('interfaz/trofeos/trofeos/default.png')}" alt="${dlc.nombre}">
           <i class="fas fa-gamepad"></i>
         </div>
         <div class="game-info dlc-info">
@@ -753,15 +753,15 @@ function renderDLCs(dlcs) {
             <span class="info-label">Trofeos Offline:</span>
             <div class="trophy-summary">
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/oro.png')}" alt="Oro">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/oro.png')}" alt="Oro">
                 <span>${dlc.trofeos_offline_oro || 0}</span>
               </div>
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/plata.png')}" alt="Plata">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/plata.png')}" alt="Plata">
                 <span>${dlc.trofeos_offline_plata || 0}</span>
               </div>
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/bronce.png')}" alt="Bronce">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/bronce.png')}" alt="Bronce">
                 <span>${dlc.trofeos_offline_bronce || 0}</span>
               </div>
             </div>
@@ -770,15 +770,15 @@ function renderDLCs(dlcs) {
             <span class="info-label">Trofeos Online:</span>
             <div class="trophy-summary">
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/oro.png')}" alt="Oro">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/oro.png')}" alt="Oro">
                 <span>${dlc.trofeos_online_oro || 0}</span>
               </div>
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/plata.png')}" alt="Plata">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/plata.png')}" alt="Plata">
                 <span>${dlc.trofeos_online_plata || 0}</span>
               </div>
               <div class="trophy-mini">
-                <img src="${getAssetUrl('interfaz/trofeos/bronce.png')}" alt="Bronce">
+                <img src="${getAssetUrl('interfaz/trofeos/trofeos/bronce.png')}" alt="Bronce">
                 <span>${dlc.trofeos_online_bronce || 0}</span>
               </div>
             </div>

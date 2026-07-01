@@ -13,7 +13,7 @@ if (!empty($_SESSION['login_success'])) { // Si el login fue exitoso
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Videojuegos PS4/PS5</title>
     <!-- Enlace a la hoja de estilos principal -->
-    <link rel="stylesheet" href="estilos/index.css">
+    <link rel="stylesheet" href="estilos/css/index.css">
     <!-- Enlace a Font Awesome para iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>

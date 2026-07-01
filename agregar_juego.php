@@ -19,8 +19,8 @@ require_once 'csrf.php';
 <head>
     <meta charset="UTF-8">
     <title>Agregar Nuevo Juego</title>
-    <link rel="stylesheet" href="estilos/editar_juego.css?v=4">
-    <link rel="stylesheet" href="estilos/juego_comun.css?v=1">
+    <link rel="stylesheet" href="estilos/css/editar_juego.css?v=4">
+    <link rel="stylesheet" href="estilos/css/juego_comun.css?v=1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
@@ -871,7 +871,7 @@ function renderTrophies(trophies) {
         ${trophies.map(trophy => `
             <div class="trophy-item-edit" data-trophy-id="${trophy.id}">
                 <div class="trophy-item-icon">
-                    <img src="${trophy.icono_url || 'interfaz/trofeos/default.png'}" 
+                    <img src="${trophy.icono_url || 'interfaz/trofeos/trofeos/default.png'}" 
                         style="width: 50px !important; height: 50px !important; object-fit: cover !important; border-radius: 8px !important;" 
                         alt="${trophy.nombre_trofeo}">
                 </div>
@@ -926,19 +926,19 @@ function showAddTrophyForm() {
                 <label>Tipo:</label>
                 <div class="trophy-type-selector" id="new-trophy-type-container">
                     <div class="trophy-type-option" data-value="ORO" onclick="selectNewTrophyType('ORO')">
-                        <img src="interfaz/trofeos/oro.png" alt="Oro" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-type-img">
                         <span>Oro</span>
                     </div>
                     <div class="trophy-type-option" data-value="PLATA" onclick="selectNewTrophyType('PLATA')">
-                        <img src="interfaz/trofeos/plata.png" alt="Plata" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-type-img">
                         <span>Plata</span>
                     </div>
                     <div class="trophy-type-option selected" data-value="BRONCE" onclick="selectNewTrophyType('BRONCE')">
-                        <img src="interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
                         <span>Bronce</span>
                     </div>
                     <div class="trophy-type-option" data-value="PLATINO" onclick="selectNewTrophyType('PLATINO')">
-                        <img src="interfaz/trofeos/platino.png" alt="Platino" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/platino.png" alt="Platino" class="trophy-type-img">
                         <span>Platino</span>
                     </div>
                 </div>
@@ -952,7 +952,7 @@ function showAddTrophyForm() {
                 <label>Icono del trofeo</label>
                 <div class="image-inline-editor">
                     <div class="image-inline-preview image-inline-preview--small">
-                        <img id="new-trophy-icon-preview" src="interfaz/trofeos/default.png" alt="Preview del icono">
+                        <img id="new-trophy-icon-preview" src="interfaz/trofeos/trofeos/default.png" alt="Preview del icono">
                     </div>
                     <div class="image-inline-controls">
                         <input type="text" id="new-trophy-icon" placeholder="URL de la imagen" maxlength="500">
@@ -1109,7 +1109,7 @@ function editTrophyInline(trophyId) {
             trophyElement.innerHTML = `
                 <div class="trophy-form-inline">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <img src="${trophy.icono_url || 'interfaz/trofeos/default.png'}" 
+                        <img src="${trophy.icono_url || 'interfaz/trofeos/trofeos/default.png'}" 
                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" 
                             alt="${trophy.nombre_trofeo}">
                         <h4 style="color: #ffffff; margin: 0; font-weight: 300;">Editando: ${trophy.nombre_trofeo}</h4>
@@ -1122,19 +1122,19 @@ function editTrophyInline(trophyId) {
                         <label>Tipo:</label>
                         <div class="trophy-type-selector" id="trophy-type-container-${trophyId}">
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'PLATINO' ? 'selected' : ''}" data-value="PLATINO" onclick="selectTrophyType(${trophyId}, 'PLATINO')">
-                                <img src="interfaz/trofeos/platino.png" alt="Platino" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/platino.png" alt="Platino" class="trophy-type-img">
                                 <span>Platino</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'ORO' ? 'selected' : ''}" data-value="ORO" onclick="selectTrophyType(${trophyId}, 'ORO')">
-                                <img src="interfaz/trofeos/oro.png" alt="Oro" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-type-img">
                                 <span>Oro</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'PLATA' ? 'selected' : ''}" data-value="PLATA" onclick="selectTrophyType(${trophyId}, 'PLATA')">
-                                <img src="interfaz/trofeos/plata.png" alt="Plata" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-type-img">
                                 <span>Plata</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'BRONCE' ? 'selected' : ''}" data-value="BRONCE" onclick="selectTrophyType(${trophyId}, 'BRONCE')">
-                                <img src="interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
                                 <span>Bronce</span>
                             </div>
                         </div>
@@ -2297,7 +2297,7 @@ function renderDLCTrophies(dlcId, trophies) {
         ${trophies.map(trophy => `
             <div class="trophy-item-edit" data-trophy-id="${trophy.id}">
                 <div class="trophy-item-icon">
-                    <img src="${trophy.icono_url || 'interfaz/trofeos/default.png'}" style="width: 50px !important; height: 50px !important; object-fit: cover !important; border-radius: 8px !important;" alt="${trophy.nombre_trofeo}">
+                    <img src="${trophy.icono_url || 'interfaz/trofeos/trofeos/default.png'}" style="width: 50px !important; height: 50px !important; object-fit: cover !important; border-radius: 8px !important;" alt="${trophy.nombre_trofeo}">
                 </div>
                 <div class="trophy-item-info" style="flex: 1;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
@@ -2363,15 +2363,15 @@ function showAddDLCTrophyForm(dlcId) {
                 <label>Tipo:</label>
                 <div class="trophy-type-selector" id="new-dlc-trophy-type-container-${dlcId}">
                     <div class="trophy-type-option selected" data-value="BRONCE" onclick="selectNewDLCTrophyType(${dlcId}, 'BRONCE')">
-                        <img src="interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
                         <span>Bronce</span>
                     </div>
                     <div class="trophy-type-option" data-value="PLATA" onclick="selectNewDLCTrophyType(${dlcId}, 'PLATA')">
-                        <img src="interfaz/trofeos/plata.png" alt="Plata" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-type-img">
                         <span>Plata</span>
                     </div>
                     <div class="trophy-type-option" data-value="ORO" onclick="selectNewDLCTrophyType(${dlcId}, 'ORO')">
-                        <img src="interfaz/trofeos/oro.png" alt="Oro" class="trophy-type-img">
+                        <img src="interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-type-img">
                         <span>Oro</span>
                     </div>
                 </div>
@@ -2519,7 +2519,7 @@ function editDLCTrophyInline(trophyId, dlcId) {
             container.innerHTML = `
                 <div class="dlc-trophy-form" style="background: #231f36; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <img src="${trophy.icono_url || 'interfaz/trofeos/default.png'}"
+                        <img src="${trophy.icono_url || 'interfaz/trofeos/trofeos/default.png'}"
                             style="width: auto !important; height: auto !important; object-fit: cover; border-radius: 8px; max-width: 800px !important; display: inline-block !important;"
                             alt="${trophy.nombre_trofeo}">
                         <h4 style="color: #ffffff; margin: 0; font-weight: 300;">Editando: ${trophy.nombre_trofeo}</h4>
@@ -2532,19 +2532,19 @@ function editDLCTrophyInline(trophyId, dlcId) {
                         <label>Tipo:</label>
                         <div class="trophy-type-selector" id="edit-dlc-trophy-type-container-${trophyId}">
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'PLATINO' ? 'selected' : ''}" data-value="PLATINO" onclick="selectDLCTrophyType(${trophyId}, 'PLATINO')">
-                                <img src="interfaz/trofeos/platino.png" alt="Platino" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/platino.png" alt="Platino" class="trophy-type-img">
                                 <span>Platino</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'ORO' ? 'selected' : ''}" data-value="ORO" onclick="selectDLCTrophyType(${trophyId}, 'ORO')">
-                                <img src="interfaz/trofeos/oro.png" alt="Oro" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-type-img">
                                 <span>Oro</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'PLATA' ? 'selected' : ''}" data-value="PLATA" onclick="selectDLCTrophyType(${trophyId}, 'PLATA')">
-                                <img src="interfaz/trofeos/plata.png" alt="Plata" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-type-img">
                                 <span>Plata</span>
                             </div>
                             <div class="trophy-type-option ${(trophy.tipo || '').toString().trim().toUpperCase() === 'BRONCE' ? 'selected' : ''}" data-value="BRONCE" onclick="selectDLCTrophyType(${trophyId}, 'BRONCE')">
-                                <img src="interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
+                                <img src="interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-type-img">
                                 <span>Bronce</span>
                             </div>
                         </div>

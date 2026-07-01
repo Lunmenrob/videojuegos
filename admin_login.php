@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso de administrador</title>
     <!-- Enlace a la hoja de estilos del login -->
-    <link rel="stylesheet" href="estilos/admin_login.css">
+    <link rel="stylesheet" href="estilos/css/admin_login.css">
     <!-- Enlace a Font Awesome para iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>

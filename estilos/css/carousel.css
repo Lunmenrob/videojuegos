@@ -1,0 +1,127 @@
+/* ==================== ESTILOS DEL CARRUSEL ==================== */
+
+/* Contenedor principal del carrusel - Franja negra de fondo */
+.media-carousel {
+    background: #000000;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+/* Contenedor visible del carrusel */
+.media-carousel-viewport {
+    width: 100%;
+    max-width: 600px;
+    height: 340px;
+    position: relative;
+    background: #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+/* Track del carrusel */
+.media-carousel-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.35s ease;
+    flex-wrap: nowrap;
+}
+
+/* Slides */
+.media-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+/* Medios dentro del slide - Tamaño fijo enmarcado */
+.media-slide img,
+.media-slide video,
+.media-slide iframe {
+    max-width: 600px;
+    max-height: 340px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Botones de navegación */
+.media-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.media-carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.media-carousel-btn--prev {
+    left: 1rem;
+}
+
+.media-carousel-btn--next {
+    right: 1rem;
+}
+
+/* Dots de navegación */
+.media-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    box-sizing: border-box;
+}
+
+.media-carousel-dots button {
+    width: 48px;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.media-carousel-dots button.active {
+    background: #ffffff;
+}
+
+/* Mensaje de vacío */
+.media-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #888;
+    font-size: 1rem;
+}

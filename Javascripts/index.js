@@ -68,19 +68,19 @@ class VideojuegosApp {
                     <div class="trophies-info">
                         <div class="trophy-icons">
                             <div class="trophy-icon platinum">
-                                <img src="${this.assetBasePath}interfaz/trofeos/platino.png" alt="Platino" class="trophy-img">
+                                <img src="${this.assetBasePath}interfaz/trofeos/trofeos/platino.png" alt="Platino" class="trophy-img">
                                 <span class="trophy-count">${game.platino_conseguido ? 1 : 0}</span>
                             </div>
                             <div class="trophy-icon gold">
-                                <img src="${this.assetBasePath}interfaz/trofeos/oro.png" alt="Oro" class="trophy-img">
+                                <img src="${this.assetBasePath}interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-img">
                                 <span class="trophy-count">${game.oro_conseguidos || 0}</span>
                             </div>
                             <div class="trophy-icon silver">
-                                <img src="${this.assetBasePath}interfaz/trofeos/plata.png" alt="Plata" class="trophy-img">
+                                <img src="${this.assetBasePath}interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-img">
                                 <span class="trophy-count">${game.plata_conseguidos || 0}</span>
                             </div>
                             <div class="trophy-icon bronze">
-                                <img src="${this.assetBasePath}interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-img">
+                                <img src="${this.assetBasePath}interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-img">
                                 <span class="trophy-count">${game.bronce_conseguidos || 0}</span>
                             </div>
                         </div>

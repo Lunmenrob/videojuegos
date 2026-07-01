@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Detalles Juego</title>
-<link rel="stylesheet" href="../estilos/detalles.css?v=10">
-<link rel="stylesheet" href="../estilos/detalles_dlcs.css?v=8">
+<link rel="stylesheet" href="../estilos/css/detalles.css?v=10">
+<link rel="stylesheet" href="../estilos/css/detalles_dlcs.css?v=8">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -106,19 +106,19 @@
         </div>
         <div class="trophies-second-row">
             <div class="trophy-item">
-                <img src="../interfaz/trofeos/platino.png" alt="Platino" class="trophy-img">
+                <img src="../interfaz/trofeos/trofeos/platino.png" alt="Platino" class="trophy-img">
                 <div class="trophy-count" id="platino-count">0</div>
             </div>
             <div class="trophy-item">
-                <img src="../interfaz/trofeos/oro.png" alt="Oro" class="trophy-img">
+                <img src="../interfaz/trofeos/trofeos/oro.png" alt="Oro" class="trophy-img">
                 <div class="trophy-count" id="oro-count">0</div>
             </div>
             <div class="trophy-item">
-                <img src="../interfaz/trofeos/plata.png" alt="Plata" class="trophy-img">
+                <img src="../interfaz/trofeos/trofeos/plata.png" alt="Plata" class="trophy-img">
                 <div class="trophy-count" id="plata-count">0</div>
             </div>
             <div class="trophy-item">
-                <img src="../interfaz/trofeos/bronce.png" alt="Bronce" class="trophy-img">
+                <img src="../interfaz/trofeos/trofeos/bronce.png" alt="Bronce" class="trophy-img">
                 <div class="trophy-count" id="bronce-count">0</div>
             </div>
         </div>
@@ -137,19 +137,19 @@
                 <span class="info-label">Trofeos Offline:</span>
                 <div class="trophy-summary" id="trofeos-offline">
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/platino.png" alt="Platino">
+                        <img src="../interfaz/trofeos/trofeos/platino.png" alt="Platino">
                         <span id="offline-platino">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/oro.png" alt="Oro">
+                        <img src="../interfaz/trofeos/trofeos/oro.png" alt="Oro">
                         <span id="offline-oro">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/plata.png" alt="Plata">
+                        <img src="../interfaz/trofeos/trofeos/plata.png" alt="Plata">
                         <span id="offline-plata">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/bronce.png" alt="Bronce">
+                        <img src="../interfaz/trofeos/trofeos/bronce.png" alt="Bronce">
                         <span id="offline-bronce">0</span>
                     </div>
                 </div>
@@ -158,19 +158,19 @@
                 <span class="info-label">Trofeos Online:</span>
                 <div class="trophy-summary" id="trofeos-online">
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/platino.png" alt="Platino">
+                        <img src="../interfaz/trofeos/trofeos/platino.png" alt="Platino">
                         <span id="online-platino">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/oro.png" alt="Oro">
+                        <img src="../interfaz/trofeos/trofeos/oro.png" alt="Oro">
                         <span id="online-oro">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/plata.png" alt="Plata">
+                        <img src="../interfaz/trofeos/trofeos/plata.png" alt="Plata">
                         <span id="online-plata">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/bronce.png" alt="Bronce">
+                        <img src="../interfaz/trofeos/trofeos/bronce.png" alt="Bronce">
                         <span id="online-bronce">0</span>
                     </div>
                 </div>
@@ -207,19 +207,19 @@
                 <span class="info-label">Total de Trofeos:</span>
                 <div class="trophy-summary" id="total-trofeos">
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/platino.png" alt="Platino">
+                        <img src="../interfaz/trofeos/trofeos/platino.png" alt="Platino">
                         <span id="total-platino">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/oro.png" alt="Oro">
+                        <img src="../interfaz/trofeos/trofeos/oro.png" alt="Oro">
                         <span id="total-oro">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/plata.png" alt="Plata">
+                        <img src="../interfaz/trofeos/trofeos/plata.png" alt="Plata">
                         <span id="total-plata">0</span>
                     </div>
                     <div class="trophy-mini">
-                        <img src="../interfaz/trofeos/bronce.png" alt="Bronce">
+                        <img src="../interfaz/trofeos/trofeos/bronce.png" alt="Bronce">
                         <span id="total-bronce">0</span>
                     </div>
                 </div>
